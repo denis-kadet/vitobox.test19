@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5a6e5d05-97df-4df1-b76f-83621afc55a2" name="vito">
+        <fileTransfer rootFolder="/home/s/softmg/test19.softmg.ru/public_html" accessType="SFTP" host="softmg.beget.tech" port="22" sshConfigId="ba6deee6-c965-4577-9d23-c706c26aced8" sshConfig="softmg_test19@softmg.beget.tech:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

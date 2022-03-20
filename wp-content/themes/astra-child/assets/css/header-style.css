@@ -1,0 +1,86 @@
+/*#ast-desktop-header, #ast-mobile-header{*/
+/*    -webkit-transition-delay: 1s;*/
+/*    -moz-transition-delay: 1s;*/
+/*    -o-transition-delay: 1s;*/
+/*    transition-delay: 1s;*/
+/*}*/
+a {
+    color: #1C131E;
+}
+.site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.site-title{
+    display: none !important;
+}
+#ast-desktop-header, #ast-mobile-header{
+    transition: background-color 250ms;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(23px);
+}
+#ast-desktop-header:hover{
+    transition: background-color 250ms;
+    background: rgba(255, 255, 255, 100);
+}
+ul.sub-menu{
+    border: none !important;
+    background: #FFFFFF !important;
+    box-shadow: 0px 4px 15px 6px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+}
+.woocommerce-mini-cart__empty-message,.ast-site-header-cart-data {
+    display: none;
+}
+.ast-primary-header-bar, .ast-mobile-header-bar{
+    border: none !important;
+}
+
+@media screen and (max-width: 576px){
+    .home #content .ast-container{
+        background: none;
+
+    }
+    h1.entry-title{
+        width: 75%;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px !important;
+        line-height: 32px;
+        text-align: center;
+    }
+    .entry-content h5{
+        width: 67%;
+    }
+    #content{
+        background:  url("/wp-content/uploads/2022/02/mobile-back.png") no-repeat;
+        background-size: cover;
+        /*background-position: left;*/
+    }
+    
+    .site-content-custom{
+        display: none;
+    }
+    #ast-mobile-header{
+        position: fixed;
+        width: 100%;
+        background-color: rgba(255,255,255,0);
+    }
+    #ast-mobile-header.custom-white-background {
+        background: white;
+    }
+    #ast-mobile-header.ast-mobile-header-wrap {
+        /*background-color: rgba(255,255,255,100);*/
+
+    }
+    .ast-cart-menu-wrap{
+        background-position: center;
+    }
+    .ast-cart-menu-wrap .count{
+        top: 7px;
+        right: 2px;
+    }
+
+}

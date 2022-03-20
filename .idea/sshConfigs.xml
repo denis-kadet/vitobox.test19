@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="softmg.beget.tech" id="ba6deee6-c965-4577-9d23-c706c26aced8" port="22" nameFormat="DESCRIPTIVE" username="softmg_test19" />
+    </configs>
+  </component>
+</project>

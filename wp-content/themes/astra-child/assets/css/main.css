@@ -1,0 +1,26 @@
+
+.ast-cart-menu-wrap{
+    background-image: url("http://test19.softmg.ru/wp-content/uploads/2022/02/basket-icon.svg");
+}
+.ast-cart-menu-wrap .count {
+    display: none;
+}
+
+/* Catalog */
+.intro-header {
+    padding: 272px 0 207px 0;
+    width: 790px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-title {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.intro-desc {
+    font-size: 20px;
+    font-weight: 300;
+}

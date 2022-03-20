@@ -1,0 +1,436 @@
+body{
+    background: url("http://test19.softmg.ru/wp-content/uploads/2022/02/checkout-back.png") no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    height: 100vh;
+}
+footer{
+    display: none;
+}
+#shipping_country_field, #ship-to-different-address{
+    display: none;
+}
+#main{
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+
+/*order-review begin*/
+table, td, th{
+    border: none;
+}
+.woocommerce-checkout-review-order-table{
+    display: flex;
+    flex-directon: column;
+    flex-wrap: wrap;
+}
+tbody{
+    width: 100%;
+    border-bottom: solid;
+    border-width: 1px;
+}
+.woocommerce-shipping-totals{
+    width: 100%;
+    border-bottom: solid;
+    border-width: 1px;
+}
+tr.cart-subtotal{
+    border:0;
+}
+td.product-name, .cart-subtotal, .woocommerce-shipping-totals, .order-total{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*width: 90%;*/
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+td.product-total{
+    width: 10%;
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+/*order-review end*/
+
+#page, #content, #content .ast-container{
+    background: none;
+}
+.entry-header{
+
+}
+.entry-header .entry-title{
+    margin: 0;
+    text-align: left;
+    /*width: 327px;*/
+    /*height: 34px;*/
+    /*left: 100px;*/
+    /*top: 80px;*/
+
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+}
+.checkout-header{
+    width: 100%;
+    height: 70px;
+    left: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+}
+.checkout-header div{
+    margin: 0 45px;
+    height: 11px;
+}
+.checkout-header-link-back-a-container{
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+}
+.checkout-header .checkout-header-link-back-a-container-arrow{
+    margin: 10px 0;
+    width: 10px;
+    height: 10px;
+    content: " ";
+    background: url("../img/arrow-back.svg") no-repeat;
+
+}
+form[name="checkout"]{
+    display: flex;
+    margin: auto;
+
+    flex-direction: row;
+}
+form[name="ckeckout"] *{
+    border: none;
+
+}
+#billing_country_field{
+    display: none;
+}
+
+
+.woocommerce-billing-fields h3, .woocommerce-payment-heading h3{
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 120%;
+}
+#customer_details{
+    display: flex;
+    flex-direction: column;
+}
+.announcement-subscribe__container{
+    width: 420px;
+    padding: 16px;
+    background: #28955B;
+    color: white;
+    border-radius: 23px;
+    font-family: PP Pangram Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+#billing_first_name_field{
+
+}
+#billing_first_name_field .woocommerce-input-wrapper {
+
+}#billing_first_name_field .woocommerce-input-wrapper input{
+    outline: none;
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: #2c1e2f;
+ }
+
+
+#billing_last_name_field{
+
+}
+#billing_last_name_field .woocommerce-input-wrapper{
+
+}
+#billing_last_name_field .woocommerce-input-wrapper input{
+    outline: none;
+
+}
+
+#billing_phone_field{
+
+}
+#billing_phone_field .woocommerce-input-wrapper {
+
+}
+#billing_phone_field .woocommerce-input-wrapper input{
+    outline: none;
+
+}
+
+.woocommerce form .form-row input.input-text{
+    outline: none;
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: #2c1e2f;
+}
+
+#order_review, #order_review_heading{
+    border: none;
+}
+#order_review{
+    padding: 24px;
+}
+#order_review td, #order_review th{
+    padding-left: 0;
+}
+#order_review_heading{
+    padding: 23px 0 0 23px;
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+}
+/*информация о пользователе начало*/
+.customer-info-container{
+    width: 50%;
+}
+.customer-info-container input{
+    background: none;
+}
+.customer-info-container-shipping-select{
+    display: flex;
+    flex-direction: row;
+}
+.customer-info-container-shipping-select__button{}
+.customer-info-container-shipping-select__button button{
+    display: flex;
+    flex-direction: row;
+    background: none;
+    border: solid 1px #2C1E2F;
+    border-radius: 32px;
+}
+.customer-info-container-shipping-select__button button span{
+    font-size: 16px;
+}
+.customer-info-container-shipping-select-circle{
+    border: solid 1px #2C1E2F;
+    border-radius: 50%;
+
+}
+
+
+/*информация о пользователе конец*/
+
+
+/*пункты самовывоза начало*/
+#pvz-container-map{
+    display: none;
+}
+.pvz-container-wrapper{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.pvz-container-modal-back{
+    /*position: absolute;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0, 0.5);
+}
+#pvz-container{
+    width: 660px;
+    height: auto;
+    background: white;
+    z-index: 100;
+}
+
+.pvz-container-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.pvz-container-heading__buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.pvz-container-heading-select{
+    display: flex;
+    flex-direction: row;
+}
+.pvz-container{
+    margin: 40px;
+    border: solid 1px #2C1E2F;
+    border-radius: 8px;
+}
+
+.pvz-location{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.pvz-detail-description{
+    display: none;
+}
+.pvz-container-bottom-string{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/*пункты самовывоза конец*/
+
+
+/*состав вашего заказа - начало*/
+.order_review__wrapper{
+    /*width: 41%;*/
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*padding: 24px;*/
+
+}
+.order_review__container{
+    border: 1px solid #2C1E2F;
+    box-sizing: border-box;
+    border-radius: 18px;
+}
+.place-order{
+    display: flex;
+    justify-content: center;
+}
+.place-order .button{
+    margin: 16px 36px;
+    width: 233px;
+    height: 56px;
+    background: #C6D9E4;
+    border-radius: 50px;
+}
+.announcement__container{
+    display: flex;
+    flex-direction: row;
+    margin: 19px 30px auto 30px;
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+/*состав вашего заказа - конец*/
+.checkout-bottom-container{
+    margin: 33px auto 33px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.entry-content>:last-child{
+    margin-bottom: 33px;
+}
+.checkout-bottom-container__empty{
+    width: 10px;
+}
+.checkout-bottom-container__info {
+    width: 600px;
+
+    text-align: center;
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    /* or 150% */
+}
+.checkout-bottom-container__info span{
+    color: #BDBDBD;
+}
+
+.checkout-bottom-container__payment-logo{
+    display: flex;
+    flex-direction: column;
+}
+.checkout-bottom-container-payment-logo__cloud{
+    /*background: url("../img/cloudPaymentsLogo.png") no-repeat;*/
+
+}
+.checkout-bottom-container-payment-logo__visa{
+    /*background: url("../img/visaLogo.png") no-repeat;*/
+}
+.checkout-bottom-container-payment-logo__master-card{
+    /*background: url("../img/MasterCardLogo.png") no-repeat;*/
+}
+
+
+
+body.woocommerce-order-received{
+    /*overflow: hidden;*/
+    height: 100%;
+    background: url("/wp-content/themes/astra-child/assets/img/thankyou.png") no-repeat;
+    background-size: cover;
+}
+body.woocommerce-order-received .ast-container, body.woocommerce-order-received .ast-container #main, body.woocommerce-order-received .ast-container #main article{
+    height: 100%;
+}
+body.woocommerce-order-received .entry-header, body.woocommerce-order-received .checkout-bottom-container{
+    display: none;
+}
+body.woocommerce-order-received article{
+    background: url("/wp-content/themes/astra-child/assets/img/thank-you-box.png") no-repeat;
+    background-position: top right;
+}
+body.woocommerce-order-received .woocommerce{
+    margin: 180px auto auto 57px;
+}
+
+.thank-you-text-title{
+    margin-bottom: 34px;
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 18px;
+
+}
+.thank-you-text{
+    width: 40%;
+    font-family: PP Pangram Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+}
+.thank-you-text-track a{
+    font-weight: bold;
+}
+.thank-you-text-link a{
+    color: #E284FA;
+}
+.thank-you-support{
+    margin-top: 57px;
+}
