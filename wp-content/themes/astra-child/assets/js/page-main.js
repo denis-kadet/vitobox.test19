@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function ($) {
 
 
     $('.block-5__slider-wrap').slick({
