@@ -32,15 +32,25 @@ jQuery(document).ready(function ($) {
     //     // });
     // } );
 
+    let headerMenu = $('.site-header');
+    $(window).on('scroll', function (){
+        if($(this).scrollTop() > 10){
+            headerMenu.addClass('menu-fixed');
+        } else {
+            headerMenu.removeClass('menu-fixed');
+        }
+    })
+
     let pathname = location.pathname;
     if(pathname == '/katalog/') {
-        let headerMenu = $('.site-header');
         headerMenu.addClass('light-blue');
         $(window).on('scroll', function (){
             if($(this).scrollTop() > 80){
                 headerMenu.removeClass('light-blue');
+                headerMenu.addClass('menu-fixed');
             } else {
                 headerMenu.addClass('light-blue');
+                headerMenu.removeClass('menu-fixed');
             }
         })
     }
@@ -304,15 +314,13 @@ jQuery(document).ready(function ($) {
                 }
             },
             beforeSend: function(){
-                $('#catalog-section').prepend('<div class="filter-loader"><div class="image-loader"><img src="/wp-content/themes/astra-child/assets/img/loader.svg" alt="loading"></div></div>');
+                $('.decor_container').prepend('<div class="filter-loader"><div class="image-loader"><img src="/wp-content/themes/astra-child/assets/img/loader.svg" alt="loading"></div></div>');
             },
             success: function (data){
+                $('.filter-loader').remove();
                 $('#catalog-section').html(data);
             }
         })
     })
-
-    
-
 
 });

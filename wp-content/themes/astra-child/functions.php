@@ -69,21 +69,31 @@ function filter_function_name_4792( $items, $args ){
 
 add_filter( 'woocommerce_checkout_fields' , 'remove_checkout_fields' , 1);
 function remove_checkout_fields( $fields ) {
-    unset($fields['billing']['billing_first_name']);
-    unset($fields['billing']['billing_last_name']);
-    unset($fields['billing']['billing_phone']);
-    unset($fields['billing']['billing_city']);
+//    unset($fields['billing']['billing_first_name']);
+//    unset($fields['billing']['billing_last_name']);
+//    unset($fields['billing']['billing_phone']);
+    unset($fields['shipping']['shipping_first_name']);
+    unset($fields['shipping']['shipping_last_name']);
+    unset($fields['shipping']['shipping_address_1']);
+    unset($fields['shipping']['shipping_city']);
+
+
+//    unset($fields['billing']['billing_city']);
+    $fields["billing"]["billing_city"]["required"] = false;
     unset($fields['billing']['billing_company']);
-    unset($fields['billing']['billing_address_1']);
+//    unset($fields['billing']['billing_address_1']);
+    $fields["billing"]["billing_address_1"]["required"] = false;
     unset($fields['billing']['billing_address_2']);
 //    $fields['shipping']['ship_to_different_address'] = false;
     unset($fields['billing']['billing_postcode']);
 ////    unset($fields['billing']['billing_country']);
     unset($fields['billing']['billing_state']);
     unset($fields['shipping']['shipping_state']);
-    unset($fields['shipping']['shipping_postcode']);
+//    unset($fields['shipping']['shipping_postcode']);
+    $fields["shipping"]["shipping_postcode"]["required"] = false;
     unset($fields['order']['order_comments']);
 //    unset($fields['billing']['billing_email']);
+    $fields["billing"]["billing_email"]["required"] = false;
     return $fields;
 }
 

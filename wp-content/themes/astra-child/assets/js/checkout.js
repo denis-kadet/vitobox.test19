@@ -1,8 +1,8 @@
 jQuery().ready(function(){
-    jQuery('input[name=shipping_city]').on('change', function(){
-        let dataStr = {city_name: jQuery('input[name=shipping_city]').val(), action: 'show_pvz'};
+    jQuery('input[name=billing_city]').on('change', function(){
+        let dataStr = {city_name: jQuery('input[name=billing_city]').val(), action: 'show_pvz'};
         var ourWidjet = new ISDEKWidjet ({
-            defaultCity: jQuery('input[name=shipping_city]').val(), //какой город отображается по умолчанию
+            defaultCity: jQuery('input[name=billing_city]').val(), //какой город отображается по умолчанию
             cityFrom: 'Москва', // из какого города будет идти доставка
             country: 'Россия', // можно выбрать страну, для которой отображать список ПВЗ
             link: 'pvz-container-map', // id элемента страницы, в который будет вписан виджет
@@ -30,15 +30,16 @@ jQuery().ready(function(){
     //     console.log(townList);
     // })
 
-    jQuery('#shipping-to-pvz, .customer-info-container-shipping-select__button ').on('click', function(event){
+    jQuery('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
         event.preventDefault();
+        window.scrollTo(0, 0)
         jQuery('.pvz-container-wrapper').show();
         jQuery('body').addClass('basket-fixed');
     });
 
-    jQuery('.pvz-container-modal-back').on('click', function(event){
+    jQuery('.pvz-container-modal-back').on('click', function(event){//Скрывает окно выбора пвз
         event.preventDefault();
-        var el = jQuery(event.target);
+        let el = jQuery(event.target);
         if(el[0] == jQuery(this)[0]){
             if(jQuery('body').hasClass('basket-fixed')){
                 jQuery('body').removeClass('basket-fixed');
@@ -46,15 +47,15 @@ jQuery().ready(function(){
             jQuery('.pvz-container-wrapper').hide();
         }
     });
-    jQuery('.pvz-container-heading__close-button').on('click', function(){
+    jQuery('.pvz-container-heading__close-button').on('click', function(){//Скрывает окно выбора пвз
+        window.scrollTo(0, 0)
         if(jQuery('body').hasClass('basket-fixed')){
             jQuery('body').removeClass('basket-fixed');
         }
-
         jQuery('.pvz-container-wrapper').hide();
     });
 
-    jQuery(document).on("click", ".pvz-detail-link", function(e) {
+    jQuery(document).on("click", ".pvz-detail-link", function(e) {//Раскрывает Как добраться
         e.preventDefault();
         let par = jQuery(this).parents('.pvz-container')
         jQuery('.pvz-detail-description').each(function(){
@@ -62,11 +63,26 @@ jQuery().ready(function(){
         });
         par.find('.pvz-detail-description').show();
     });
-    jQuery(document).on("click", ".pvz-container", function(e){
 
-        jQuery('.pvz-container-address-details__address .pvz-container-address-details-data').html(jQuery(this).find('.pvz-owner-name'));
-        jQuery('.pvz-container-address-details__price .pvz-container-address-details-data').html(jQuery(this).find('.pvz-price').text());
-        jQuery('.pvz-container-address-details__terms .pvz-container-address-details-data').html(jQuery(this).find('.devivery-time').text());
+    jQuery('#pvz-ready').on('click', function (){//Отправка выбранного пвз в форму
+        let selectedPvz = jQuery('.selected-pvz')
+        jQuery('.pvz-container-address-details__address .pvz-container-address-details-data').html(jQuery(selectedPvz).find('.pvz-owner-name').text());
+        /**/
+        jQuery('#billing_address_1').val(jQuery(selectedPvz).find('.pvz-owner-name').text());
+        jQuery('.pvz-container-address-details__price .pvz-container-address-details-data').html(jQuery(selectedPvz).find('.pvz-price').text());
+        jQuery('.pvz-container-address-details__terms .pvz-container-address-details-data').html(jQuery(selectedPvz).find('.devivery-time').text());
+        if(jQuery('body').hasClass('basket-fixed')){
+            jQuery('body').removeClass('basket-fixed');
+        }
+        jQuery('.pvz-container-wrapper').hide();
+        jQuery('#pvz-container-address-details').show();
+    });
+
+    jQuery(document).on("click", ".pvz-container", function(e){//Выбор пвз
+        jQuery(".pvz-container").each(function(){
+            jQuery(this).removeClass('selected-pvz');
+        });
+        jQuery(this).addClass('selected-pvz');
 
     });
         // jQuery('.pvz-detail-link').each(function(){
@@ -93,7 +109,36 @@ jQuery().ready(function(){
         jQuery('#pvz-container-list').hide();
     });
 
+    jQuery('#shipping-to-adress').on('click', function (e){
+        e.preventDefault();
+        window.scrollTo(0, 0)
+        jQuery(this).addClass('')
+        jQuery('#shipping-address-modal').show();
+        jQuery('body').addClass('basket-fixed');
+    });
 
+    jQuery('#shipping-address-modal').on('click', function (event){
+        event.preventDefault();
+        window.scrollTo(0, 0);
+        let el = jQuery(event.target);
+        if(el[0] == jQuery(this)[0]){
+            if(jQuery('body').hasClass('basket-fixed')){
+                jQuery('body').removeClass('basket-fixed');
+            }
+            jQuery('#shipping-address-modal').hide();
+        }
+    });
+    jQuery('#shipping-address-modal-close').on('click', function (){
+        jQuery('#shipping-address-modal').hide();
+        if(jQuery('body').hasClass('basket-fixed')){
+            jQuery('body').removeClass('basket-fixed');
+        }
+    });
+    jQuery('#fill-address-button').on('click', function(e){
+        e.preventDefault();
+        jQuery('.shipping-address-modal-container-right-street input').val();
+        jQuery('')
+    });
     /*DaData начало*/
 //     // Замените на свой API-ключ
 //     var token = "0753a0723c75eafdb5ab0db93f21dc29cb95b2de";

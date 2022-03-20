@@ -8,7 +8,6 @@ $get_categories_products = get_terms("product_cat", [
 ]);
 ?>
 <?if( $get_categories_products ):?>
-<?php //var_dump($get_categories_products);?>
     <?php foreach( $get_categories_products as $get_categories_product ): ?>
         <?php
         $category_thumbnail = get_term_meta($get_categories_product->term_id, 'thumbnail_id', true);
@@ -23,23 +22,23 @@ $get_categories_products = get_terms("product_cat", [
         ?>
         <div class="category">
             <div class="category-wrapp">
-                <div class="category-image" style='background-image:url("<?=$image;?>")'></div>
                 <div class="category-info">
                     <h2 class="category-title"><?=esc_html($get_categories_product->name); ?></h2>
                     <div class="category-desc">
                         <?=esc_html($get_categories_product->description); ?>
                     </div>
                 </div>
+                <div class="category-image" style='background-image:url("<?=$image;?>")'></div>
                 <ul class="catalog-list row">
-                    <li class="col-3 col-md-3"></li>
+                    <li class="col-md-3"></li>
                     <?php
                     $loop = new WP_Query( $args );
                     while ( $loop->have_posts() ) : $loop->the_post();
                         global $product, $post;
                         ?>
-                        <li class="col-3 col-md-3">
-                            <div class="catalog-item">
-                                <? if(!empty($product->get_meta('is_new'))) :?>
+                        <li class="col-md-3">
+                            <div href="<?=$product->get_permalink();?>" class="catalog-item">
+                                <? if($product->get_meta('is_new') === 'yes') :?>
                                     <div class="catalog-status-new">
                                         new
                                     </div>
@@ -54,7 +53,7 @@ $get_categories_products = get_terms("product_cat", [
                                         <span class="catalog-dosage"><?=$product->get_meta('_recommended_count');?></span>
                                         <div class="category-attribute">
                                             <?php $subheadingvalues = get_the_terms( $product->id, 'pa_targets');
-                                            if(isset($subheadingvalues)){
+                                            if($subheadingvalues){
                                                 foreach ( $subheadingvalues as $subheadingvalue ) {
                                                     ?>
                                                     <div class="catalog-icon">

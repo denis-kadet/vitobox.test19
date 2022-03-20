@@ -302,7 +302,95 @@ form[name="ckeckout"] *{
     flex-direction: row;
     justify-content: space-between;
 }
+#shipping_address_1, #billing_email, #shipping_postcode, #billing_address_1, #shipping_postcode_field{
+    display: none;
+}
+.selected-pvz{
+    border-width: 2px;
+}
+#pvz-container-address-details{
+    display: none;
+}
 /*пункты самовывоза конец*/
+
+
+
+/*модальное окно ввода адреса начало*/
+#shipping-address-modal{
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+}
+.shipping-address-modal-container{
+    margin: auto;
+    margin-top: 100px;
+    padding: 19px 30px;
+    background: white;
+    width: 581px;
+    height: 244px;
+    border-radius: 20px;
+}
+.shipping-address-modal-container input{
+    border-style: none none solid none;
+    border-color: #2C1E2F;
+    border-width: 1px;
+}
+.shipping-address-modal-container-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.shipping-address-modal-container-header h4{
+    font-family: 'PP Pangram Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #2C1E2FFF;
+}
+.custom-color a{
+    background: #2C1E2FFF;
+    border-radius: 32px;
+}
+
+.shipping-address-modal-container-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.shipping-address-modal-container-left, .shipping-address-modal-container-right{
+    width: 49%;
+    max-width: 225px;
+}
+.shipping-address-modal-container-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 31px;
+}
+.shipping-address-modal-container-details input{
+    width: 105px;
+}
+.shipping-address-modal-container-right-clock{
+    display: flex;
+    justify-content: center;
+}
+.shipping-address-modal-container-right-clock svg{
+    margin: auto;
+}
+.shipping-address-modal-container-right-expected-time{
+    text-align: center;
+}
+.shipping-address-modal-container-right-expected-time span{
+    font-weight: bold;
+}
+
+
+
+/*модальное окно ввода адреса конец*/
 
 
 /*состав вашего заказа - начало*/

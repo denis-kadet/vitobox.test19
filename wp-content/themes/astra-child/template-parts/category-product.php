@@ -19,7 +19,7 @@ $products = new WP_Query( array(
         $products->the_post();
         global $product;
         ?>
-        <li class="col-3 col-md-3">
+        <li class="col-md-3">
             <div class="catalog-item">
                 <? if(empty($product->get_meta('is_new'))) :?>
                     <div class="catalog-status-new">

@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
                 </div>
                 <div  class="pvz-container-heading__buttons">
                     <div class="pvz-container-heading__ready-button">
-                        <button>
+                        <button id="pvz-ready">
                             Готово
                         </button>
                     </div>
@@ -57,7 +57,7 @@ defined( 'ABSPATH' ) || exit;
             <div id="pvz-container-map" style="width:100%; height:600px;">
 
             </div>
-            
+
 
 
         </div></div>

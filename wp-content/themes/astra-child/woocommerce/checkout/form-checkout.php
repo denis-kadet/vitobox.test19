@@ -59,6 +59,53 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                         </div>
                     </div>
 
+                    <div id="shipping-address-modal">
+                        <div class="shipping-address-modal-container">
+                            <div class="shipping-address-modal-container-header">
+                                <div class="shipping-address-modal-container-header__string">
+                                    <h4>Введите адрес доставки:</h4>
+                                </div>
+                                <span id="shipping-address-modal-close" class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg class="ast-mobile-svg ast-close-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.293 6.707l5.293 5.293-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l5.293-5.293 5.293 5.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414l-5.293-5.293 5.293-5.293c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path></svg></span>
+                            </div>
+                            <div class="shipping-address-modal-container-body">
+                                <div class="shipping-address-modal-container-left">
+                                    <div class="shipping-address-modal-container-right-street">
+                                        <input placeholder="Улица"/>
+                                    </div>
+                                    <div class="shipping-address-modal-container-details">
+                                        <div class="shipping-address-modal-container-right-house">
+                                            <input placeholder="Дом"/>
+                                        </div>
+                                        <div class="shipping-address-modal-container-right-apparts">
+                                            <input placeholder="Квартира"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="shipping-address-modal-container-right">
+                                    <div class="shipping-address-modal-container-right-clock">
+                                        <svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M41.5057 37.1947L41.5063 37.1951C42.1702 37.6923 42.3039 38.6327 41.8069 39.2928L41.8069 39.2928L41.8033 39.2977C41.5115 39.6906 41.0656 39.8971 40.6024 39.8971C40.2887 39.8971 39.9752 39.8003 39.7041 39.5969L39.7041 39.5969L30.0992 32.3931L30.0973 32.3918C29.7217 32.1115 29.4986 31.6666 29.4986 31.1921V16.7846C29.4986 15.9537 30.1691 15.2833 30.9999 15.2833C31.8308 15.2833 32.5012 15.9537 32.5012 16.7846V29.9913V30.4413L32.8612 30.7113L41.5057 37.1947Z" fill="#2C1E2F" stroke="white" stroke-width="1.8"/>
+                                            <path d="M0.9 31C0.9 14.4026 14.4026 0.9 31 0.9C47.5974 0.9 61.1 14.4026 61.1 31C61.1 47.5974 47.5974 61.1 31 61.1C14.4026 61.1 0.9 47.5974 0.9 31ZM3.90246 31C3.90246 45.9405 16.0595 58.0975 31 58.0975C45.9405 58.0975 58.0975 45.9405 58.0975 31C58.0975 16.0595 45.943 3.90246 31 3.90246C16.0595 3.90246 3.90246 16.0595 3.90246 31Z" fill="#2C1E2F" stroke="white" stroke-width="1.8"/>
+                                        </svg>
+                                    </div>
+                                    <div class="shipping-address-modal-container-right-expected-time">
+                                        Ожидаемое время доставки
+                                        <span>
+                                            3 дня
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="shipping-address-modal-container-bottom wp-block-button custom-color">
+                                <a id="fill-address-button" class="wp-block-button__link ">Готово</a>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <div id="pvz-container-address-details"><!--НЕ туда! Перенести ниже, в форму-->
                         <div class="pvz-container-address-details__address">
                             <div class="pvz-container-address-details-label">

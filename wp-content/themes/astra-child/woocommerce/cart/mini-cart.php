@@ -37,10 +37,6 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                     $thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image('cart-image'), $cart_item, $cart_item_key );
                     $product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
                     $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
-    //                echo '<pre>';
-    //                print_r($thumbnail);
-    //                echo '</pre>';
-    //                break;
                     ?>
                     <li class="product__item" id="<?=$product_id;?>" data-cart_item_key="<?=$cart_item_key;?>">
                         <div class="product__image">
@@ -79,7 +75,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                                 <div class="recommended__wrapper">
                                     <div class="recommended__count"><?=$cart_item['quantity']?></div>
                                     <ul class="recommended_list">
-                                        <?php for($i = 1; $i<=7; $i++) { ?>
+                                        <?php for($i = 1; $i<=4; $i++) { ?>
                                             <? if( (int)$i == $recNum ):?>
                                                 <li class="recommended__item"><?=$i;?>(рекомендуется)</li>
                                             <? else :?>
