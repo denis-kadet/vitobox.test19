@@ -126,6 +126,8 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    //screen
+    let screen = $(window).width();
     //mini basket
     var cart = $('.ast-site-header-cart');
     var backgroundBasket = $('.basket_background');
@@ -254,34 +256,46 @@ jQuery(document).ready(function ($) {
         return item;
     }
 
-    $('.add_to_cart_button').on('click', function (e){
-        e.preventDefault();
-        var id = $(this).attr('data-product_id');
-        $.ajax({
-            url: urlAjax,
-            method: 'POST',
-            data: {
-                action: 'add-product',
-                product_id: id
-            },
-            success: function (data){
-                if(data){
-                    var result = JSON.parse(data);
-                    var popupAdd = createPopupAddCart(result.name);
-                    var product_list = $('.basket_vitobox .product__list');
-                    $('.product_container').html(result.fragments.products);
-                    removeAjaxProductMiniBasket($('.remove_product'));
-                    $('#ast-site-header-cart').find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']);
-                    popupContainer.prepend(popupAdd);
-                    changeQuantity();
-                    setTimeout(function (){
-                        popupAdd.css('transform','translateX(0%)');
-                        popupAdd.fadeOut(8000);
-                    },0);
+    function addToCart(button){
+        button.on('click', function (e){
+            e.preventDefault();
+            var id = $(this).attr('data-product_id');
+            var self = $(this);
+            $.ajax({
+                url: urlAjax,
+                method: 'POST',
+                data: {
+                    action: 'add-product',
+                    product_id: id
+                },
+                success: function (data){
+                    if(data){
+                        var result = JSON.parse(data);
+                        var popupAdd = createPopupAddCart(result.name);
+                        var product_list = $('.basket_vitobox .product__list');
+                        $('.product_container').html(result.fragments.products);
+                        removeAjaxProductMiniBasket($('.remove_product'));
+                        $('#ast-site-header-cart').find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']);
+                        popupContainer.prepend(popupAdd);
+                        changeQuantity();
+                        setTimeout(function (){
+                            popupAdd.css('transform','translateX(0%)');
+                            popupAdd.fadeOut(8000);
+                        },0);
+                        if(screen < 961){
+                            console.log($(this));
+                            let svgSuccess = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path></svg>';
+                            self.css('background','transparent');
+                            self.find('svg').remove();
+                            self.append(svgSuccess);
+                        }
+                    }
                 }
-            }
+            });
         });
-    });
+    }
+
+    addToCart($('.add_to_cart_button'));
 
     //tabs
     $('.filter-item').on('click', function (){
@@ -319,8 +333,24 @@ jQuery(document).ready(function ($) {
             success: function (data){
                 $('.filter-loader').remove();
                 $('#catalog-section').html(data);
+                addToCart($('.add_to_cart_button'));
             }
         })
+    });
+
+    //mobile filter
+    $('.mobile__filter-close').on('click', function (){
+        $(this).parents('.filter-tabs').removeClass('active');
     })
+
+    if(screen < 961){
+        $('.filter-tabs').each(function (){
+            $(this).removeClass('active');
+        });
+
+        $('.filter-btn').on('click', function(){
+            $(this).parents('.filter-tabs').removeClass('active');
+        })
+    }
 
 });

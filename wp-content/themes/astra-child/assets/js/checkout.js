@@ -1,9 +1,10 @@
 jQuery().ready(function(){
+    let cityDefault = 'Москва';
     jQuery('input[name=billing_city]').on('change', function(){
         let dataStr = {city_name: jQuery('input[name=billing_city]').val(), action: 'show_pvz'};
         var ourWidjet = new ISDEKWidjet ({
             defaultCity: jQuery('input[name=billing_city]').val(), //какой город отображается по умолчанию
-            cityFrom: 'Москва', // из какого города будет идти доставка
+            cityFrom: cityDefault, // из какого города будет идти доставка
             country: 'Россия', // можно выбрать страну, для которой отображать список ПВЗ
             link: 'pvz-container-map', // id элемента страницы, в который будет вписан виджет
             path: 'https://widget.cdek.ru/widget/scripts/', //директория с библиотеками виджета
@@ -21,7 +22,8 @@ jQuery().ready(function(){
             }
 
         })
-    });
+    });//Виджет пвз + отправка ajax для получения списка пвз
+
     // jQuery('input[name=shipping_city]').on('input', function(){
     //     let dataStr = jQuery('input[name=shipping_city]').val();
     //     jQuery('input[name=town]').val(dataStr);
@@ -32,6 +34,7 @@ jQuery().ready(function(){
 
     jQuery('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
         event.preventDefault();
+        jQuery(this).addClass('checkout-selected-button');
         window.scrollTo(0, 0)
         jQuery('.pvz-container-wrapper').show();
         jQuery('body').addClass('basket-fixed');

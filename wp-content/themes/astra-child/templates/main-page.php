@@ -4,6 +4,7 @@ Template Name: Main-page
 */
 get_header();
 
+get_template_part('template-parts/block-12-page-main');
 get_template_part('template-parts/block-1-page-main');
 get_template_part('template-parts/block-2-page-main');
 get_template_part('template-parts/block-3-page-main');

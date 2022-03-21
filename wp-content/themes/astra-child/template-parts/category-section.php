@@ -37,7 +37,7 @@ $get_categories_products = get_terms("product_cat", [
                         global $product, $post;
                         ?>
                         <li class="col-md-3">
-                            <div href="<?=$product->get_permalink();?>" class="catalog-item">
+                            <a href="<?=$product->get_permalink();?>" class="catalog-item">
                                 <? if($product->get_meta('is_new') === 'yes') :?>
                                     <div class="catalog-status-new">
                                         new
@@ -68,18 +68,18 @@ $get_categories_products = get_terms("product_cat", [
                                         <div class="catalog-desc-item">
                                             <?= the_excerpt($loop->post); ?>
                                         </div>
+                                        <div class="catalog-item-price">
+                                            <?php echo $product->get_price_html(); ?>
+                                        </div>
+                                        <div class="catalog-recommended">
+                                            <?=$product->get_meta('_recommended_note');?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="catalog-bottom">
-                                    <div class="catalog-item-price">
-                                        <?php echo $product->get_price_html(); ?>
-                                    </div>
-                                    <div class="catalog-recommended">
-                                        <?=$product->get_meta('_recommended_note');?>
-                                    </div>
                                     <?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
                                 </div>
-                            </div>
+                            </a>
                         </li>
                     <?php endwhile; ?>
                     <!-- Сброс данных запроса -->

@@ -48,22 +48,26 @@ get_header( 'shop' );
         </div>
     </header>
     <div class="decor_container">
-        <div class="background-decor top"></div>
-        <div class="background-decor middle"></div>
-        <div class="background-decor bottom"></div>
+<!--        <div class="background-decor top"></div>-->
+<!--        <div class="background-decor middle"></div>-->
+<!--        <div class="background-decor bottom"></div>-->
         <div class="ast-container">
             <div class="filter">
                 <ul class="filter-list">
                     <li class="filter-item active">
-                        <h2 class="title-filter">Категории</h2>
+                        <h2 class="title-filter" data-filter="category">Категории</h2>
                     </li>
-                    <li class="filter-item">
+                    <li class="filter-item" data-filter="target">
                         <h2 class="title-filter">Цели</h2>
                     </li>
                 </ul>
                 <div class="row">
                     <div class="filter-tabs col-12 col-md-12 active">
                         <div class="filter-wrapp">
+                            <div class="mobile__header-filter">
+                                Категории
+                                <div class="mobile__filter-close"></div>
+                            </div>
                             <div class="filter-btn selected" data-category="all">Все продукты</div>
                             <?
                             $categories = get_terms( "product_cat", array(
@@ -84,6 +88,10 @@ get_header( 'shop' );
                     </div>
                     <div class="filter-tabs col-12 col-md-12">
                         <div class="filter-wrapp">
+                            <div class="mobile__header-filter">
+                                Цели
+                                <div class="mobile__filter-close"></div>
+                            </div>
                             <?
                             $attributes = wc_get_attribute_taxonomies();
                             foreach ($attributes as $attribute) {

@@ -53,15 +53,18 @@ $products = new WP_Query( array(
                         <div class="catalog-desc-item">
                             <?= the_excerpt($products->post); ?>
                         </div>
+                        <div class="catalog-desc-item">
+                            <?= the_excerpt($loop->post); ?>
+                        </div>
+                        <div class="catalog-item-price">
+                            <?php echo $product->get_price_html(); ?>
+                        </div>
+                        <div class="catalog-recommended">
+                            <?=$product->get_meta('_recommended_note');?>
+                        </div>
                     </div>
                 </div>
                 <div class="catalog-bottom">
-                    <div class="catalog-item-price">
-                        <?php echo $product->get_price_html(); ?>
-                    </div>
-                    <div class="catalog-recommended">
-                        <?=$product->get_meta('_recommended_note');?>
-                    </div>
                     <?php woocommerce_template_loop_add_to_cart( $products->post, $product ); ?>
                 </div>
             </div>

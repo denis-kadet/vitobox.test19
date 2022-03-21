@@ -311,6 +311,13 @@ form[name="ckeckout"] *{
 #pvz-container-address-details{
     display: none;
 }
+.checkout-selected-button{
+    background: #2C1E2F !important;
+    color: white;
+}
+.checkout-selected-button span{
+    color: white;
+}
 /*пункты самовывоза конец*/
 
 
