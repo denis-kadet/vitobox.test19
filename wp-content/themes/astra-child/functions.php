@@ -1,4 +1,9 @@
 <?php
+/**
+ * Подлючение carbon-fields
+ */
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
 
 require __DIR__. '/includes/custom-header.php';
 require __DIR__. '/includes/woocommerce-inc-functions.php';
@@ -6,6 +11,19 @@ require( __DIR__. "/includes/custom-footer.php");
 ini_set("allow_url_fopen", "1");
 ini_set("mbstring.func_overload", "2");
 
+
+add_action('after_setup_theme', 'crb_load');
+function crb_load()
+{
+    require_once('inc/carbon-fields/vendor/autoload.php');
+    \Carbon_Fields\Carbon_Fields::boot();
+}
+
+add_action( 'carbon_fields_register_fields', 'crb_register_custom_fields' );
+function crb_register_custom_fields() {
+    require_once __DIR__ . '/inc/custom-fields-option/theme-options.php';
+    require_once __DIR__ . '/inc/custom-fields-option/tabs.php';
+}
 
 add_action( 'wp_enqueue_scripts', 'register_my_styles');
 
