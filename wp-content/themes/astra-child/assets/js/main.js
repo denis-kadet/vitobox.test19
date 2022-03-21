@@ -1,5 +1,4 @@
 jQuery(document).ready(function ($) {
-
     // let header = $("#ast-desktop-header");
     //
     // header.addClass('fixed');
@@ -43,6 +42,10 @@ jQuery(document).ready(function ($) {
 
     let pathname = location.pathname;
     if(pathname == '/katalog/') {
+        if($(window).width() > 961 ){
+            $('.filter-item').eq(1).addClass('active')
+            $('.filter-tabs').eq(1).addClass('active')
+        }
         headerMenu.addClass('light-blue');
         $(window).on('scroll', function (){
             if($(this).scrollTop() > 80){
@@ -159,6 +162,10 @@ jQuery(document).ready(function ($) {
         backgroundBasket.fadeIn();
         basket.addClass('basket__visible');
         $('body').addClass('basket-fixed');
+        if($('.product__list').hasClass('scrolled')){
+            let scrolledWindow = ( $(window).height() * 60 ) / 100;
+            $('.product__list').css('height', scrolledWindow)
+        }
         jQuery("html, body").animate({scrollTop: 0}, 800);
     })
 
@@ -186,11 +193,10 @@ jQuery(document).ready(function ($) {
                 let innerBlock = $(this).offset().top + recommended_list.outerHeight();
                 let block = $(this).parents('.product__list').outerHeight();
                 if(innerBlock > block) {
-                    recommended_list.css('top','-233px');
+                    recommended_list.css('top','-120px');
                 } else {
                     recommended_list.css('top','30px');
                 }
-                console.log($(this).offset().top, recommended_list.outerHeight());
             } else {
                 $(this).parents('.product__list').removeClass('scrolled');
             }
@@ -212,12 +218,10 @@ jQuery(document).ready(function ($) {
         btnclose.on('click', function (e){
             e.preventDefault();
             var product = $(this).parents('.product__item');
-            var listProduct = product.parent();
             var id = $(this).data('cart_item_key');
             if(product.parent().children().length <= 6){
                 $(this).parents('.product__list').removeClass('scrolled');
             }
-            product.remove();
             updateBasket('remove-product', id);
         });
     }
@@ -237,11 +241,16 @@ jQuery(document).ready(function ($) {
                     count: number
                 }
             },
+            beforeSend: function(){
+                $('.product__list').prepend('<div class="filter-loader"><div class="image-loader"><img src="/wp-content/themes/astra-child/assets/img/loader.svg" alt="loading"></div></div>');
+            },
             success: function (data){
                 var result = JSON.parse(data);
+                $('.product_container').html(result.fragments.products)
                 $('.subtotal').html(result.total);
                 removeAjaxProductMiniBasket($('.remove_product'));
-                $('#ast-site-header-cart').find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']);
+                $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
+                $('.ast-site-header-cart').eq(1).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //mobile icon
             }
         });
     }
@@ -275,13 +284,16 @@ jQuery(document).ready(function ($) {
                         var product_list = $('.basket_vitobox .product__list');
                         $('.product_container').html(result.fragments.products);
                         removeAjaxProductMiniBasket($('.remove_product'));
-                        $('#ast-site-header-cart').find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']);
                         popupContainer.prepend(popupAdd);
                         changeQuantity();
                         setTimeout(function (){
                             popupAdd.css('transform','translateX(0%)');
                             popupAdd.fadeOut(8000);
                         },0);
+                        self.text('Добавлено');
+                        self.attr('disabled', 'true');
+                        $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
+                        $('.ast-site-header-cart').eq(1).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //mobile icon
                         if(screen < 961){
                             console.log($(this));
                             let svgSuccess = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path></svg>';
@@ -350,6 +362,14 @@ jQuery(document).ready(function ($) {
 
         $('.filter-btn').on('click', function(){
             $(this).parents('.filter-tabs').removeClass('active');
+            $('#select-filter').text($(this).text().trim());
+            $('.filter-list').fadeOut();
+            $('.mobile-filter-check').fadeIn();
+        });
+        $('#clearfilter').on('click', function (){
+            $('.filter-btn').attr('data-category', 'all').eq(0).trigger('click');
+            $('.mobile-filter-check').fadeOut(0);
+            $('.filter-list').fadeIn(0);
         })
     }
 

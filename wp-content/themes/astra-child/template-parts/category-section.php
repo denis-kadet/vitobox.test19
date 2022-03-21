@@ -38,9 +38,14 @@ $get_categories_products = get_terms("product_cat", [
                         ?>
                         <li class="col-md-3">
                             <a href="<?=$product->get_permalink();?>" class="catalog-item">
-                                <? if($product->get_meta('is_new') === 'yes') :?>
-                                    <div class="catalog-status-new">
+                                <? if($product->get_meta('is_new') === 'yes' && $product->is_in_stock() ) :?>
+                                    <div class="catalog-status new">
                                         new
+                                    </div>
+                                <? endif ;?>
+                                <? if(!$product->is_in_stock()) :?>
+                                    <div class="catalog-status disabled">
+                                        нет в наличии
                                     </div>
                                 <? endif ;?>
                                 <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
@@ -66,7 +71,7 @@ $get_categories_products = get_terms("product_cat", [
                                             }?>
                                         </div>
                                         <div class="catalog-desc-item">
-                                            <?= the_excerpt($loop->post); ?>
+                                            <?=the_excerpt($loop->post); ?>
                                         </div>
                                         <div class="catalog-item-price">
                                             <?php echo $product->get_price_html(); ?>

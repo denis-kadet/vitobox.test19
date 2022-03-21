@@ -79,8 +79,8 @@ ul.sub-menu{
         background-position: center;
     }
     .ast-cart-menu-wrap .count{
-        top: 7px;
-        right: 2px;
+        top: 0px;
+        right: -6px;
     }
 
 }

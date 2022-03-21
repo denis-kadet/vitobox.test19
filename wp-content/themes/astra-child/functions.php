@@ -284,9 +284,11 @@ function getSections(){
     if($_POST['query']['target']){
         $query = $_POST['query']['target'];
         get_template_part( 'template-parts/category', 'product', $query );
+        die();
     }
 
     if(!$_POST['query']['target'] && !$_POST['query']['category']){
         get_template_part( 'template-parts/category', 'section', '' );
     }
+    return;
 }

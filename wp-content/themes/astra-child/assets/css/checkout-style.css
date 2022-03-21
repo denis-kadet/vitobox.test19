@@ -14,7 +14,16 @@ footer{
     max-width: 1400px;
     margin: auto;
 }
-
+h1.entry-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'PP Pangram Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+}
 
 
 /*order-review begin*/
@@ -111,8 +120,8 @@ td.product-total{
 }
 form[name="checkout"]{
     display: flex;
-    margin: auto;
-
+    /*margin: auto;*/
+    justify-content: center;
     flex-direction: row;
 }
 form[name="ckeckout"] *{
@@ -232,9 +241,12 @@ form[name="ckeckout"] *{
     font-size: 16px;
 }
 .customer-info-container-shipping-select-circle{
+    width: 36px;
+    height: 20px;
+    background: white;
     border: solid 1px #2C1E2F;
     border-radius: 50%;
-
+    
 }
 
 

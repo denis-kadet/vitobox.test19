@@ -34,6 +34,9 @@ jQuery().ready(function(){
 
     jQuery('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
         event.preventDefault();
+        jQuery('.customer-info-container-shipping-select button ').each(function(){
+            jQuery(this).removeClass('checkout-selected-button');
+        })
         jQuery(this).addClass('checkout-selected-button');
         window.scrollTo(0, 0)
         jQuery('.pvz-container-wrapper').show();
@@ -114,6 +117,10 @@ jQuery().ready(function(){
 
     jQuery('#shipping-to-adress').on('click', function (e){
         e.preventDefault();
+        jQuery('.customer-info-container-shipping-select button ').each(function(){
+            jQuery(this).removeClass('checkout-selected-button');
+        })
+        jQuery(this).addClass('checkout-selected-button');
         window.scrollTo(0, 0)
         jQuery(this).addClass('')
         jQuery('#shipping-address-modal').show();
@@ -139,8 +146,10 @@ jQuery().ready(function(){
     });
     jQuery('#fill-address-button').on('click', function(e){
         e.preventDefault();
-        jQuery('.shipping-address-modal-container-right-street input').val();
-        jQuery('')
+        let addr= jQuery('.shipping-address-modal-container-right-house input').val();
+        addr = addr + ', ' + jQuery('.shipping-address-modal-container-right-apparts input').val();
+        addr = jQuery('.shipping-address-modal-container-right-street input').val() + ', ' + addr
+        jQuery('#billing_address_1').val(addr);
     });
     /*DaData начало*/
 //     // Замените на свой API-ключ

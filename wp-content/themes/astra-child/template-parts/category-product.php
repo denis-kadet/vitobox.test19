@@ -20,10 +20,15 @@ $products = new WP_Query( array(
         global $product;
         ?>
         <li class="col-md-3">
-            <div class="catalog-item">
-                <? if(empty($product->get_meta('is_new'))) :?>
-                    <div class="catalog-status-new">
+            <a href="<?=$product->get_permalink();?>" class="catalog-item">
+                <? if($product->get_meta('is_new') === 'yes' && $product->is_in_stock() ) :?>
+                    <div class="catalog-status new">
                         new
+                    </div>
+                <? endif ;?>
+                <? if(!$product->is_in_stock()) :?>
+                    <div class="catalog-status disabled">
+                        нет в наличии
                     </div>
                 <? endif ;?>
                 <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
@@ -53,9 +58,6 @@ $products = new WP_Query( array(
                         <div class="catalog-desc-item">
                             <?= the_excerpt($products->post); ?>
                         </div>
-                        <div class="catalog-desc-item">
-                            <?= the_excerpt($loop->post); ?>
-                        </div>
                         <div class="catalog-item-price">
                             <?php echo $product->get_price_html(); ?>
                         </div>
@@ -67,7 +69,7 @@ $products = new WP_Query( array(
                 <div class="catalog-bottom">
                     <?php woocommerce_template_loop_add_to_cart( $products->post, $product ); ?>
                 </div>
-            </div>
+            </a>
         </li>
     <?php
     endwhile;

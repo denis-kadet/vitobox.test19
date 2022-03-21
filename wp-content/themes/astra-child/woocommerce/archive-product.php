@@ -51,10 +51,17 @@ get_header( 'shop' );
 <!--        <div class="background-decor top"></div>-->
 <!--        <div class="background-decor middle"></div>-->
 <!--        <div class="background-decor bottom"></div>-->
-        <div class="ast-container">
+        <div class="ast-container" id="filter-catalog">
             <div class="filter">
+                <div class="mobile-filter-check">
+                    <div class="mobile-filter-wrapper">
+                        <span class="mobile-filter-name">Фильтр:</span>
+                        <span id="select-filter">Моновитамины</span>
+                        <button id="clearfilter">Очистить</button>
+                    </div>
+                </div>
                 <ul class="filter-list">
-                    <li class="filter-item active">
+                    <li class="filter-item">
                         <h2 class="title-filter" data-filter="category">Категории</h2>
                     </li>
                     <li class="filter-item" data-filter="target">
@@ -62,7 +69,7 @@ get_header( 'shop' );
                     </li>
                 </ul>
                 <div class="row">
-                    <div class="filter-tabs col-12 col-md-12 active">
+                    <div class="filter-tabs col-12 col-md-12">
                         <div class="filter-wrapp">
                             <div class="mobile__header-filter">
                                 Категории
@@ -92,6 +99,7 @@ get_header( 'shop' );
                                 Цели
                                 <div class="mobile__filter-close"></div>
                             </div>
+                            <div class="filter-btn selected" data-category="all">Все продукты</div>
                             <?
                             $attributes = wc_get_attribute_taxonomies();
                             foreach ($attributes as $attribute) {
