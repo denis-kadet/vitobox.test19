@@ -2,7 +2,7 @@
     <div class="block-1 ">
         <div class="container">
             <div class="row">
-                <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 overflow-auto">
+                <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 overflow-auto-custom">
                     <div class="icons__wrap">
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/forbes.svg " alt="icon:forbes"></div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/InStyle.svg " alt="icon:InStyle"></div>
