@@ -2,16 +2,13 @@
     <div class="block-12">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-6">
+                <div class="col-lg-8 col-md-6 order-sm-1 order-2">
                     <div class="block-12__bg"></div>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-12-img.png" alt="">
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 order-sm-2 order-1">
                     <div class="block-12__decs-wrap">
-                        <h1 class="block-12__title">Вы уникальны.
-                            Ваши витамины
-                            должны быть
-                            такими же</h1>
+                        <h1 class="block-12__title">Вы уникальны. Ваши витамины должны быть такими же</h1>
                         <div class="block__text block-12__text">Пройдите тест, и алгоритм VitoBox
                             подберет витамины по вашим параметрам</div>
                         <a href="#" class="block-12__btn-link">

@@ -1494,3 +1494,37 @@
     background:  url("../images/block-12-img-bg.png") left top no-repeat transparent;
     z-index: -1;
 }
+@media  (max-width: 576.99px) {
+    .block-12__title{
+        font-size: 28px;
+    }
+    .block-12__decs-wrap{
+        margin-top: 0;
+    }
+    .block-12__text {
+        max-width: 300px;
+    }
+    .block-12__text-small{
+        font-size: 16px;
+        line-height: 120%;
+    }
+    .block-12__small-under{
+        font-size: 16px;
+        line-height: 120%;
+    }
+    .block-12 {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background:  url("../images/block-12-bg-mob.png") left 25% no-repeat transparent;
+        background-size: cover;
+        z-index: 0;
+    }
+    .block-12__bg {
+        background: none;
+    }
+}
