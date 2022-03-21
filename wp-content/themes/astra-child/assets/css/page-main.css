@@ -900,7 +900,7 @@
     margin-right: 30px; }
 
 .block-5__imagesnew_dotted .slick-current {
-    display: none; }
+    display: none !important; }
 
 .block-5__imagesnew_dotted .slick-track {
     display: flex;

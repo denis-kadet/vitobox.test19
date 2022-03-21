@@ -207,7 +207,7 @@
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-7.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
-                                <li class="block-10__accordion-item ">ЧПричиной может стать дефицит йода</li>
+                                <li class="block-10__accordion-item ">Причиной может стать дефицит йода</li>
                             </ul>
                         </li>
                         <!-- Section 8 -->

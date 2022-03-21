@@ -10,6 +10,7 @@ $title_support_1 = carbon_get_theme_option('crb_show_content-title-1');
                 <div class="col-12">
                     <div class="block__title block-9__title"><?= esc_html( $title_support_1) ?></div>
                 </div>
+                <?php if (isset($support) && ($check__support_1 == false)): ?>
                 <div class="col-lg-7 offset-lg-3">
                     <div class="block-9__bg"></div>
                     <ul id="block-9__accordion" class="block-9__accordion">
@@ -28,7 +29,7 @@ $title_support_1 = carbon_get_theme_option('crb_show_content-title-1');
 
                     </ul>
                 </div>
-
+                <?php endif; ?>
             </div>
         </div>
     </div>
