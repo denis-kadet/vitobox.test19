@@ -676,9 +676,15 @@ overflow: auto;
         margin-bottom: 30px; } }
 
 @media (max-width: 576px) {
+    .block-2{
+        margin-bottom: 0;
+    }
     .block-2__wrap{
         position: relative;
         z-index: 2;
+        margin-top: 0;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
     .block-2__picture {
         width: 327px;
@@ -706,7 +712,7 @@ overflow: auto;
         bottom: 0;
         right: 0;
         left: 0;
-        background: url("../images/block-1-mob-motion.png") left center/contain no-repeat transparent;
+        background: url("../images/block-1-mob-motion-1.png") left 80%/cover no-repeat transparent;
         /*filter: blur(200px);*/
         /*-webkit-filter: blur(50px);*/
         z-index: -1; }
@@ -795,8 +801,13 @@ overflow: auto;
     align-items: center;
     height: 60px; }
 .block-4__link {
-    color: #fff; }
-
+    padding-bottom: 3px;
+    color: #fff;
+    border-bottom: 1px solid #fff}
+.block-4__link:hover,
+.block-4__link:focus{
+    color: #fff;
+}
 @media (max-width: 767.99px) {
     .block-4__wrap {
         flex-direction: column;
@@ -1291,17 +1302,29 @@ overflow: auto;
 
 .block-8__slider-items {
     margin: 0 auto; }
-
+.block-8__bg {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: url("../images/block-8-bg-2.png") center center/contain no-repeat transparent;
+    /*filter: blur(300px);*/
+    /*-webkit-filter: blur(50px);*/
+    /*transform: translate(-14px, 52px);*/
+    /*z-index: -1;*/
+}
 @media (max-width: 567.99px) {
     .block-8 {
         margin-bottom: 80px; }
     .block-8__bg {
-        display: block;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
+        /*display: block;*/
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*left: 0;*/
         background: url("../images/block-9-bg-1.png") center center/contain no-repeat transparent;
         /*filter: blur(300px);*/
         /*-webkit-filter: blur(50px);*/
