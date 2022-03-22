@@ -1229,19 +1229,7 @@ overflow: auto;
 .block-8__title {
     margin-bottom: 60px;
     text-align: center; }
-.block-8__bg {
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: url("../images/block-9-bg.png") center center/contain no-repeat transparent;
-    /*filter: blur(300px);*/
-    /*-webkit-filter: blur(50px);*/
-    /*transform: translate(-14px, 52px);*/
-    /*z-index: -1;*/
-}
+
 .block-8__text {
     margin-bottom: 40px;
     text-align: center;
@@ -1308,9 +1296,19 @@ overflow: auto;
     .block-8 {
         margin-bottom: 80px; }
     .block-8__bg {
-        background: url("../images/block-9-bg.png") center center/cover no-repeat transparent;
-        /*z-index: -1; */
-    } }
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: url("../images/block-9-bg-1.png") center center/contain no-repeat transparent;
+        /*filter: blur(300px);*/
+        /*-webkit-filter: blur(50px);*/
+        /*transform: translate(-14px, 52px);*/
+        /*z-index: -1;*/
+    }
+}
 
 .block-9 {
     position: relative;
