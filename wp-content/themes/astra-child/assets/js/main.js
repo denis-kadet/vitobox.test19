@@ -325,8 +325,10 @@ jQuery(document).ready(function ($) {
 
     //Фильтр по категориям и атрибутам
     let catBtn = $('.filter-btn');
-    catBtn.on('click', function (){
+    catBtn.on('click', function (e){
+
         let catValue = $(this).data('category');
+        console.log(e.target, catValue)
         let targetValue = $(this).data('target');
         $(this).addClass('selected').siblings().removeClass('selected');
         $.ajax({
@@ -367,7 +369,7 @@ jQuery(document).ready(function ($) {
             $('.mobile-filter-check').fadeIn();
         });
         $('#clearfilter').on('click', function (){
-            $('.filter-btn').attr('data-category', 'all').eq(0).trigger('click');
+            jQuery('.filter-btn').eq(0).attr('data-category','all').trigger('click');
             $('.mobile-filter-check').fadeOut(0);
             $('.filter-list').fadeIn(0);
         })
