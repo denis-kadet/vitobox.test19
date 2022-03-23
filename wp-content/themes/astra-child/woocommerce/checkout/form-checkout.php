@@ -135,6 +135,11 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 </div>
 
             <div class="after-shipping-container">
+
+                <div class="after-shipping-container-heading">
+                    <span>Оплата</span>
+                </div>
+
                 <div class="promo-input-container">
                     <input type="text" name="" class="input-text" placeholder="Промокод" />
                 </div>

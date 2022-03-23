@@ -47,8 +47,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                                 <?=$product_name;?>
                             </div>
                             <div class="product__note">
-                                <?=$monthNum;?>
-    <!--                            30 капсул/месяц (1 в день)-->
+                                <?=$_product->get_meta('_recommended_note');?>
                             </div>
                             <div class="product__price">
                                 <?=$product_price;?>
@@ -75,8 +74,8 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                                 <div class="recommended__wrapper">
                                     <div class="recommended__count"><?=$cart_item['quantity']?></div>
                                     <ul class="recommended_list">
-                                        <?php for($i = 1; $i<=4; $i++) { ?>
-                                            <? if( (int)$i == $recNum ):?>
+                                        <?php for($i = 1; $i<=3; $i++) { ?>
+                                            <? if( (int)$i == $_product->get_meta('_recommended_number') ):?>
                                                 <li class="recommended__item"><?=$i;?>(рекомендуется)</li>
                                             <? else :?>
                                                 <li class="recommended__item"><?=$i;?></li>

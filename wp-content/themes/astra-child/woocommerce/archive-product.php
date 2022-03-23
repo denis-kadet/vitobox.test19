@@ -48,9 +48,9 @@ get_header( 'shop' );
         </div>
     </header>
     <div class="decor_container">
-<!--        <div class="background-decor top"></div>-->
-<!--        <div class="background-decor middle"></div>-->
-<!--        <div class="background-decor bottom"></div>-->
+        <div class="background-decor top"></div>
+        <div class="background-decor middle"></div>
+        <div class="background-decor bottom"></div>
         <div class="ast-container" id="filter-catalog">
             <div class="filter">
                 <div class="mobile-filter-check">

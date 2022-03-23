@@ -22,9 +22,10 @@ html{
 }
 *{
     font-family: PP Pangram Sans;
-    outline: none !important;
+    /*outline: none !important;*/
     color: #1C131E;
 }
+
 body{
     display: flex;
     flex-direction: column;
@@ -245,7 +246,12 @@ h1.entry-title {
     }
 
 }
-
+.ast-mobile-menu-trigger-minimal{
+    outline: none !important;
+}
 .temporary-hidden{
     display: none !important;
+}
+ul#menu-footer-menu-astra{
+    padding-left: 0;
 }

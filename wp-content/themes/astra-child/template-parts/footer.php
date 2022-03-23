@@ -1,5 +1,5 @@
 <footer class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope" itemid="#colophon">
-    <div class="footer-container">
+    <div class="ast-container">
         <div class="footer-container-wrapper">
             <div class="footer-container-wrapper__column1">
                 <div class="footer-string">

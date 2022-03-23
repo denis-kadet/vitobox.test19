@@ -53,7 +53,12 @@ defined( 'ABSPATH' ) || exit;
 	<tfoot>
 
 		<tr class="cart-subtotal">
-			<th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
+			<th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?>
+                <div class="custom-shipping-price">
+                    <div class="custom-shipping-price-label">Стоимость доставки</div>
+                    <div class="custom-shipping-price-sum"></div>
+                </div>
+            </th>
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 

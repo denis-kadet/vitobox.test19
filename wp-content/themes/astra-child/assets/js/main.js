@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
 
     let pathname = location.pathname;
     if(pathname == '/katalog/') {
-        if($(window).width() > 961 ){
+        if($(window).width() > 480 ){
             $('.filter-item').eq(1).addClass('active')
             $('.filter-tabs').eq(1).addClass('active')
         }
@@ -248,6 +248,10 @@ jQuery(document).ready(function ($) {
                 var result = JSON.parse(data);
                 $('.product_container').html(result.fragments.products)
                 $('.subtotal').html(result.total);
+                changeQuantity();
+                if(result.count > 7){
+                    createPopupAddCart(result.count, '');
+                }
                 removeAjaxProductMiniBasket($('.remove_product'));
                 $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
                 $('.ast-site-header-cart').eq(1).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //mobile icon
@@ -255,15 +259,46 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    function createPopupAddCart(name){
+    function createPopupAddCart(count, name){
         var item = $('<div class="popup__item-cart"></div>');
-        var imageSuccess = $('<div class="popup__success-img"></div>');
-        var textProduct = $('<div class="popup_success-text"></div>');
-        textProduct.html('<strong>' + name + '</strong> добавлен в корзину.');
-        item.append(imageSuccess);
+        var image = $('<div></div>');
+        var textProduct = $('<div class="popup_text"></div>');
+        if(count > 7){
+            image.addClass("popup__attention-img");
+            textProduct.html('В одно саше не поместиться <strong>больше 7 капсул</strong>,<br class="mobile__hidden">предлагаем вам оформить дополнительный заказ');
+        } else {
+            image.addClass("popup__success-img");
+            textProduct.html('<strong>' + name + '</strong> добавлен в корзину.');
+        }
+        item.append(image);
         item.append(textProduct);
-        return item;
+        popupContainer.prepend(item);
+        return setTimeout(function (){
+            item.css('transform','translateX(0%)');
+            item.fadeOut(8000);
+        },0);
     }
+
+    function catalogBackground(){
+        let h = $('.decor_container').height();
+        if(h > 2000){
+           $('.background-decor').eq(0).show();
+        } else {
+            $('.background-decor').eq(0).hide();
+        }
+        if(h > 3000){
+            $('.background-decor').eq(1).show();
+        } else {
+            $('.background-decor').eq(1).hide();
+        }
+        if(h > 5000){
+            $('.background-decor').eq(2).show();
+        } else {
+            $('.background-decor').eq(2).hide();
+        }
+    }
+
+    catalogBackground();
 
     function addToCart(button){
         button.on('click', function (e){
@@ -280,26 +315,23 @@ jQuery(document).ready(function ($) {
                 success: function (data){
                     if(data){
                         var result = JSON.parse(data);
-                        var popupAdd = createPopupAddCart(result.name);
                         var product_list = $('.basket_vitobox .product__list');
-                        $('.product_container').html(result.fragments.products);
-                        removeAjaxProductMiniBasket($('.remove_product'));
-                        popupContainer.prepend(popupAdd);
-                        changeQuantity();
-                        setTimeout(function (){
-                            popupAdd.css('transform','translateX(0%)');
-                            popupAdd.fadeOut(8000);
-                        },0);
-                        self.text('Добавлено');
-                        self.attr('disabled', 'true');
-                        $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
-                        $('.ast-site-header-cart').eq(1).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //mobile icon
-                        if(screen < 961){
-                            console.log($(this));
-                            let svgSuccess = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path></svg>';
-                            self.css('background','transparent');
-                            self.find('svg').remove();
-                            self.append(svgSuccess);
+                        createPopupAddCart(result.count, result.name);
+                        console.log(result.count)
+                        if(result.count <= 7){
+                            $('.product_container').html(result.fragments.products);
+                            removeAjaxProductMiniBasket($('.remove_product'));
+                            changeQuantity();
+                            self.text('Добавлено');
+                            self.attr('disabled', 'true');
+                            $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
+                            $('.ast-site-header-cart').eq(1).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //mobile icon
+                            if(screen < 480){
+                                let svgSuccess = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path></svg>';
+                                self.css('background','transparent');
+                                self.find('svg').remove();
+                                self.append(svgSuccess);
+                            }
                         }
                     }
                 }
@@ -326,7 +358,6 @@ jQuery(document).ready(function ($) {
     //Фильтр по категориям и атрибутам
     let catBtn = $('.filter-btn');
     catBtn.on('click', function (e){
-
         let catValue = $(this).data('category');
         console.log(e.target, catValue)
         let targetValue = $(this).data('target');
@@ -347,6 +378,7 @@ jQuery(document).ready(function ($) {
             success: function (data){
                 $('.filter-loader').remove();
                 $('#catalog-section').html(data);
+                catalogBackground();
                 addToCart($('.add_to_cart_button'));
             }
         })

@@ -31,46 +31,51 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+<section class="s" style='background-image:url("/wp-content/themes/astra-child/assets/img/yellow_background.png")'>
+    <div class="ast-container">
+        <div id="product-<?php the_ID(); ?>" class="row header__product">
+            <div class="row col-md-7 justify-content-center align-items-center">
+                <?php
+                /**
+                 * Hook: woocommerce_before_single_product_summary.
+                 *
+                 * @hooked woocommerce_show_product_sale_flash - 10
+                 * @hooked woocommerce_show_product_images - 20
+                 */
+                do_action( 'woocommerce_before_single_product_summary' );
+                ?>
+            </div>
 
-	<?php
-	/**
-	 * Hook: woocommerce_before_single_product_summary.
-	 *
-	 * @hooked woocommerce_show_product_sale_flash - 10
-	 * @hooked woocommerce_show_product_images - 20
-	 */
-	do_action( 'woocommerce_before_single_product_summary' );
-	?>
+            <div class="header__info col-md-5">
+                <?php
+                /**
+                 * Hook: woocommerce_single_product_summary.
+                 *
+                 * @hooked woocommerce_template_single_title - 5
+                 * @hooked woocommerce_template_single_rating - 10
+                 * @hooked woocommerce_template_single_price - 10
+                 * @hooked woocommerce_template_single_excerpt - 20
+                 * @hooked woocommerce_template_single_add_to_cart - 30
+                 * @hooked woocommerce_template_single_meta - 40
+                 * @hooked woocommerce_template_single_sharing - 50
+                 * @hooked WC_Structured_Data::generate_product_data() - 60
+                 */
+                do_action( 'woocommerce_single_product_summary' );
+                ?>
+            </div>
 
-	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		do_action( 'woocommerce_single_product_summary' );
-		?>
-	</div>
-
-	<?php
-	/**
-	 * Hook: woocommerce_after_single_product_summary.
-	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
-	 * @hooked woocommerce_upsell_display - 15
-	 * @hooked woocommerce_output_related_products - 20
-	 */
-	do_action( 'woocommerce_after_single_product_summary' );
-	?>
-</div>
+            <?php
+            /**
+             * Hook: woocommerce_after_single_product_summary.
+             *
+             * @hooked woocommerce_output_product_data_tabs - 10
+             * @hooked woocommerce_upsell_display - 15
+             * @hooked woocommerce_output_related_products - 20
+             */
+            do_action( 'woocommerce_after_single_product_summary' );
+            ?>
+        </div>
+    </div>
+</section>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

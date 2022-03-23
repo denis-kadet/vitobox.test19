@@ -43,18 +43,21 @@ defined( 'ABSPATH' ) || exit;
                     </div>
                 </div>
             </div>
-            <div class="pvz-container-heading-select">
-                <div class="pvz-container-heading-select__string">
-                    <a id="pvz-by-list">Списком</a>
-                </div>
-                <div class="pvz-container-heading-select__string">
-                    <a id="pvz-by-map">На карте</a>
+            <div class="pvz-container-heading-select-wrapper">
+                <div class="pvz-container-heading-select">
+                    <div class="pvz-container-heading-select__string">
+                        <a id="pvz-by-list">Списком</a>
+                    </div>
+                    <div class="pvz-container-heading-select__string">
+                        <a id="pvz-by-map">На карте</a>
+                    </div>
                 </div>
             </div>
-            <div id="pvz-container-list" >
+
+            <div id="pvz-container-list" class="pvz-modal-togglable" >
                 <?php require "CdekPvz.php";?>
             </div>
-            <div id="pvz-container-map" style="width:100%; height:600px;">
+            <div id="pvz-container-map" style="width:100%; height:600px;"  class="pvz-modal-togglable">
 
             </div>
 
@@ -110,12 +113,17 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		$fields = $checkout->get_checkout_fields( 'billing' );
 
+        $fields['billing_city']['default'] = 'Москва';
 
         foreach ( $fields as $key => $field ){
+
             foreach( $field as $fieldKey => $fieldValue ){
                 if( $fieldKey == "label" && $fieldValue == 'Телефон' ){
                     $fieldValue = "+7";
+                }elseif( $fieldKey == "label" && $fieldValue == 'Населённый пункт' ){
+                    $fieldValue = "Москва";
                 }
+
                 if( $fieldKey == "label"  ){
                     $fields[$key]["placeholder"] = $fieldValue;
                     unset($fields[$key]["label"]);
@@ -123,8 +131,31 @@ defined( 'ABSPATH' ) || exit;
             }
         }
 
+        function moveKeyBefore($arr, $find, $move) {
+            if (!isset($arr[$find], $arr[$move])) {
+                return $arr;
+            }
+
+            $elem = [$move=>$arr[$move]];  // cache the element to be moved
+            $start = array_splice($arr, 0, array_search($find, array_keys($arr)));
+            unset($start[$move]);  // only important if $move is in $start
+            return $start + $elem + $arr;
+        }
+
+        $fields = moveKeyBefore($fields, 'billing_city', 'billing_phone');
+
+//        var_dump($fields);
+
 		foreach ( $fields as $key => $field ) {
+            if( $key == 'billing_city'){
+                echo "<span class='custom-checkout-field-separator' >Способ доставки:</span>";
+            }
 			woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+            if( $key == 'billing_phone' ){
+                echo "<label class='custom-label' for='billing_phone' >На телефон поступит уведомление о доставке</label>";
+            }elseif( $key == 'billing_city' ){
+                echo "<label class='custom-label' for='billing_city' >Укажите ваш город, чтобы определить доступные способы доставки</label>";
+            }
 		}
 
 		?>

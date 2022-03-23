@@ -93,6 +93,11 @@ function filter_function_name_4792( $items, $args ){
 
 add_filter( 'woocommerce_checkout_fields' , 'remove_checkout_fields' , 1);
 function remove_checkout_fields( $fields ) {
+
+    if( isset($_GET['dev']) && $_GET['dev'] == 'jshr' ){
+
+    }
+
 //    unset($fields['billing']['billing_first_name']);
 //    unset($fields['billing']['billing_last_name']);
 //    unset($fields['billing']['billing_phone']);
@@ -100,17 +105,12 @@ function remove_checkout_fields( $fields ) {
     unset($fields['shipping']['shipping_last_name']);
     unset($fields['shipping']['shipping_address_1']);
     unset($fields['shipping']['shipping_city']);
-
-
-//    unset($fields['billing']['billing_city']);
     $fields["billing"]["billing_city"]["required"] = false;
     unset($fields['billing']['billing_company']);
-//    unset($fields['billing']['billing_address_1']);
     $fields["billing"]["billing_address_1"]["required"] = false;
     unset($fields['billing']['billing_address_2']);
 //    $fields['shipping']['ship_to_different_address'] = false;
     unset($fields['billing']['billing_postcode']);
-////    unset($fields['billing']['billing_country']);
     unset($fields['billing']['billing_state']);
     unset($fields['shipping']['shipping_state']);
 //    unset($fields['shipping']['shipping_postcode']);
@@ -153,18 +153,18 @@ function find_product__ajax_remove() {
 add_action( 'wp_ajax_add-product', 'find_product__ajax_add' );
 add_action( 'wp_ajax_nopriv_add-product', 'find_product__ajax_add' );
 function find_product__ajax_add() {
-
     ob_start();
 
     $product_id = $_POST['product_id'];
     $product = wc_get_product( $product_id );
     $quantity = $_POST['quantity'];
+    $countCarts = WC()->cart->get_cart_contents_count() + 1; //получаем число до обновления корзины
 
-    if( $product_id && !$quantity['key_id'] && !$quantity['count'] ) {
+    if( $product_id && !$quantity['key_id'] && !$quantity['count'] && ($countCarts <= 7)) {
         WC()->cart->add_to_cart($product_id);
     }
 
-    if( $product_id && $quantity['key_id'] && $quantity['count']) {
+    if( $product_id && $quantity['key_id'] && $quantity['count'] && ($countCarts <= 7)) {
         $count = $quantity['count'];
         WC()->cart->set_quantity($quantity['key_id'], $count);
     }
@@ -182,7 +182,8 @@ function find_product__ajax_add() {
         ),
         'cart_hash' => WC()->cart->get_cart_hash(),
         'name' =>  $product->get_title(),
-        'total' => WC()->cart->get_cart_subtotal()
+        'total' => WC()->cart->get_cart_subtotal(),
+        'count' => $countCarts
     );
 
     echo json_encode( $data );
@@ -242,8 +243,20 @@ add_action('woocommerce_product_options_general_product_data', function(){
     <div class="options_group">
         <?php
         woocommerce_wp_text_input( array(
+            'id'      => '_recommended_number',
+            'label'   => 'Рекомендованое число',
+            'description' => 'Параметр выводит возле числа "Рекомендовано"',
+            'desc_tip'    => 'true',
+            'type'        => 'number',
+            'custom_attributes' => array( 'step'  => 'any', 'min'   => '0', 'max' => '3'),
+        ) );
+        ?>
+    </div>
+    <div class="options_group">
+        <?php
+        woocommerce_wp_text_input( array(
             'id'      => '_recommended_note',
-            'label'   => 'Рекомендовано капсул',
+            'label'   => 'Рекомендовано шт.',
             'description' => 'Параметр выводит рекомендованное сообщение',
             'desc_tip'    => 'true',
             'type'        => 'text',
@@ -267,9 +280,11 @@ add_action( 'woocommerce_process_product_meta', function ($post_id){
     $checkboxNew = isset($_POST['is_new']) ? 'yes' : 'no';
     $textRecommended = isset($_POST['_recommended_note']) ? sanitize_text_field($_POST['_recommended_note']) : '';
     $textRecommendedCount = isset($_POST['_recommended_note']) ? sanitize_text_field($_POST['_recommended_count']) : '';
+    $textRecommendedNumber = isset($_POST['_recommended_number']) ? $_POST['_recommended_number'] : '';
     update_post_meta($post_id, 'is_new', $checkboxNew);
     update_post_meta($post_id, '_recommended_note', $textRecommended);
     update_post_meta($post_id, '_recommended_count', $textRecommendedCount);
+    update_post_meta($post_id, '_recommended_number', $textRecommendedNumber);
 }, 10, 1 );
 
 add_action( 'wp_ajax_section', 'getSections' );
@@ -292,3 +307,13 @@ function getSections(){
     }
     return;
 }
+
+function remove_woo_content_from_single_product (){
+    remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+    //tabs
+    remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+    remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+    remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+}
+
+add_action( 'init', 'remove_woo_content_from_single_product', 0);
