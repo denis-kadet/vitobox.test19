@@ -2,6 +2,11 @@ a {
     text-decoration: none !important;
 }
 
+ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
 /* basket */
 .basket_background {
     position: fixed;
@@ -518,18 +523,34 @@ a {
 
 .catalog-desc-item {
     padding: 0 20px 20px 20px;
-    border-bottom: 1px solid gray;
     margin-bottom: 20px;
     border-bottom: 1px solid #BDBDBD;
 }
 
-.catalog-desc-item p{
+.catalog-desc-item p,
+.woocommerce-product-details__short-description p{
     display: block;
     margin: 0;
     text-align: left;
     font-weight: 300;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.catalog-desc-item ul > li,
+.woocommerce-product-details__short-description ul > li{
+    margin: 0;
+    font-weight: 300;
+    text-align: left;
+    font-family: 'PP Pangram Sans';
+}
+
+.catalog-desc-item ul > li::marker,
+.woocommerce-product-details__short-description ul > li::marker{
+    font-size: 8px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+    color: #1C131E;
 }
 
 .catalog-item-price,
@@ -1119,10 +1140,133 @@ button.product_type_simple:focus {
 }
 .header__image {
     width: 140px;
-    height: 58px;
+    height: auto;
 }
 
 .header__image img{
     width: 100%;
-    height: 100%;
+}
+
+.product__attribute-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 187px;
+    padding-bottom: 10px;
+    margin-bottom: 64px;
+    border-bottom: 1px solid #2C1E2F;
+}
+
+.product__attribute-icon{
+    position: relative;
+    cursor: pointer;
+}
+
+.active .product__desc-icon {
+    display: block;
+}
+
+.product__attribute-icon svg{
+    width: 45px;
+    height: 50px;
+    fill: none;
+    stroke: #2C1E2F;
+    stroke-width: 1;
+}
+
+.product__desc-icon {
+    position: absolute;
+    top: -40px;
+    left: -15px;
+    display: none;
+    width: 72px;
+    text-align: center;
+    color: #BDBDBD;
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+.single_add_to_cart_button {
+    min-width: 250px;
+    height: 52px;
+    text-align: center;
+    background-color: #F5CC83;
+    border: 1px solid #F5CC83 !important;
+    font-weight: 300;
+    font-size: 18px;
+    transition: 200ms ease-in-out;
+}
+
+.single_add_to_cart_button:hover {
+    color: #F5CC83;
+    background-color: #fff;
+}
+
+.simple__product-additionally {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 256px;
+    margin-bottom: 8px;
+}
+
+.simple__product-price {
+    margin-right: 6px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.simple__product-note {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.ast-stock-detail {
+    display: none;
+}
+
+.woocommerce-product-details__short-description {
+    margin-bottom: 18px;
+}
+
+.quantity {
+    display: none;
+}
+
+/*modal single product*/
+.product__modal {
+    max-width: 585px;
+}
+
+.product__modal .modal-content{
+    border-radius: 28px;
+    border: 0;
+}
+
+.product__modal .modal-header{
+    border: 0;
+    padding: 40px 40px 0 40px;
+    margin-bottom: 50px;
+}
+
+.product__modal .modal-header .modal-title{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__modal .modal-body{
+    padding: 0px 40px 0 40px;
+    font-size: 14px;
+    font-family: 'PP Pangram Sans';
+}
+
+.single_product__compose {
+    font-size: 16px;
+    margin-bottom: 66px;
+    border-bottom: 1px solid #1C131E;
+}
+
+.single_product__compose:hover {
+    color: #1C131E;
 }

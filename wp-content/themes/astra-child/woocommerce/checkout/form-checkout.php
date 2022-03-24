@@ -70,16 +70,21 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                             <div class="shipping-address-modal-container-body">
                                 <div class="shipping-address-modal-container-left">
                                     <div class="shipping-address-modal-container-right-street">
-                                        <input placeholder="Улица"/>
+                                        <input placeholder="Улица" name="custom-address-street"/>
                                     </div>
                                     <div class="shipping-address-modal-container-details">
                                         <div class="shipping-address-modal-container-right-house">
-                                            <input placeholder="Дом"/>
+                                            <input placeholder="Дом" name="custom-address-house/>
                                         </div>
                                         <div class="shipping-address-modal-container-right-apparts">
-                                            <input placeholder="Квартира"/>
+                                            <input placeholder="Квартира" name="custom-address-apparts"/>
                                         </div>
                                     </div>
+
+                                    <div class="shipping-address-modal-container-bottom wp-block-button custom-color">
+                                        <a id="fill-address-button" class="wp-block-button__link ">Готово</a>
+                                    </div>
+
                                 </div>
 
                                 <div class="shipping-address-modal-container-right">
@@ -98,10 +103,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                                 </div>
                             </div>
 
-
-                            <div class="shipping-address-modal-container-bottom wp-block-button custom-color">
-                                <a id="fill-address-button" class="wp-block-button__link ">Готово</a>
-                            </div>
 
                         </div>
                     </div>
@@ -141,7 +142,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 </div>
 
                 <div class="promo-input-container">
-                    <input type="text" name="" class="input-text" placeholder="Промокод" />
+                    <input type="text" id="custom-promo" name="custom-promo" class="input-text custom-promo ignore" placeholder="Промокод" />
                 </div>
 
 

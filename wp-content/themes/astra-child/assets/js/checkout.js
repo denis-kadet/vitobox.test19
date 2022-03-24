@@ -228,4 +228,93 @@ jQuery().ready(function($){
 
 
     /*DaData конец*/
+
+
+    /*валидация полей начало*/
+    Inputmask("+7 (9{3,3}) 9{3,3}-9{2,2}-9{2,2}").mask(document.querySelectorAll('#billing_phone'));
+
+    jQuery.validator.addMethod("checkMaskPhone", function(value, element) {
+        return /\+\d{1}\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}/g.test(value);
+    });
+    jQuery.validator.addMethod("accept", function(value, element, param) {
+        let res =  value.match(new RegExp("" + param + "$"));
+        return res;
+    });
+
+    jQuery('form[name=checkout]').validate({
+        errorClass: 'error custom-error',
+        ignore: ".ignore",
+        rules: {
+            'billing_first_name': {
+                accept: "^[a-zA-Zа-яА-Я]*",
+                required: true,
+                minlength: 2
+            },
+            'billing_last_name': {
+                accept: "^[a-zA-Zа-яА-Я]*",
+                required: true,
+                minlength: 2
+            },
+            'billing_phone': {
+                checkMaskPhone: true,
+                required: true
+            },
+            'custom-address-street': {
+                required: true,
+                minlength: 2
+            },
+            'custom-address-house': {
+                required: true
+            },
+            'custom-address-apparts': {
+                required: true
+            }
+        },
+        messages: {
+            'billing_first_name': 'Введите имя корректно',
+            'billing_last_name': 'Введите фамилию корректно',
+            'billing_phone': 'Введите номер корректно',
+            'custom-address-street': '',
+            'custom-address-house': '',
+            'custom-address-apparts': ''
+        }
+    });
+
+    /*валидация полей конец*/
+
+    /*промокод начало*/
+
+    $('.custom-promo').on('change', function (){
+        let promoStr = $(this).val();
+        let checkPromo = '.coupon-' + promoStr;
+        let promoField = $(this);
+        let correctPromoLabel = '<label id="custom-promo-label" class="valid" for="custom-promo">промокод активирован(скидка 25%)</label>';
+        let inCorrectPromoLabel = '<label id="custom-promo-label-incorrect" class="error custom-error" for="custom-promo">Некорректный промокод</label>';
+
+        $.ajax({
+            type: "POST",
+            data: '',
+            url: "/?coupon-code=" + promoStr + "&sc-page=checkout",
+            success: function(data){
+                let promoResponse = $(data).find('.order_review__container').html();
+
+                if( $(promoResponse).find(checkPromo).length > 0 ){
+                    $('.order_review__container').html(promoResponse);
+                    promoField.removeClass('error custom-error')
+                    promoField.addClass('valid');
+                    promoField.after(correctPromoLabel);
+                    $('#custom-promo-label-incorrect').remove();
+                }else{
+                    promoField.removeClass('valid')
+                    promoField.addClass('error custom-error');
+                    promoField.after(inCorrectPromoLabel);
+                    $('#custom-promo-label').remove();
+                }
+
+            }
+
+        })
+    })
+
+    /*промокод конец*/
 });

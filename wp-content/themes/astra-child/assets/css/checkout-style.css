@@ -471,6 +471,9 @@ form[name="ckeckout"] *{
 .checkout-selected-button span{
     color: white;
 }
+#pvz-container::-webkit-scrollbar {
+    display: none;
+}
 /*пункты самовывоза конец*/
 
 
@@ -514,6 +517,9 @@ form[name="ckeckout"] *{
     line-height: 120%;
     color: #2C1E2FFF;
 }
+.shipping-address-modal-container-bottom{
+    margin-top: 24px;
+}
 .custom-color a{
     background: #2C1E2FFF;
     border-radius: 32px;
@@ -527,6 +533,9 @@ form[name="ckeckout"] *{
 .shipping-address-modal-container-left, .shipping-address-modal-container-right{
     width: 49%;
     max-width: 225px;
+}
+.shipping-address-modal-container-left input{
+    outline: none;
 }
 .shipping-address-modal-container-details{
     display: flex;
@@ -569,16 +578,19 @@ form[name="ckeckout"] *{
     line-height: 120%;
 }
 .promo-input-container{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 32px;
-
 }
 .promo-input-container input{
+    width: 45%;
     background: none;
     border-style: none;
     border-bottom-style: solid;
     border-color: #2C1E2F;
-
+    outline: none;
 }
+
 
 /*промокод конец*/
 
@@ -629,6 +641,9 @@ form[name="ckeckout"] *{
     text-align: center;
 }
 /*состав вашего заказа - конец*/
+
+
+
 .checkout-bottom-container{
     margin: 33px auto 33px auto;
     display: flex;
@@ -672,6 +687,8 @@ form[name="ckeckout"] *{
 }
 /*состав вашего заказа - конец*/
 
+
+
 /*оплата - начало*/
 .wc_payment_methods{
     display: none;
@@ -680,6 +697,7 @@ form[name="ckeckout"] *{
     display: none;
 }
 /*оплата - конец*/
+
 
 
 /*Thank you page begin*/
@@ -850,4 +868,29 @@ body.woocommerce-order-received .woocommerce{
 
         text-align: center;
     }
+
+
+    /*модальное окно ввода адреса начало*/
+    .shipping-address-modal-container{
+        width: 87%;
+        height: auto;
+    }
+    .shipping-address-modal-container-body{
+        flex-direction: column;
+    }
+    .shipping-address-modal-container-left{
+        width: 100%;
+        max-width: 100%;
+    }
+    .shipping-address-modal-container-right-street input{
+        width: 100%;
+    }
+    .shipping-address-modal-container-right{
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 57px;
+    }
+    /*модальное окно ввода адреса конец*/
+
 }

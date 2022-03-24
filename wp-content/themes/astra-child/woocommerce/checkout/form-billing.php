@@ -65,23 +65,24 @@ defined( 'ABSPATH' ) || exit;
 
         </div></div>
         <script id="ISDEKscript" type="text/javascript" src="https://widget.cdek.ru/widget/widjet.js"></script>
-        <script type="text/javascript">
-            var ourWidjet = new ISDEKWidjet ({
-                defaultCity: 'Москва', //какой город отображается по умолчанию
-                cityFrom: 'Москва', // из какого города будет идти доставка
-                country: 'Россия', // можно выбрать страну, для которой отображать список ПВЗ
-                link: 'pvz-container-map', // id элемента страницы, в который будет вписан виджет
-                path: 'https://widget.cdek.ru/widget/scripts/', //директория с библиотеками виджета
-                servicepath: '/service.php', //ссылка на файл service.php на вашем сайте
-                apikey: '8c6bc6c3-1d38-4091-8db8-16ed2494ad17' // ключ для корректной работы Яндекс.Карт, получить необходимо тут
-            });
-        </script>
+<!--        <script type="text/javascript">-->
+<!--            var ourWidjet = new ISDEKWidjet ({-->
+<!--                defaultCity: 'Москва', //какой город отображается по умолчанию-->
+<!--                cityFrom: 'Москва', // из какого города будет идти доставка-->
+<!--                country: 'Россия', // можно выбрать страну, для которой отображать список ПВЗ-->
+<!--                link: 'pvz-container-map', // id элемента страницы, в который будет вписан виджет-->
+<!--                path: 'https://widget.cdek.ru/widget/scripts/', //директория с библиотеками виджета-->
+<!--                servicepath: '/service.php', //ссылка на файл service.php на вашем сайте-->
+<!--                apikey: '8c6bc6c3-1d38-4091-8db8-16ed2494ad17' // ключ для корректной работы Яндекс.Карт, получить необходимо тут-->
+<!--            });-->
+<!--        </script>-->
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>
+<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--        <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css" rel="stylesheet" />-->
+<!--        <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>-->
 
         <script>
+            //Похоже, уже не нужно
             //Ни хрена не работает отсюда, зато пашет в консоли
             // jQuery().ready(function (){
             //     jQuery("#shipping_city").suggestions({

@@ -87,7 +87,11 @@ footer{
     height: 20px;
     margin: 5px;
 }
-
+.footer-commerce-block{
+    /*width: 80%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
 .footer-commerce-block div{
 
 }
@@ -131,7 +135,9 @@ footer{
 
 
 .footer-commerce-block{
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -192,7 +198,9 @@ footer{
         height: 20px;
         transform: rotate(180deg);
     }
-
+    .footer-container-wrapper, .footer-commerce-block{
+        width: 100%;
+    }
 
     .footer-commerce-block div{
         width: 100%;

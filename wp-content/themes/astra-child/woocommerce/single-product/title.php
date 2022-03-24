@@ -18,5 +18,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+global $product;
 
 the_title( '<h1 class="header__product-title">', '</h1>' );
+?>
+<span class="catalog-dosage"><?=$product->get_meta('_recommended_count');?></span>

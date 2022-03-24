@@ -370,11 +370,21 @@
     color: black; }
 
 
+@media (min-width: 1440px) {
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm,
+.container {
+  max-width: 1440px !important;
+  }
+}
 
 .block__title {
     margin: 0;
     padding: 0;
-    font-family: 'PP Pangram Sans Compact';
+    font-family: 'PP Pangram Sans';
     font-weight: 700;
     font-size: 32px;
     line-height: 120%;
@@ -383,14 +393,15 @@
 .block__text {
     margin: 0;
     padding: 0;
-    font-family: 'PP Pangram Sans Compact';
+    font-family: 'PP Pangram Sans';
     font-size: 20px;
+    font-weight: 300;
     line-height: 120%;
     color: #1C131E; }
 .block__text-small {
     margin: 0;
     padding: 0;
-    font-family: 'PP Pangram Sans Compact';
+    font-family: 'PP Pangram Sans';
     font-size: 18px;
     line-height: 120%;
     color: #1C131E; }
@@ -519,7 +530,7 @@ overflow: auto;
 .block-10__accordion-item {
     margin: 0;
     padding: 0;
-    font-family: 'PP Pangram Sans Compact';
+    font-family: 'PP Pangram Sans';
     font-size: 20px;
     line-height: 120%;
     color: #F4F4F4; }
@@ -1360,7 +1371,7 @@ overflow: auto;
     margin: 0;
     padding: 25px 0 0 0;
     border-bottom: none !important;
-    font-family: 'PP Pangram Sans Compact';
+    font-family: 'PP Pangram Sans';
     font-size: 20px;
     line-height: 120%;
     color: #1C131E; }
@@ -1485,6 +1496,7 @@ overflow: auto;
     margin-bottom: 35px;
     max-width: 365px;
     text-align: center;
+    font-weight: 300;
 }
 
 .block-12__btn-text{
@@ -1504,6 +1516,7 @@ overflow: auto;
     border: 1px solid #2C1E2F;
     color: #1C131E;
     background: transparent;
+    transition: all .2s linear;
 }
 .block-12__text-small{
     margin-bottom: 10px;

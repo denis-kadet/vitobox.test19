@@ -249,8 +249,8 @@ jQuery(document).ready(function ($) {
                 $('.product_container').html(result.fragments.products)
                 $('.subtotal').html(result.total);
                 changeQuantity();
-                if(result.count > 7){
-                    createPopupAddCart(result.count, '');
+                if(arg != 'remove-product'){
+                    createPopupAddCart(result.count, result.name);
                 }
                 removeAjaxProductMiniBasket($('.remove_product'));
                 $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
@@ -317,7 +317,6 @@ jQuery(document).ready(function ($) {
                         var result = JSON.parse(data);
                         var product_list = $('.basket_vitobox .product__list');
                         createPopupAddCart(result.count, result.name);
-                        console.log(result.count)
                         if(result.count <= 7){
                             $('.product_container').html(result.fragments.products);
                             removeAjaxProductMiniBasket($('.remove_product'));
@@ -406,5 +405,20 @@ jQuery(document).ready(function ($) {
             $('.filter-list').fadeIn(0);
         })
     }
+
+    //single page product
+    $('.product__attribute-icon').on('click', function (){
+        $(this)
+            .addClass('active')
+            .siblings()
+            .removeClass('active');
+    });
+
+    $('.single_add_to_cart_button').on('click', function (e){
+        e.preventDefault();
+        let product_id = $(this).val();
+        let quantity = $('.quantity').find('input').val();
+        updateBasket('add-product', product_id, null, quantity);
+    })
 
 });

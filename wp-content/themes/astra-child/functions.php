@@ -76,6 +76,8 @@ function load_scripts(){
     wp_enqueue_script('script_slick_slider',  get_stylesheet_directory_uri().'/assets/js/slick.min.js');
     wp_enqueue_script('script_accordion_js',  get_stylesheet_directory_uri().'/assets/js/accordion.min.js');
     wp_enqueue_script('script_main_page',  get_stylesheet_directory_uri().'/assets/js/page-main.js');
+    wp_enqueue_script('script_inputmask',  get_stylesheet_directory_uri().'/assets/js/inputmask.js');
+    wp_enqueue_script('script_bootstrap',  get_stylesheet_directory_uri().'/assets/js/bootstrap.js');
 
 //    wp_enqueue_script('jquery');
 //    wp_enqueue_script('slickjs', get_stylesheet_directory_uri() . '/assets/js/slick.min.js');
@@ -126,6 +128,7 @@ add_action( 'wp_ajax_nopriv_remove-product', 'find_product__ajax_remove' );
 function find_product__ajax_remove() {
 
     $product_id = $_POST['product_id'];
+    $countCarts = WC()->cart->get_cart_contents_count() + 1; //получаем число до обновления корзины
 
     WC()->cart->remove_cart_item($product_id);
     WC()->cart->calculate_totals();
@@ -145,7 +148,7 @@ function find_product__ajax_remove() {
                 'products' => $mini_cart,
             )
         ),
-        'cart_hash' => WC()->cart->get_cart_hash(),
+        'cart_hash' => WC()->cart->get_cart_hash()
     ));
     die();
 }
@@ -160,13 +163,12 @@ function find_product__ajax_add() {
     $quantity = $_POST['quantity'];
     $countCarts = WC()->cart->get_cart_contents_count() + 1; //получаем число до обновления корзины
 
-    if( $product_id && !$quantity['key_id'] && !$quantity['count'] && ($countCarts <= 7)) {
+    if( $product_id && !$quantity['key_id'] && ($countCarts <= 7)) {
         WC()->cart->add_to_cart($product_id);
     }
 
     if( $product_id && $quantity['key_id'] && $quantity['count'] && ($countCarts <= 7)) {
-        $count = $quantity['count'];
-        WC()->cart->set_quantity($quantity['key_id'], $count);
+        WC()->cart->set_quantity($quantity['key_id'], $quantity['count']);
     }
 
     woocommerce_mini_cart();
@@ -303,17 +305,55 @@ function getSections(){
     }
 
     if(!$_POST['query']['target'] && !$_POST['query']['category']){
-        get_template_part( 'template-parts/category', 'section', '' );
+        $uri = $_SERVER['REQUEST_URI'];
+        $pathnames = explode('/', $uri);
+        $pathnames = array_diff($pathnames, array(''));
+        $pathname = '';
+        if(!empty($pathnames[2])){
+            $pathname = $pathnames[2];
+        }
+        if(!empty($pathnames[3])){
+            $pathname = $pathnames[3];
+        }
+        get_template_part( 'template-parts/category', 'section', $pathname );
     }
     return;
 }
 
 function remove_woo_content_from_single_product (){
     remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+    remove_action('woocommerce_single_product_summary','woocommerce_template_single_price');
     //tabs
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+    //filter
+    add_filter( 'woocommerce_cart_item_removed_title',  '__return_null' );
 }
 
 add_action( 'init', 'remove_woo_content_from_single_product', 0);
+
+
+//убираем оповещения woocommerce
+add_filter( 'wc_add_to_cart_message', 'remove_add_to_cart_message' );
+
+function remove_add_to_cart_message() {
+    return;
+}
+
+add_filter('woocommerce_before_add_to_cart_form', 'add_price_and_note_simple_product');
+
+function add_price_and_note_simple_product(){
+    global $product;
+    ?>
+    <div class="simple__product-additionally">
+        <div class="simple__product-price">
+            <?=$product->get_price_html();?>
+        </div>
+        <div class="simple__product-note">
+            <?=$product->get_meta('_recommended_note');?>
+        </div>
+    </div>
+    <?
+}

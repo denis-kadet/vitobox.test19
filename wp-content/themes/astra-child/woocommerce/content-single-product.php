@@ -47,6 +47,21 @@ if ( post_password_required() ) {
             </div>
 
             <div class="header__info col-md-5">
+                <div class="product__attribute-list">
+                    <?php $subheadingvalues = get_the_terms( $product->id, 'pa_targets');
+                    if($subheadingvalues){
+                        foreach ( $subheadingvalues as $subheadingvalue ) {
+                            ?>
+                            <div class="product__attribute-icon">
+                                <span class="product__desc-icon"><?=$subheadingvalue->name;?></span>
+                                <svg>
+                                    <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#<?=$subheadingvalue->slug;?>"></use>
+                                </svg>
+                            </div>
+                            <?
+                        }
+                    }?>
+                </div>
                 <?php
                 /**
                  * Hook: woocommerce_single_product_summary.
