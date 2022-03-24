@@ -7,6 +7,10 @@ ul {
     padding-left: 20px;
 }
 
+#ast-desktop-header {
+    top: 0;
+}
+
 /* basket */
 .basket_background {
     position: fixed;
@@ -729,7 +733,7 @@ ul {
 .top {
     background-image: url('/wp-content/themes/astra-child/assets/img/blue_blur.png');
     top: 220px;
-    right: 0;
+    right: -70px;
 }
 
 .middle {
@@ -1074,6 +1078,10 @@ button.product_type_simple:focus {
         font-size: 16px;
         margin-bottom: 0px;
     }
+    .catalog-item-price,
+    .catalog-recommended {
+        padding-bottom: 12px;
+    }
     .catalog-recommended {
         margin: 0;
         font-size: 12px;
@@ -1235,6 +1243,7 @@ button.product_type_simple:focus {
 
 /*modal single product*/
 .product__modal {
+    position: relative;
     max-width: 585px;
 }
 
@@ -1256,9 +1265,25 @@ button.product_type_simple:focus {
 }
 
 .product__modal .modal-body{
-    padding: 0px 40px 0 40px;
+    padding: 0px 40px 40px 40px;
     font-size: 14px;
     font-family: 'PP Pangram Sans';
+}
+
+.btn__close-modal {
+    position: absolute;
+    right: 23px;
+    top: 20px;
+    width: 29px;
+    height: 30px;
+    background-image: url(../img/close_popup.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: transform .3s;
+}
+.btn__close-modal:hover {
+    transform: rotate(180deg);
 }
 
 .single_product__compose {
@@ -1269,4 +1294,20 @@ button.product_type_simple:focus {
 
 .single_product__compose:hover {
     color: #1C131E;
+}
+
+.table_header-popup {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.modal-table {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-table tr {
+    padding-left: 0;
 }

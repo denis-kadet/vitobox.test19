@@ -229,6 +229,89 @@ function gaga_lite_category_lists(){
 
 }
 
+add_filter('woocommerce_product_data_tabs', 'add_new_tabs', 10, 1);
+
+function add_new_tabs($tabs){
+    $tabs['composition'] = array(
+        'label'    => 'Состав продукта',
+        'target'   => 'composition_product_data',
+        'class'    => array( 'hide_if_grouped' ),
+        'priority' => 15,
+    );
+
+    return $tabs;
+}
+
+add_action( 'admin_footer', function(){
+    ?>
+    <style>
+        #woocommerce-coupon-data ul.wc-tabs .composition_options a::before,
+        #woocommerce-product-data ul.wc-tabs .composition_options a::before,
+        .woocommerce ul.wc-tabs .composition_options a::before {
+            font-family: WooCommerce;
+            content: "\e034"
+        }
+    </style>
+    <?php
+});
+
+add_action('woocommerce_product_data_panels', 'add_new_tabs_panel');
+function add_new_tabs_panel(){
+    global $post;
+    ?>
+    <div id="composition_product_data" class="panel woocommerce_options_panel">
+        <div class="options_group">
+            <style>
+                .composition_admin_head h2{
+                    display: inline-block;
+                }
+            </style>
+            <div class="options_group" style="text-align: center;">
+                <h2><strong>Таблица "Дозировки". Модальное окно.</strong></h2>
+            </div>
+            <div class="composition_admin_head options_group">
+                <h2 style="width: 15.75%"><strong>Состав</strong></h2>
+                <h2 style="width: 15.75%"><strong>Дозировка</strong></h2>
+                <h2 style="width: 15.75%"><strong>Суточная норма</strong></h2>
+                <h2 style="width: 15.75%"><strong>% от РСП</strong></h2>
+            </div>
+            <p class="custom_field_type">
+                <span class="wrap">
+                <input
+                        placeholder="Введите название"
+                        class="input-text"
+                        type="text"
+                        name="_row_one_name"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_one_name', true)); ?>"
+                        style="width: 15.75%;margin-right: 2%;"/>
+                <input
+                        placeholder="Введите значение"
+                        class="input-text"
+                        type="text"
+                        name="_row_one_col_1"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_one_col_1', true)); ?>"
+                        style="width: 15.75%;margin-right: 2%;"/>
+                <input
+                        placeholder="Введите значение"
+                        class="input-text"
+                        type="text"
+                        name="_row_one_col_2"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_one_col_2', true)); ?>"
+                        style="width: 15.75%;margin-right: 2%;"/>
+                <input
+                        placeholder="Введите значение"
+                        class="input-text"
+                        type="text"
+                        name="_row_one_col_3"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_one_col_3', true)); ?>"
+                        style="width: 15.75%;margin-right: 0;"/>
+                </span>
+            </p>
+        </div>
+    </div>
+    <?php
+}
+
 add_action('woocommerce_product_options_general_product_data', function(){
     ?>
     <div class="options_group">
@@ -287,6 +370,31 @@ add_action( 'woocommerce_process_product_meta', function ($post_id){
     update_post_meta($post_id, '_recommended_note', $textRecommended);
     update_post_meta($post_id, '_recommended_count', $textRecommendedCount);
     update_post_meta($post_id, '_recommended_number', $textRecommendedNumber);
+    //вкладка состав
+    // Сохранение текстового поля.
+    $woocommerce_table_name_row_one = $_POST['_row_one_name'];
+    if ( !empty( $woocommerce_table_name_row_one ) ) {
+        update_post_meta( $post_id, '_row_one_name', esc_attr( $woocommerce_table_name_row_one ) );
+    }
+    $woocommerce_table_col_one_row_one = $_POST['_row_one_col_1'];
+    if ( !empty( $woocommerce_table_col_one_row_one ) ) {
+        update_post_meta( $post_id, '_row_one_col_1', esc_attr( $woocommerce_table_col_one_row_one ) );
+    }
+    $woocommerce_table_col_two_row_one = $_POST['_row_one_col_2'];
+    if ( !empty( $woocommerce_table_col_two_row_one ) ) {
+        update_post_meta( $post_id, '_row_one_col_2', esc_attr( $woocommerce_table_col_two_row_one ) );
+    }
+    $woocommerce_table_col_three_row_one = $_POST['_row_one_col_3'];
+    if ( !empty( $woocommerce_table_col_three_row_one ) ) {
+        update_post_meta( $post_id, '_row_one_col_3', esc_attr( $woocommerce_table_col_three_row_one ) );
+    }
+//    $textTableColOne = isset($_POST['_row_one_col_1']) ? sanitize_text_field($_POST['_row_one_col_1']) : '';
+//    $textTableColTwo = isset($_POST['_row_one_col_2']) ? sanitize_text_field($_POST['_row_one_col_2']) : '';
+//    $textTableColThree = isset($_POST['_row_one_col_3']) ? sanitize_text_field($_POST['_row_one_col_3']) : '';
+//    update_post_meta($post_id, '_row_one_name', $textTableName);
+//    update_post_meta($post_id, '_row_one_col_1', $textTableColOne);
+//    update_post_meta($post_id, '_row_one_col_2', $textTableColTwo);
+//    update_post_meta($post_id, '_row_one_col_3', $textTableColThree);
 }, 10, 1 );
 
 add_action( 'wp_ajax_section', 'getSections' );
@@ -356,4 +464,5 @@ function add_price_and_note_simple_product(){
         </div>
     </div>
     <?
-}
+};
+
