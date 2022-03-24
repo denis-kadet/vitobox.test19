@@ -5,7 +5,7 @@
                 <div class="col-xxl-12 ">
                     <div class="block__title block-7__title ">Европейское качество компонентов</div>
                 </div>
-                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6 ">
+                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6 d-flex d-sm-block justify-content-center">
                     <picture>
                         <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-7-img.webp " type="image/webp ">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-7-img.png " alt="icon:app " class="block-7__img ">

@@ -35,7 +35,7 @@
 
                             <div class="block-5__text-wrap ">
                                 <div class="block__text block-5__text-1 ">Made for:</div>
-                                <div class="block-5__text-2 ">Alexnader</div>
+                                <div class="block-5__text-2 ">Alexnader V</div>
                                 <div class="block__text block-5__text-3 ">Предриниматель, спортсмен</div>
                                 <div class="block__text block-5__text-4 ">Александр поздно ложится из-за ненормированного графика, бегает по утрам, готовится к марафону</div>
                                 <ul class="block-5__items ">
@@ -80,7 +80,7 @@
 
                             <div class="block-5__text-wrap ">
                                 <div class="block__text block-5__text-1">Made for:</div>
-                                <div class="block-5__text-2">Alla</div>
+                                <div class="block-5__text-2">Alla B</div>
                                 <div class="block__text block-5__text-3">Фриланс-фотограф</div>
                                 <div class="block__text block-5__text-4">Аллам много работает, медитирует для снятия стресса, хочет улучшить качество волос и ногтей</div>
                                 <ul class="block-5__items">
@@ -123,7 +123,7 @@
 
                             <div class="block-5__text-wrap ">
                                 <div class="block__text block-5__text-1 ">Made for:</div>
-                                <div class="block-5__text-2 ">Svetlana</div>
+                                <div class="block-5__text-2 ">Svetlana G</div>
                                 <div class="block__text block-5__text-3 ">Фриланс-фотограф</div>
                                 <div class="block__text block-5__text-4 ">Светлана часто путешествует, занимается танцами, отказалась от мяса — ей важно восполнять дефициты</div>
                                 <ul class="block-5__items">
