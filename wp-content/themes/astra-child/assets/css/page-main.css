@@ -467,7 +467,7 @@ overflow: auto;
     font-family: "PP Pangram Sans";
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 60px;
     color: #F4F4F4;
     cursor: pointer; }
@@ -503,7 +503,9 @@ overflow: auto;
     max-width: 100%;
     width: 505px;
     height: 320px;
-    border-radius: 60px; }
+    border-radius: 60px;
+
+}
 
 .block-10__slider-list {
     display: flex;
@@ -521,14 +523,15 @@ overflow: auto;
     font-family: "PP Pangram Sans";
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
     color: #F4F4F4;
     line-height: 120%; }
+
 .block-10__accordion-title::after {
     content: url("../images/icons/block-10-plus-white.svg");
     position: absolute;
     right: 18px;
-    top: 7px;
+    top: 22px;
     width: 20px;
     height: 20px; }
 .block-10__accordion-item {
@@ -536,6 +539,7 @@ overflow: auto;
     padding: 0;
     font-family: 'PP Pangram Sans';
     font-size: 20px;
+    font-weight: 300;
     line-height: 120%;
     color: #F4F4F4; }
 .block-10__accordion-items {
@@ -546,14 +550,25 @@ overflow: auto;
     content: '';
     position: absolute;
     right: 18px;
-    top: 7px;
+    top: 18px;
     width: 20px;
     height: 20px;
     background: url("../images/icons/block-9-minus.svg") center center no-repeat transparent; }
 
 @media (max-width: 767.99px) {
     .block-10__accordion-title {
-        padding-right: 60px; } }
+        margin: 0;
+        padding: 20px 60px 20px 0;
+        border-bottom: none;
+    }
+    .block-10__accordion-inner:not(:last-child){
+        border-bottom: 1px solid #F4F4F4;
+    }
+    .block-10__list-img {
+        margin-top: 0px;
+        object-fit: cover;
+    }
+}
 
 @media (max-width: 576.99px) {
     .block-10 {
@@ -561,12 +576,16 @@ overflow: auto;
     .block-10__title {
         margin-bottom: 30px; }
     .block-10__accordion-title {
-        font-size: 16px; }
+        font-size: 16px;
+
+    }
     .block-10__accordion-title::after {
         width: 20px;
         height: 20px; }
     .block-10__accordion-item {
-        font-size: 16px; } }
+        font-size: 16px; }
+
+}
 
 .block-11 {
     padding: 120px 0; }
@@ -1383,7 +1402,7 @@ font-size: 18px;
     font-family: "PP Pangram Sans";
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 120%;
     cursor: pointer; }
 .block-9__accordion-title span {
@@ -1446,7 +1465,7 @@ font-size: 18px;
     content: '';
     position: absolute;
     right: 0;
-    top: 38px;
+    top: 25px;
     display: block;
     width: 25px;
     height: 25px;
@@ -1458,7 +1477,7 @@ font-size: 18px;
     content: '';
     position: absolute;
     right: 0;
-    top: 40px;
+    top: 25px;
     display: block;
     width: 25px;
     height: 25px;

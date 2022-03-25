@@ -118,7 +118,7 @@
                 <div class="col-12 d-md-none d-block ">
                     <ul id="block-10__accordion" class="block-10__accordion ">
                         <!-- Section 1 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h4 class="block-10__accordion-title ">Проблемы с кожей</h4>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -133,7 +133,7 @@
                             </ul>
                         </li>
                         <!-- Section 2 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">Выпадение волос</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -146,7 +146,7 @@
                             </ul>
                         </li>
                         <!-- Section 3 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">Длительная усталость</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -159,7 +159,7 @@
                             </ul>
                         </li>
                         <!-- Section 4 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">Проблемы с иммунитетом</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -172,7 +172,7 @@
                             </ul>
                         </li>
                         <!-- Section 5 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">Пигментация</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -185,7 +185,7 @@
                             </ul>
                         </li>
                         <!-- Section 6 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">Проблемы с ЖКТ</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -198,7 +198,7 @@
                             </ul>
                         </li>
                         <!-- Section 7 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">Набор веса</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -211,7 +211,7 @@
                             </ul>
                         </li>
                         <!-- Section 8 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">ПМС</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
@@ -224,7 +224,7 @@
                             </ul>
                         </li>
                         <!-- Section 9 -->
-                        <li>
+                        <li class="block-10__accordion-inner">
                             <h3 class="block-10__accordion-title ">Повышенная кровоточивость</h3>
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
