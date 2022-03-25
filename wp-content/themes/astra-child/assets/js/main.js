@@ -323,6 +323,7 @@ jQuery(document).ready(function ($) {
                             changeQuantity();
                             self.text('Добавлено');
                             self.attr('disabled', 'true');
+                            self.addClass('added')
                             $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
                             $('.ast-site-header-cart').eq(1).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //mobile icon
                             if(screen < 480){

@@ -796,6 +796,9 @@ ul {
 
 .catalog-title {
     padding: 0 20px;
+    font-size: 24px;
+    font-family: PP Pangram Sans;
+    font-weight: 700;
 }
 
 button.product_type_simple:focus {
@@ -837,6 +840,17 @@ button.product_type_simple:focus {
     display: block;
 }
 
+.added {
+    background-color: #fff !important;
+    color: #4281A4 !important;;
+}
+
+@media (max-wdith: 1200px) {
+    .catalog-title {
+        font-size: 23px;
+    }
+}
+
 @media (max-width: 1024px){
     .filter {
         height: 230px;
@@ -848,7 +862,7 @@ button.product_type_simple:focus {
         height: 400px;
     }
     .catalog-image {
-        height: 110px;
+        height: 140px;
     }
     .catalog-title {
         padding: 0 10px;

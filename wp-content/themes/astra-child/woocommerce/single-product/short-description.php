@@ -51,7 +51,7 @@ if ( ! $short_description ) {
                     </tr>
                     <tr>
                         <td>
-                            <?=htmlspecialchars($product->get_meta('_row_one_name'));?>
+                            <?=htmlspecialchars_decode($product->get_meta('_row_one_name'));?>
                         </td>
                         <td class="text-center">
                             <?=$product->get_meta('_row_one_col_1');?>
@@ -63,66 +63,66 @@ if ( ! $short_description ) {
                             <?=$product->get_meta('_row_one_col_3');?>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Витамин А<br>
-                            (Ретинола ацетат)
-                        </td>
-                        <td class="text-center">
-                            3 мг
-                        </td>
-                        <td class="text-center">
-                            0.9 мг
-                        </td>
-                        <td class="text-center">
-                            333
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Витамин В3<br>
-                            (Никотиновая кислота)
-                        </td>
-                        <td class="text-center">
-                            20 мг
-                        </td>
-                        <td class="text-center">
-                            20 мг
-                        </td>
-                        <td class="text-center">
-                            100
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Витамин В6<br>
-                            (Пиридоксин)
-                        </td>
-                        <td class="text-center">
-                            5 мг
-                        </td>
-                        <td class="text-center">
-                            2 мг
-                        </td>
-                        <td class="text-center">
-                            250
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Железо<br>
-                            (Железа фумарат)
-                        </td>
-                        <td class="text-center">
-                            20 мг
-                        </td>
-                        <td class="text-center">
-                            2 мг
-                        </td>
-                        <td class="text-center">
-                            200
-                        </td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                            Витамин А<br>-->
+<!--                            (Ретинола ацетат)-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            3 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            0.9 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            333-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                            Витамин В3<br>-->
+<!--                            (Никотиновая кислота)-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            20 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            20 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            100-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                            Витамин В6<br>-->
+<!--                            (Пиридоксин)-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            5 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            2 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            250-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                            Железо<br>-->
+<!--                            (Железа фумарат)-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            20 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            2 мг-->
+<!--                        </td>-->
+<!--                        <td class="text-center">-->
+<!--                            200-->
+<!--                        </td>-->
+<!--                    </tr>-->
                 </table>
             </div>
         </div>
