@@ -24,3 +24,9 @@
     font-size: 20px;
     font-weight: 300;
 }
+.menu-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

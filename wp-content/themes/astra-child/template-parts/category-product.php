@@ -1,5 +1,5 @@
 <?php
-
+global $post;
 $products = new WP_Query( array(
     'post_type'      => array('product'),
     'post_status'    => 'publish',
@@ -32,7 +32,7 @@ $products = new WP_Query( array(
                     </div>
                 <? endif ;?>
                 <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
-                <div class="catalog-top" href="<?php echo get_permalink($products->post->ID) ?>">
+                <div class="catalog-top" href="<?php echo get_permalink($product->post->ID) ?>">
                     <div class="catalog-image">
                         <?=get_the_post_thumbnail($products->post->ID, 'shop_single');?>
                     </div>
@@ -41,12 +41,13 @@ $products = new WP_Query( array(
                         <span class="catalog-dosage"><?=$product->get_meta('_recommended_count');?></span>
                         <div class="category-attribute">
                             <?php
+                                $subheadingvalues = get_the_terms( $product->id, 'pa_targets');
                                 if(isset($subheadingvalues)){
-                                    $subheadingvalues = get_the_terms( $product->id, 'pa_targets');
                                     foreach ( $subheadingvalues as $subheadingvalue ) {
                                      ?>
                                         <div class="catalog-icon">
                                             <svg>
+                                                <title><?=$subheadingvalue->name;?></title>
                                                 <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#<?=$subheadingvalue->slug;?>"></use>
                                             </svg>
                                         </div>
@@ -56,7 +57,7 @@ $products = new WP_Query( array(
                             ?>
                         </div>
                         <div class="catalog-desc-item">
-                            <?= the_excerpt($products->post); ?>
+                            <?= the_excerpt($product->post); ?>
                         </div>
                         <div class="catalog-item-price">
                             <?php echo $product->get_price_html(); ?>
@@ -67,7 +68,7 @@ $products = new WP_Query( array(
                     </div>
                 </div>
                 <div class="catalog-bottom">
-                    <?php woocommerce_template_loop_add_to_cart( $products->post, $product ); ?>
+                    <?php woocommerce_template_loop_add_to_cart( $product->post, $product ); ?>
                 </div>
             </a>
         </li>

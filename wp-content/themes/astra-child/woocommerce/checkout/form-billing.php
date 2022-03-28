@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
                 </div>
                 <div  class="pvz-container-heading__buttons">
                     <div class="pvz-container-heading__ready-button">
-                        <button id="pvz-ready">
+                        <button id="pvz-ready" class="checkout-transparent-button ">
                             Готово
                         </button>
                     </div>
@@ -114,7 +114,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		$fields = $checkout->get_checkout_fields( 'billing' );
 
-        $fields['billing_city']['default'] = 'Москва';
+//        $fields['billing_city']['default'] = '';
 
         foreach ( $fields as $key => $field ){
 
@@ -122,7 +122,7 @@ defined( 'ABSPATH' ) || exit;
                 if( $fieldKey == "label" && $fieldValue == 'Телефон' ){
                     $fieldValue = "+7";
                 }elseif( $fieldKey == "label" && $fieldValue == 'Населённый пункт' ){
-                    $fieldValue = "Москва";
+                    $fieldValue = "Город";
                 }
 
                 if( $fieldKey == "label"  ){

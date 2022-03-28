@@ -17,9 +17,9 @@ jQuery().ready(function($){
         });
 
         function onChoose(wat) {
-            jQuery('.pvz-container-address-details__address .pvz-container-address-details-data').html(wat.id + ', ' + wat.PVZ.Address);
-            jQuery('.pvz-container-address-details__price .pvz-container-address-details-data').html(wat.price);
-            jQuery('.pvz-container-address-details__terms .pvz-container-address-details-data').html(wat.term);
+            jQuery('.pvz-container-address-details__address .pvz-container-address-details-data').html(' ' + wat.id + ', ' + wat.PVZ.Address);
+            jQuery('.pvz-container-address-details__price .pvz-container-address-details-data').html(' ' + wat.price);
+            jQuery('.pvz-container-address-details__terms .pvz-container-address-details-data').html(' ' + wat.term);
             jQuery('#pvz-container-address-details').show();
         }
     }catch(e){
@@ -28,38 +28,38 @@ jQuery().ready(function($){
 
 
 
-    let timer;
-
-    jQuery('input[name=billing_city]').on('input', function(){
-        let self = $(this).val();
-        clearTimeout(timer);
-        if(self.length){
-            timer = setTimeout(function (){
-                let value = self.split('');
-                let firstWord = value.shift().toUpperCase();
-                value.unshift(firstWord);
-                value = value.join('');
-                console.log(firstWord, value)
-                let dataStr = {city_name: value, action: 'show_pvz'};
-                try{
-                    ourWidjet.city.set(value);
-                }catch (e) {
-                    console.log(e);
-                }
-                jQuery.ajax({
-                    type: "POST",
-                    data: dataStr,
-                    url: "/CdekPvz.php",
-                    success: function(data){
-                        jQuery('#pvz-container-list').html(data);
-                        jQuery('.pvz-container-wrapper').show();
-                        jQuery('body').addClass('basket-fixed');
-                    }
-
-                })
-            }, 2000);
-        }
-    });//Виджет пвз + отправка ajax для получения списка пвз
+    // let timer;
+    //
+    // jQuery('input[name=billing_city]').on('input', function(){
+    //     let self = $(this).val();
+    //     clearTimeout(timer);
+    //     if(self.length){
+    //         timer = setTimeout(function (){
+    //             let value = self.split('');
+    //             let firstWord = value.shift().toUpperCase();
+    //             value.unshift(firstWord);
+    //             value = value.join('');
+    //             console.log(firstWord, value)
+    //             let dataStr = {city_name: value, action: 'show_pvz'};
+    //             try{
+    //                 ourWidjet.city.set(value);
+    //             }catch (e) {
+    //                 console.log(e);
+    //             }
+    //             jQuery.ajax({
+    //                 type: "POST",
+    //                 data: dataStr,
+    //                 url: "/CdekPvz.php",
+    //                 success: function(data){
+    //                     jQuery('#pvz-container-list').html(data);
+    //                     jQuery('.pvz-container-wrapper').show();
+    //                     jQuery('body').addClass('basket-fixed');
+    //                 }
+    //
+    //             })
+    //         }, 2000);
+    //     }
+    // });//Виджет пвз + отправка ajax для получения списка пвз
 
     // jQuery('input[name=shipping_city]').on('input', function(){
     //     let dataStr = jQuery('input[name=shipping_city]').val();
@@ -72,9 +72,40 @@ jQuery().ready(function($){
     jQuery('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
         event.preventDefault();
         cityDefault = jQuery('input[name=billing_city]').val();
+        if( cityDefault == '' ){
+            cityDefault = "Москва";
+        }
+//
+        let self = $('input[name=billing_city]').val();
+        if(self.length){
+            let value = self.split('');
+            let firstWord = value.shift().toUpperCase();
+            value.unshift(firstWord);
+            value = value.join('');
+            console.log(value)
+            let dataStr = {city_name: value, action: 'show_pvz'};
+            try {
+                ourWidjet.city.set(value);
+            } catch (e) {
+                console.log(e);
+            }
+            jQuery.ajax({
+                type: "POST",
+                data: dataStr,
+                url: "/CdekPvz.php",
+                success: function (data) {
+                    jQuery('#pvz-container-list').html(data);
+                    jQuery('.pvz-container-wrapper').show();
+                    jQuery('body').addClass('basket-fixed');
+                }
+
+            })
+        }
+//
+
+
         try{
             ourWidjet.city.set(cityDefault);
-
         }catch (e) {
             console.log(e);
         }
@@ -83,7 +114,7 @@ jQuery().ready(function($){
         })
         jQuery(this).addClass('checkout-selected-button');
         window.scrollTo(0, 0)
-        jQuery('.pvz-container-wrapper').show();
+        jQuery('.pvz-container-wrapper').show(350);
         jQuery('body').addClass('basket-fixed');
     });
 
@@ -94,7 +125,7 @@ jQuery().ready(function($){
             if(jQuery('body').hasClass('basket-fixed')){
                 jQuery('body').removeClass('basket-fixed');
             }
-            jQuery('.pvz-container-wrapper').hide();
+            jQuery('.pvz-container-wrapper').hide(350);
         }
     });
     jQuery('.pvz-container-heading__close-button').on('click', function(){//Скрывает окно выбора пвз
@@ -102,16 +133,16 @@ jQuery().ready(function($){
         if(jQuery('body').hasClass('basket-fixed')){
             jQuery('body').removeClass('basket-fixed');
         }
-        jQuery('.pvz-container-wrapper').hide();
+        jQuery('.pvz-container-wrapper').hide(350);
     });
 
     jQuery(document).on("click", ".pvz-detail-link", function(e) {//Раскрывает Как добраться
         e.preventDefault();
         let par = jQuery(this).parents('.pvz-container')
         jQuery('.pvz-detail-description').each(function(){
-            jQuery(this).hide();
+            jQuery(this).hide(350);
         });
-        par.find('.pvz-detail-description').show();
+        par.find('.pvz-detail-description').show(350);
     });
 
     jQuery('#pvz-ready').on('click', function (){//Отправка выбранного пвз в форму
@@ -124,8 +155,8 @@ jQuery().ready(function($){
         if(jQuery('body').hasClass('basket-fixed')){
             jQuery('body').removeClass('basket-fixed');
         }
-        jQuery('.pvz-container-wrapper').hide();
-        jQuery('#pvz-container-address-details').show();
+        jQuery('.pvz-container-wrapper').hide(350);
+        jQuery('#pvz-container-address-details').show(350);
     });
 
     jQuery(document).on("click", ".pvz-container", function(e){//Выбор пвз
@@ -160,7 +191,7 @@ jQuery().ready(function($){
         jQuery(this).addClass('checkout-selected-button');
         window.scrollTo(0, 0)
         jQuery(this).addClass('')
-        jQuery('#shipping-address-modal').show();
+        jQuery('#shipping-address-modal').show(350);
         jQuery('body').addClass('basket-fixed');
     });
 
@@ -172,7 +203,7 @@ jQuery().ready(function($){
             if(jQuery('body').hasClass('basket-fixed')){
                 jQuery('body').removeClass('basket-fixed');
             }
-            jQuery('#shipping-address-modal').hide();
+            jQuery('#shipping-address-modal').hide(350);
         }
     });
     jQuery('#shipping-address-modal-close').on('click', function (){
@@ -187,7 +218,7 @@ jQuery().ready(function($){
         addr = addr + ', ' + jQuery('.shipping-address-modal-container-right-apparts input').val();
         addr = jQuery('.shipping-address-modal-container-right-street input').val() + ', ' + addr
         jQuery('#billing_address_1').val(addr);
-        jQuery('#shipping-address-modal').hide();
+        jQuery('#shipping-address-modal').hide(350);
         if(jQuery('body').hasClass('basket-fixed')){
             jQuery('body').removeClass('basket-fixed');
         }
@@ -258,17 +289,17 @@ jQuery().ready(function($){
             'billing_phone': {
                 checkMaskPhone: true,
                 required: true
-            },
-            'custom-address-street': {
-                required: true,
-                minlength: 2
-            },
-            'custom-address-house': {
-                required: true
-            },
-            'custom-address-apparts': {
-                required: true
             }
+            // 'custom-address-street': {
+            //     required: true,
+            //     minlength: 3
+            // },
+            // 'custom-address-house': {
+            //     required: true
+            // },
+            // 'custom-address-apparts': {
+            //     required: true
+            // }
         },
         messages: {
             'billing_first_name': 'Введите имя корректно',
@@ -317,4 +348,20 @@ jQuery().ready(function($){
     })
 
     /*промокод конец*/
+
+    /*Изменение кнопки оформить заказ - начало*/
+    let chckChckt = () => {
+
+    }
+    $('form[name=checkout]').on('change', function(){
+        console.log($('input.error').length)
+        let btn = $('#place_order')
+
+        if( $('input.error').length == 0 ){
+            btn.removeClass('disable-place-order');
+        }else{
+            btn.addClass('disable-place-order');
+        }
+    });
+    /*Изменение кнопки оформить заказ - конец*/
 });

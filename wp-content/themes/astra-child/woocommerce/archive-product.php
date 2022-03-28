@@ -48,9 +48,11 @@ get_header( 'shop' );
         </div>
     </header>
     <div class="decor_container">
-        <div class="background-decor top"></div>
-        <div class="background-decor middle"></div>
-        <div class="background-decor bottom"></div>
+        <div class="background__decor-container">
+            <div class="background-decor top"></div>
+            <div class="background-decor middle"></div>
+            <div class="background-decor bottom"></div>
+        </div>
         <div class="ast-container" id="filter-catalog">
             <div class="filter">
                 <div class="mobile-filter-check">
@@ -71,56 +73,60 @@ get_header( 'shop' );
                 <div class="row">
                     <div class="filter-tabs col-12 col-md-12">
                         <div class="filter-wrapp">
-                            <div class="mobile__header-filter">
-                                Категории
-                                <div class="mobile__filter-close"></div>
-                            </div>
-                            <div class="filter-btn selected" data-category="all">Все продукты</div>
-                            <?
-                            $categories = get_terms( "product_cat", array(
-                                "order" => "ASC", // Направление сортировки
-                                "hide_empty" => 1,
-                                "parent" => 0,
-                                "exclude" => array(34,35),
-                            ));
-                            foreach ( $categories as $category ) {
-                                ?>
-                                <div class="filter-btn" id="<?=$category->term_id?>" data-category="<?=$category->slug?>">
-                                    <?=$category->name?>
+                            <div class="filter-list-items">
+                                <div class="mobile__header-filter">
+                                    Категории
+                                    <div class="mobile__filter-close"></div>
                                 </div>
+                                <div class="filter-btn selected" data-category="all">Все продукты</div>
                                 <?
-                            }
-                            ?>
+                                $categories = get_terms( "product_cat", array(
+                                    "order" => "ASC", // Направление сортировки
+                                    "hide_empty" => 1,
+                                    "parent" => 0,
+                                    "exclude" => array(34,35),
+                                ));
+                                foreach ( $categories as $category ) {
+                                    ?>
+                                    <div class="filter-btn" id="<?=$category->term_id?>" data-category="<?=$category->slug?>">
+                                        <?=$category->name?>
+                                    </div>
+                                    <?
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <div class="filter-tabs col-12 col-md-12">
                         <div class="filter-wrapp">
-                            <div class="mobile__header-filter">
-                                Цели
-                                <div class="mobile__filter-close"></div>
-                            </div>
-                            <div class="filter-btn selected" data-category="all">Все продукты</div>
-                            <?
-                            $attributes = wc_get_attribute_taxonomies();
-                            foreach ($attributes as $attribute) {
-                                if($attribute->attribute_name == 'targets'){
-                                    $attribute->attribute_terms = get_terms(array(
-                                        'taxonomy' => 'pa_'.$attribute->attribute_name,
-                                        'hide_empty' => false,
-                                    ));
-                                    foreach ($attribute->attribute_terms as $target) {
-                                        ?>
-                                        <div class="filter-btn" data-target="<?=$target->slug?>">
-                                            <svg class="inline-svg-icon cloud">
-                                                <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#<?=$target->slug?>"></use>
-                                            </svg>
-                                            <?=$target->name?>
-                                        </div>
-                                        <?
+                            <div class="filter-list-items">
+                                <div class="mobile__header-filter">
+                                    Цели
+                                    <div class="mobile__filter-close"></div>
+                                </div>
+                                <div class="filter-btn selected" data-category="all">Все продукты</div>
+                                <?
+                                $attributes = wc_get_attribute_taxonomies();
+                                foreach ($attributes as $attribute) {
+                                    if($attribute->attribute_name == 'targets'){
+                                        $attribute->attribute_terms = get_terms(array(
+                                            'taxonomy' => 'pa_'.$attribute->attribute_name,
+                                            'hide_empty' => false,
+                                        ));
+                                        foreach ($attribute->attribute_terms as $target) {
+                                            ?>
+                                            <div class="filter-btn" data-target="<?=$target->slug?>">
+                                                <svg class="inline-svg-icon cloud">
+                                                    <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#<?=$target->slug?>"></use>
+                                                </svg>
+                                                <?=$target->name?>
+                                            </div>
+                                            <?
+                                        }
                                     }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>

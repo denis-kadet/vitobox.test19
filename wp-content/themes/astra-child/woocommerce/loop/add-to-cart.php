@@ -25,7 +25,7 @@ echo apply_filters(
 	sprintf(
 		'<button data-quantity="%s" class="%s" %s>%s<svg class="mobile-basket-icon"><use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#box"></use></svg></button>',
 		esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
-		esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
+		esc_attr( isset( $args['class'] ) && $product->is_in_stock() ? $args['class'] : $args['class'].' disabled' ),
 		isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
 		esc_html( $product->is_in_stock() ? $product->add_to_cart_text() : 'Нет в наличии' )
 	),

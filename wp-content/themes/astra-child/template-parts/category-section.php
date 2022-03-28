@@ -63,6 +63,7 @@ $get_categories_products = get_terms("product_cat", [
                                                     ?>
                                                     <div class="catalog-icon">
                                                         <svg>
+                                                            <title><?=$subheadingvalue->name;?></title>
                                                             <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#<?=$subheadingvalue->slug;?>"></use>
                                                         </svg>
                                                     </div>

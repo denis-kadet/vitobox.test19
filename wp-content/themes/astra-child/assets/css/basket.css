@@ -257,10 +257,16 @@ ul {
     margin-right: 24px;
 }
 
-.block__price {
+.product_container .block__price {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.product_container .block__price .block__text {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'PP Pangram Sans';
 }
 
 .subtotal {
@@ -338,8 +344,6 @@ ul {
     background-size: contain;
 }
 
-
-
 .popup__success-img svg {
     width: 100%;
     heght: 100%;
@@ -389,6 +393,7 @@ ul {
     position: relative;
     padding: 50px 0;
     border-bottom: 1px solid #BDBDBD;
+    z-index: 1;
 }
 
 .category:last-child {
@@ -405,7 +410,7 @@ ul {
 .category-image {
     position: absolute;
     top: 0;
-    left: 20px;
+    left: 0;
     width: 38%;
     height: 600px;
     border-radius: 30px;
@@ -438,6 +443,7 @@ ul {
 
 /* catalog products */
 .catalog-list {
+    padding: 0;
     list-style: none;
 }
 .catalog-list li {
@@ -448,10 +454,7 @@ ul {
     position:relative;
     display: flex;
     flex-direction: column;
-    /*justify-content:space-between;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    border: 1px solid #BDBDBD;
+    border: 1px solid #BDBDBD !important;
     border-radius: 24px;
     overflow: hidden;
 }
@@ -581,9 +584,8 @@ ul {
 }
 
 .product_type_simple:hover {
-    background: #fff;
+    background: #2E5B74;
     border: 1px solid #4281A4 !important;
-    color: #4281A4;
 }
 
 .catalog-status {
@@ -607,10 +609,14 @@ ul {
 }
 
 /*filter*/
+#filter-catalog {
+    padding: 0;
+}
 .filter {
     height: 202px;
     padding-bottom: 30px;
     border-bottom: 1px solid #BDBDBD;
+    z-index: 1;
 }
 .filter-list {
     display: flex;
@@ -646,6 +652,10 @@ ul {
 }
 
 .filter-wrapp {
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter-list-items {
     display: flex;
     flex-wrap: wrap;
 }
@@ -720,6 +730,17 @@ ul {
 
 .decor_container {
     position: relative;
+}
+
+.background__decor-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .background-decor {
@@ -903,6 +924,13 @@ button.product_type_simple:focus {
         background-color: #fff;
         background-image: none;
     }
+    .top {
+        background-image: url('../img/fon_blue_mobile.png');
+        top: 220px;
+        right: 0;
+        width: 100%;
+        height: 1550px;
+    }
     .woocommerce-products-header {
         padding: 50px 0 130px 0;
         margin: 0;
@@ -922,6 +950,7 @@ button.product_type_simple:focus {
         position: sticky;
         top: 80px;
         left: 0;
+        padding: 0 20px;
         z-index: 999;
         background-color: #fff;
     }
@@ -945,11 +974,17 @@ button.product_type_simple:focus {
         transform: translateX(100%);
         transition: transform 0.6s ease-in-out;
     }
+    .filter-list-items {
+        flex-direction: column;
+        padding: 0 15px;
+    }
     .mobile__header-filter {
         position: relative;
         display: block;
         width: 100%;
         padding: 20px 30px;
+        margin-right: -15px;
+        margin-left: -15px;
         margin-bottom: 60px;
         border-bottom: 1px solid #E1E1E1;
         text-align: center;
@@ -1060,7 +1095,6 @@ button.product_type_simple:focus {
     .catalog-image {
         width: 116px;
         height: auto;
-        margin-right: 11px;
         border-right: 1px solid #BDBDBD;
         border-bottom: 0;
     }
@@ -1070,7 +1104,8 @@ button.product_type_simple:focus {
         justify-content: center;
         width: 125px;
         min-height: auto;
-        padding: 0;
+        padding-top: 0;
+        padding-left: 15px;
         text-align: left;
         margin-right: 7px;
     }
@@ -1094,7 +1129,7 @@ button.product_type_simple:focus {
     }
     .catalog-item-price,
     .catalog-recommended {
-        padding-bottom: 12px;
+        padding-bottom: 0;
     }
     .catalog-recommended {
         margin: 0;

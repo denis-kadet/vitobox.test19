@@ -82,7 +82,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                                     </div>
 
                                     <div class="shipping-address-modal-container-bottom wp-block-button custom-color">
-                                        <a id="fill-address-button" class="wp-block-button__link ">Готово</a>
+                                        <button id="fill-address-button" class="checkout-transparent-button">Готово</button>
                                     </div>
 
                                 </div>

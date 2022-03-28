@@ -26,11 +26,9 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
     //		do_action( 'woocommerce_before_mini_cart_contents' );
     //        add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
-            foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+            foreach ( $products as $cart_item_key => $cart_item ) {
                 $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
                 $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-                $recNum = $_product->get_attribute('rekomendovannoe-kolichestvo');
-                $monthNum = $_product->get_attribute('kolichestvo-v-mesyacz');
 
                 if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
                     $product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
@@ -50,7 +48,11 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                                 <?=$_product->get_meta('_recommended_note');?>
                             </div>
                             <div class="product__price">
-                                <?=$product_price;?>
+                                <?
+                                    $symbol = get_woocommerce_currency_symbol();
+                                    $price = $_product->get_price() * $cart_item['quantity'];
+                                    echo $price.' '.$symbol;
+                                ?>
                             </div>
                         </div>
                         <div class="product__control">

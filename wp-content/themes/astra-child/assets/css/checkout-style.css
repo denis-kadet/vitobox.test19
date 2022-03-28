@@ -7,6 +7,18 @@ body{
 footer{
     display: none;
 }
+.checkout-bottom-container__vitobox-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 18px;
+}
+.checkout-bottom-container__vitobox-logo a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("/wp-content/themes/astra-child/assets/img/vitobox.svg") no-repeat;
+}
 #shipping_country_field, #ship-to-different-address{
     display: none;
 }
@@ -307,6 +319,7 @@ form[name="ckeckout"] *{
 
 
 /*пункты самовывоза начало*/
+
 #pvz-container-map{
     display: none;
     margin: 40px;
@@ -391,14 +404,16 @@ form[name="ckeckout"] *{
     flex-direction: row;
     margin-bottom: 50px;
 }
-
-.pvz-container-heading__ready-button{
-    margin-right: 30px;
+.checkout-transparent-button{
     background: none;
     border-radius: 32px;
     color: #2C1E2F;
     cursor: pointer;
-
+    padding: 16px;
+    border: solid 1px #2C1E2F;
+}
+.pvz-container-heading__ready-button{
+    margin-right: 30px;
 }
 #pvz-ready{
     background: none;
@@ -440,6 +455,7 @@ form[name="ckeckout"] *{
 }
 .pvz-container-address-details__address, .pvz-container-address-details__price, .pvz-container-address-details__terms{
     display: flex;
+    margin-top: 18px;
     flex-direction: row;
 }
 .pvz-container-address-details-label, .pvz-container-address-details-label, .pvz-container-address-details-label{
@@ -473,8 +489,11 @@ form[name="ckeckout"] *{
 }
 #pvz-container::-webkit-scrollbar {
     display: none;
+    width: 1px;
 }
-
+.pvz-price{
+    font-weight: bold;
+}
 /*пункты самовывоза конец*/
 
 
@@ -509,6 +528,9 @@ form[name="ckeckout"] *{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+#shipping-address-modal-close{
+    cursor: pointer;
 }
 .shipping-address-modal-container-header h4{
     font-family: 'PP Pangram Sans';
@@ -627,8 +649,11 @@ form[name="ckeckout"] *{
     margin: 16px 36px;
     width: 233px;
     height: 56px;
-    background: #C6D9E4;
+    background: #4281A4;
     border-radius: 50px;
+}
+.place-order .button.disable-place-order{
+    background: #C6D9E4;
 }
 .announcement__container{
     display: flex;
@@ -869,7 +894,13 @@ body.woocommerce-order-received .woocommerce{
 
         text-align: center;
     }
-
+    #pvz-container-list{
+        width: 100%;
+    }
+    .pvz-container{
+        width: calc(100% - 33px);
+        margin: 16px;
+    }
 
     /*модальное окно ввода адреса начало*/
     .shipping-address-modal-container{
@@ -893,5 +924,9 @@ body.woocommerce-order-received .woocommerce{
         margin-top: 57px;
     }
     /*модальное окно ввода адреса конец*/
+
+    .checkout-bottom-container__vitobox-logo{
+        display: none;
+    }
 
 }

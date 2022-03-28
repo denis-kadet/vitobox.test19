@@ -7,14 +7,14 @@
 a {
     color: #1C131E;
 }
-.site-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 999;
-}
 .site-title{
     display: none !important;
+}
+.menu-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 #ast-desktop-header, #ast-mobile-header{
     transition: background-color 250ms;
