@@ -95,7 +95,7 @@ jQuery().ready(function($){
                 url: "/CdekPvz.php",
                 success: function (data) {
                     jQuery('#pvz-container-list').html(data);
-                    jQuery('.pvz-container-wrapper').show();
+                    jQuery('.pvz-container-wrapper').show(350);
                     jQuery('body').addClass('basket-fixed');
                 }
 
@@ -113,7 +113,7 @@ jQuery().ready(function($){
             jQuery(this).removeClass('checkout-selected-button');
         })
         jQuery(this).addClass('checkout-selected-button');
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
         jQuery('.pvz-container-wrapper').show(350);
         jQuery('body').addClass('basket-fixed');
     });
@@ -125,7 +125,7 @@ jQuery().ready(function($){
             if(jQuery('body').hasClass('basket-fixed')){
                 jQuery('body').removeClass('basket-fixed');
             }
-            jQuery('.pvz-container-wrapper').hide(350);
+            jQuery('.pvz-container-wrapper').hide();
         }
     });
     jQuery('.pvz-container-heading__close-button').on('click', function(){//Скрывает окно выбора пвз
@@ -338,7 +338,10 @@ jQuery().ready(function($){
                 }else{
                     promoField.removeClass('valid')
                     promoField.addClass('error custom-error');
-                    promoField.after(inCorrectPromoLabel);
+                    if( $('#custom-promo-label-incorrect').length == 0 ){
+                        promoField.after(inCorrectPromoLabel);
+
+                    }
                     $('#custom-promo-label').remove();
                 }
 
@@ -354,14 +357,23 @@ jQuery().ready(function($){
 
     }
     $('form[name=checkout]').on('change', function(){
-        console.log($('input.error').length)
-        let btn = $('#place_order')
+        let btn = $('#place_order');
+        let reqInput = ['billing_first_name', 'billing_last_name', 'billing_phone', 'billing_city'];
+        let i = 0;
 
-        if( $('input.error').length == 0 ){
+        reqInput.forEach((item)=>{
+            if( document.getElementById(item).value == '' ){
+                i++;
+            }
+        });
+
+        if( $('input.error').length == 0 && i == 0 ){
             btn.removeClass('disable-place-order');
         }else{
             btn.addClass('disable-place-order');
         }
     });
     /*Изменение кнопки оформить заказ - конец*/
+
+
 });

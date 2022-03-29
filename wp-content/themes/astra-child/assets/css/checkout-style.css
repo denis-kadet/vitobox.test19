@@ -36,6 +36,9 @@ h1.entry-title{
     font-size: 28px;
     line-height: 120%;
 }
+.woocommerce-remove-coupon{
+    display: none;
+}
 
 
 /*order-review begin*/
@@ -350,6 +353,10 @@ form[name="ckeckout"] *{
 
 }
 
+.pvz-container-heading__close-button-mobile, .pvz-container-heading__buttons-mobile{
+    display: none;
+}
+
 .pvz-container-heading{
     margin: 37px;
     display: flex;
@@ -397,7 +404,7 @@ form[name="ckeckout"] *{
 }
 .pvz-container-heading-select__selected-string{
     color: #4281A4;
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 .pvz-container-heading-select{
     display: flex;
@@ -409,7 +416,7 @@ form[name="ckeckout"] *{
     border-radius: 32px;
     color: #2C1E2F;
     cursor: pointer;
-    padding: 16px;
+    padding: 8px 33px;
     border: solid 1px #2C1E2F;
 }
 .pvz-container-heading__ready-button{
@@ -417,6 +424,7 @@ form[name="ckeckout"] *{
 }
 #pvz-ready{
     background: none;
+    padding: 9px 33px;
     border: solid 1px #2C1E2F;
     border-radius: 32px;
     color: #2C1E2F;
@@ -443,6 +451,18 @@ form[name="ckeckout"] *{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.pvz-detail-link{
+    font-family: 'PP Pangram Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #4281A4;
+    cursor: pointer;
+}
+pvz-detail-link:hover{
+
 }
 #shipping_address_1, #billing_email, #shipping_postcode, #billing_address_1, #shipping_postcode_field{
     display: none;
@@ -740,6 +760,8 @@ body.woocommerce-order-received .entry-header, body.woocommerce-order-received .
     display: none;
 }
 body.woocommerce-order-received article{
+    min-height: 100vh;
+    overflow: hidden;
     background: url("/wp-content/themes/astra-child/assets/img/thank-you-box.png") no-repeat;
     background-position: top right;
 }
@@ -770,8 +792,18 @@ body.woocommerce-order-received .woocommerce{
 .thank-you-text-link a{
     color: #E284FA;
 }
+.thank-you-text-mobile-img-container{
+    display: none;
+}
 .thank-you-support{
+    max-width: 420px;
     margin-top: 57px;
+    font-family: 'PP Pangram Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1C131E;
 }
 /*Thank you page end*/
 
@@ -823,8 +855,13 @@ body.woocommerce-order-received .woocommerce{
     .form-row-wide{
         width: 270px;
     }
+
     .customer-info-container-shipping-select{
         flex-direction: column;
+        width: 220px;
+    }
+    .customer-info-container-shipping-select__button, .customer-info-container-shipping-select__button button{
+        width: 100%;
     }
     #shipping-to-pvz{
         width: 100%;
@@ -902,6 +939,34 @@ body.woocommerce-order-received .woocommerce{
         margin: 16px;
     }
 
+    .pvz-container-heading__buttons, .pvz-container-heading__close-button{
+        display: none;
+    }
+    .pvz-container-heading__close-button-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin: 16px;
+
+    }
+    .pvz-container-heading-select{
+        margin-bottom: 24px;
+    }
+    .pvz-container-heading__buttons-mobile{
+        display: block;
+        margin-left: 40px;
+    }
+    #pvz-container-map{
+        margin: 40px 13px 0 13px;
+    }
+
+
+    .custom-checkout-field-separator{
+        width: 100%;
+        display: block;
+    }
+
+
     /*модальное окно ввода адреса начало*/
     .shipping-address-modal-container{
         width: 87%;
@@ -929,4 +994,56 @@ body.woocommerce-order-received .woocommerce{
         display: none;
     }
 
+
+    /*Thank you page begin*/
+
+    body.woocommerce-order-received{
+        background: url("/wp-content/themes/astra-child/assets/img/Motion.png") no-repeat;
+    }
+    body.woocommerce-order-received .woocommerce{
+        margin: 130px 13px auto 13px;
+    }
+    .thank-you-text{
+        width: 100%;
+    }
+    .thank-you-text div{
+        font-family: 'PP Pangram Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .thank-you-text div.thank-you-text-title{
+        font-family: 'PP Pangram Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 34px;
+        /* or 106% */
+
+        display: flex;
+        align-items: center;
+
+        /* Текст */
+
+        color: #1C131E;
+
+    }
+    body.woocommerce-order-received article{
+        background: none;
+
+    }
+    .thank-you-text-mobile-img-container{
+        display: block;
+        min-height: 67vh;
+        background: url("/wp-content/themes/astra-child/assets/img/mobileThankYouBack.png") no-repeat;
+
+    }
+    .thank-you-support{
+        text-align: center;
+    }
+    .footer-social{
+        justify-content: center;
+    }
+    /*Thank you page ends*/
 }

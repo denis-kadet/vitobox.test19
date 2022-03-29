@@ -26,7 +26,15 @@ defined( 'ABSPATH' ) || exit;
     <div class="pvz-container-wrapper">
         <div class="pvz-container-modal-back">
         <div style="display: " id="pvz-container" class="custom-flow">
+
+            <div class="pvz-container-heading__close-button pvz-container-heading__close-button-mobile">
+                <button>
+                    x
+                </button>
+            </div>
+
             <div class="pvz-container-heading">
+
                 <div  class="pvz-container-heading__header">
                     <h3>Выберите удобный пункт</h3>
                 </div>
@@ -53,6 +61,25 @@ defined( 'ABSPATH' ) || exit;
                     </div>
                 </div>
             </div>
+
+
+
+            <div class="pvz-container-heading__buttons-mobile">
+                <div class="pvz-container-heading__ready-button">
+                    <button id="pvz-ready" class="checkout-transparent-button ">
+                        Готово
+                    </button>
+                </div>
+                <div class="pvz-container-heading__close-button">
+                    <button>
+                        x
+                    </button>
+                </div>
+            </div>
+
+
+
+
 
             <div id="pvz-container-list" class="pvz-modal-togglable" >
                 <?php require "CdekPvz.php";?>

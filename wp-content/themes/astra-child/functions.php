@@ -56,6 +56,12 @@ function register_my_styles() {
     wp_dequeue_script('wc-checkout');
     wp_dequeue_style( 'woocommerce-general' );
 
+    wp_register_style( 'owl-carousel', get_stylesheet_directory_uri().'/assets/css/owl.carousel.min.css' );
+    wp_enqueue_style( 'owl-carousel', get_stylesheet_uri(), array('/assets/css/owl.carousel.min.css') );
+
+    wp_register_style( 'owl-carousel-default', get_stylesheet_directory_uri().'/assets/css/owl.theme.default.min.css' );
+    wp_enqueue_style( 'owl-carousel-default', get_stylesheet_uri(), array('astra-theme-css') );
+
     wp_register_style( 'main-page', get_stylesheet_directory_uri().'/assets/css/page-main.css' );
     wp_enqueue_style( 'main-page', get_stylesheet_uri(), array('astra-theme-css') );
 }
@@ -78,7 +84,7 @@ function load_scripts(){
     wp_enqueue_script('script_main_page',  get_stylesheet_directory_uri().'/assets/js/page-main.js');
     wp_enqueue_script('script_inputmask',  get_stylesheet_directory_uri().'/assets/js/inputmask.js');
     wp_enqueue_script('script_bootstrap',  get_stylesheet_directory_uri().'/assets/js/bootstrap.js');
-
+    wp_enqueue_script('script_owl-carousel',  get_stylesheet_directory_uri().'/assets/js/owl.carousel.min.js');
 //    wp_enqueue_script('jquery');
 //    wp_enqueue_script('slickjs', get_stylesheet_directory_uri() . '/assets/js/slick.min.js');
 }

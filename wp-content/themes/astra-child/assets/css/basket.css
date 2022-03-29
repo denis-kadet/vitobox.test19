@@ -866,6 +866,8 @@ button.product_type_simple:focus {
     color: #4281A4 !important;;
 }
 
+
+
 @media (max-wdith: 1200px) {
     .catalog-title {
         font-size: 23px;
@@ -1187,13 +1189,12 @@ button.product_type_simple:focus {
 
 /*single page product*/
 .s {
-    background-size: contain;
     background-position: left top;
     background-repeat: no-repeat;
 }
 .header__product {
     width: 100%;
-    padding: 197px 0 220px;
+    padding: 135px 0 220px;
 }
 .header__image {
     width: 140px;
@@ -1338,11 +1339,8 @@ button.product_type_simple:focus {
 .single_product__compose {
     font-size: 16px;
     margin-bottom: 66px;
+    color: #1C131E !important;
     border-bottom: 1px solid #1C131E;
-}
-
-.single_product__compose:hover {
-    color: #1C131E;
 }
 
 .table_header-popup {
@@ -1359,4 +1357,304 @@ button.product_type_simple:focus {
 
 .modal-table tr {
     padding-left: 0;
+}
+
+/*section single product note*/
+#product-desc {
+    padding: 120px 0;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.product__note-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 200px;
+    padding: 43px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.product__note-img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 16px;
+}
+
+.product__note-text {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 300;
+    font-family: "PP Pangram Sans";
+}
+
+.product__desc-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.product__desc-note {
+    width: 40%;
+}
+
+.product__desc-image {
+    width: 50%;
+}
+
+.product__desc-image img{
+    width: 100%;
+}
+
+.product__desc-note .block-9__accordion .block-9__accordion-inner {
+    cursor: pointer;
+}
+
+.product__desc-note .block-9__accordion {
+    border-top: 1px solid #2C1E2F;
+    border-bottom: 1px solid #2C1E2F;
+}
+
+.product__desc-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+    z-index: 3;
+}
+
+.product__desc-text {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    line-height: 1.3;
+    font-weight: 400;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__desc-num {
+    display: block;
+    margin-top: 18px;
+    font-size: 16px;
+    color: #BDBDBD;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__desc-dosage {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+/*product simple addition section*/
+#product-addition {
+    padding: 60px 0 56px;
+}
+
+.product__addition-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.product__block-addition:not(:last-child){
+    margin-right: 115px;
+}
+
+.product__block-addition {
+    display: flex;
+    width: 470px;
+}
+
+.product__addition-image {
+    width: 39px;
+    height: 39px;
+    margin-right: 15px;
+}
+
+.product__addition-image img {
+    width: 100%;
+}
+
+.product__addition-text {
+    width: 416px;
+}
+
+.product__addition-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__addition-text p{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__addition-text ul{
+    margin: 0;
+    padding: 0 0 0 13px;
+}
+
+.product__addition-text ul > li{
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__addition-text ul > li::marker {
+    font-size: 8px;
+}
+/*Section recommended products*/
+#product-recommend {
+    padding: 95px 0;
+    background-image: url('/wp-content/themes/astra-child/assets/img/sea_fon.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.product__recommended-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.recommend-text {
+    text-align: center;
+    margin-bottom: 72px;
+}
+
+.recommend-title {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.recommend-desc {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 369px;
+    height: 530px;
+    padding: 34px;
+    border: 1px solid #2C1E2F;
+    border-radius: 32px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.product__research-slide {
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+}
+
+.research-title {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-desc {
+    margin-bottom: 24px;
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.research-directory {
+    display: flex;
+    line-height: 1.2;
+}
+
+.research-source {
+    font-size: 17px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-value {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-read {
+    border-bottom: 1px solid #1C131E;
+}
+
+.research-read:hover {
+    color: #1C131E;
+}
+
+.product__research-slide .owl-stage {
+    display: flex;
+}
+
+/*Section product vote*/
+.product__vote-content {
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 87px 0 173px;
+}
+.product__vote-block {
+    width: 418px;
+}
+
+.product__vote-image {
+    width: 45%;
+}
+
+.product__vote-image img {
+    width: 100%;
+}
+
+.product__vote-title {
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__vote-text {
+    margin-bottom: 35px;
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.product__vote-btn {
+    display: block;
+    width: 229px;
+    padding: 15px 0;
+    text-align: center;
+    border: 1px solid #2C1E2F;
+    border-radius: 35px;
+    font-size: 18px;
+    color: #fff;
+    background: #2C1E2F;
+    font-weight: 400;
+    font-family: 'PP Pangram Sans';
+    transition: 300ms;
+}
+
+.product__vote-btn:hover {
+    color: #2C1E2F;
+    background: #fff;
 }

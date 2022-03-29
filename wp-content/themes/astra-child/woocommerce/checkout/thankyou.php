@@ -57,8 +57,11 @@ defined( 'ABSPATH' ) || exit;
                     <a href="https://shiptor.ru/tracking">shiptor.ru/tracking</a></div>
             </div>
 
+            <div class="thank-you-text-mobile-img-container">
 
-            <div class="thank-you-support">Отались вопросы? Наша поддержка всегда готова ответить <br>
+            </div>
+
+            <div class="thank-you-support">Отались вопросы? Наша поддержка всегда готова ответить
                 на них, свяжитесь с нами любым удобным способом</div>
 
 

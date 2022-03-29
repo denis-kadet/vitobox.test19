@@ -422,4 +422,13 @@ jQuery(document).ready(function ($) {
         updateBasket('add-product', product_id, null, quantity);
     })
 
+
+    //slider recommended
+    // $('.product__research-slide').owlCarousel({
+    //     center: true,
+    //     items:2,
+    //     loop:false,
+    //     margin:78,
+    //     dots: true
+    // });
 });
