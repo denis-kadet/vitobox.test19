@@ -459,13 +459,25 @@ ul {
     overflow: hidden;
 }
 .catalog-image {
+    position:relative;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 181px;
     border-bottom: 1px solid #BDBDBD;
-    backdrop-filter: blur(25px);
+    /*backdrop-filter: blur(25px);*/
     overflow: hidden;
+}
+
+.catalog-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .catalog-item-info {
@@ -1191,6 +1203,7 @@ button.product_type_simple:focus {
 .s {
     background-position: left top;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 .header__product {
     width: 100%;
@@ -1203,6 +1216,12 @@ button.product_type_simple:focus {
 
 .header__image img{
     width: 100%;
+}
+
+.header__product-title {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "PP Pangram Sans";
 }
 
 .product__attribute-list {
@@ -1518,6 +1537,18 @@ button.product_type_simple:focus {
     background-size: cover;
     background-repeat: no-repeat;
 }
+#product-upsell {
+    padding: 95px 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.product__research-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 .product__recommended-content {
     display: flex;
     flex-direction: column;
@@ -1542,22 +1573,59 @@ button.product_type_simple:focus {
 }
 
 .research-item {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     width: 369px;
-    height: 530px;
+    /*height: 530px;*/
+    margin-right: 32px;
     padding: 34px;
     border: 1px solid #2C1E2F;
     border-radius: 32px;
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+.product__research-text {
+    width: 40%;
+}
+
 .product__research-slide {
-    width: 50%;
-    height: 100%;
+    width: 60%;
+    height: 530px;
+    margin-top: -80px;
     margin-left: auto;
+}
+
+.product__research-slide .slick-list .slick-track .slick-slide {
+    height: 530px;
+}
+
+.product__research-slide .slick-dots {
+    bottom: -50px
+}
+
+.product__research-slide .slick-dots > li > button{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #FFFFFF;
+}
+
+.product__research-slide .slick-dots > li > button:before{
+    width: 10px;
+    height: 10px;
+    font-size: 0;
+}
+
+.product__research-slide .slick-dots > .slick-active > button{
+    background: #4281A4 !important;
+}
+
+.product__research-slide .slick-dots > li > button{
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
 }
 
 .research-title {

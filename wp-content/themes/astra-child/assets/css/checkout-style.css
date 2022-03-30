@@ -7,6 +7,9 @@ body{
 footer{
     display: none;
 }
+body.woocommerce-order-received a[href="javascript:javascript:history.go(-1)"], body.woocommerce-order-received .checkout-header-link-back-a-container-arrow{
+    display: none;
+}
 .checkout-bottom-container__vitobox-logo{
     display: flex;
     flex-direction: column;
@@ -756,17 +759,18 @@ body.woocommerce-order-received{
 body.woocommerce-order-received .ast-container, body.woocommerce-order-received .ast-container #main, body.woocommerce-order-received .ast-container #main article{
     height: 100%;
 }
-body.woocommerce-order-received .entry-header, body.woocommerce-order-received .checkout-bottom-container{
-    display: none;
+body.woocommerce-order-received .entry-header, body.woocommerce-order-received .checkout-bottom-payment-logo{
+    /*display: none;*/
+    visibility: hidden;
 }
 body.woocommerce-order-received article{
-    min-height: 100vh;
-    overflow: hidden;
+    /*min-height: 100vh;*/
+    /*overflow: hidden;*/
     background: url("/wp-content/themes/astra-child/assets/img/thank-you-box.png") no-repeat;
     background-position: top right;
 }
 body.woocommerce-order-received .woocommerce{
-    margin: 180px auto auto 57px;
+    margin: 180px auto 13vh 57px;
 }
 
 .thank-you-text-title{
@@ -805,6 +809,10 @@ body.woocommerce-order-received .woocommerce{
     line-height: 16px;
     color: #1C131E;
 }
+/*.thank-you-page-bottom{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*}*/
 /*Thank you page end*/
 
 
@@ -1037,7 +1045,7 @@ body.woocommerce-order-received .woocommerce{
         display: block;
         min-height: 67vh;
         background: url("/wp-content/themes/astra-child/assets/img/mobileThankYouBack.png") no-repeat;
-
+        margin-top: 61px;
     }
     .thank-you-support{
         text-align: center;

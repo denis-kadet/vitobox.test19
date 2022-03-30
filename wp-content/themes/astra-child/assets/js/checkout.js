@@ -82,7 +82,6 @@ jQuery().ready(function($){
             let firstWord = value.shift().toUpperCase();
             value.unshift(firstWord);
             value = value.join('');
-            console.log(value)
             let dataStr = {city_name: value, action: 'show_pvz'};
             try {
                 ourWidjet.city.set(value);
@@ -193,6 +192,7 @@ jQuery().ready(function($){
         jQuery(this).addClass('')
         jQuery('#shipping-address-modal').show(350);
         jQuery('body').addClass('basket-fixed');
+        $('#pvz-container-address-details').hide(350);
     });
 
     jQuery('#shipping-address-modal').on('click', function (event){

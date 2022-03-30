@@ -87,7 +87,7 @@ if ( post_password_required() ) {
              * @hooked woocommerce_upsell_display - 15
              * @hooked woocommerce_output_related_products - 20
              */
-            do_action( 'woocommerce_after_single_product_summary' );
+//            do_action( 'woocommerce_after_single_product_summary' );
             ?>
         </div>
     </div>
@@ -147,7 +147,7 @@ if ( post_password_required() ) {
                                 усвоение вашим организмом
                             </p>
                             <span class="product__desc-num">1 капсула</span>
-                            <span class="product__desc-dosage">600 ME Витамина D</span>
+                            <span class="product__desc-dosage"><?=$product->get_meta('_recommended_count').' '.$product->name;?></span>
                             <a href="javascript:void(0)" type="button" class="single_product__compose" data-bs-toggle="modal" data-bs-target="#composeModal">Точный состав</a>
                         </div>
                     </li>
@@ -204,228 +204,132 @@ if ( post_password_required() ) {
 </section>
 <section id="product-recommend">
     <div class="ast-container">
-        <div class="product__recommended-content">
-            <div class="product__research-slide">
-                <div class="research-item">
-                    <div class="research-content">
-                        <h4 class="research-title">Поддержка здоровья костей</h4>
-                        <p class="research-desc">
-                            Потребление Витамина D
-                            необходимо для поддержания
-                            здоровья костей. Витамин D
-                            необходим для усвоения кальция
-                            и фосфора
-                        </p>
-                        <div class="research-directory">
-                            <div class="research-block">
-                                <span class="research-source">Год исследования</span>
-                                <span class="research-value">2022</span>
-                            </div>
-                            <div class="research-block">
-                                <span class="research-source">Источник</span>
-                                <span class="research-value">HBR</span>
-                            </div>
-                        </div>
+        <div class="product__research-content">
+            <div class="product__research-text">
+                <h2 class="recommend-title">Исследования</h2>
+                <a href="#" class="research-read" title="Смотреть все" target="_blank">Смотреть все</a>
+            </div>
+        </div>
+    </div>
+    <div class="product__research-slide">
+        <div class="research-item">
+            <div class="research-content">
+                <h4 class="research-title">Поддержка здоровья костей</h4>
+                <p class="research-desc">
+                    Потребление Витамина D
+                    необходимо для поддержания
+                    здоровья костей. Витамин D
+                    необходим для усвоения кальция
+                    и фосфора
+                </p>
+                <div class="research-directory">
+                    <div class="research-block">
+                        <span class="research-source">Год исследования</span>
+                        <span class="research-value">2022</span>
                     </div>
-                    <a href="#" class="research-read" target="_blank">Читать полностью</a>
+                    <div class="research-block">
+                        <span class="research-source">Источник</span>
+                        <span class="research-value">HBR</span>
+                    </div>
                 </div>
             </div>
+            <a href="#" class="research-read" target="_blank">Читать полностью</a>
         </div>
-    </div>
-</section>
-<section class="s" id="product-recommend" style="background-image:url('/wp-content/themes/astra-child/assets/img/light_motion.png');background-position-y: -400px;">
-    <div class="ast-container">
-        <div class="product__recommended-content">
-            <div class="recommend-text">
-                <h3 class="recommend-title">Рекомендуем также</h3>
-                <p class="recommend-desc">Отлично сочетается с другими витаминами</p>
+        <div class="research-item">
+            <div class="research-content">
+                <h4 class="research-title">Поддержка здоровья костей</h4>
+                <p class="research-desc">
+                    Потребление Витамина D
+                    необходимо для поддержания
+                    здоровья костей. Витамин D
+                    необходим для усвоения кальция
+                    и фосфора
+                </p>
+                <div class="research-directory">
+                    <div class="research-block">
+                        <span class="research-source">Год исследования</span>
+                        <span class="research-value">2022</span>
+                    </div>
+                    <div class="research-block">
+                        <span class="research-source">Источник</span>
+                        <span class="research-value">HBR</span>
+                    </div>
+                </div>
             </div>
-            <ul class="catalog-list row" id="recommend-slide">
-                <li class="col-md-3">
-                    <a href="http://test19.softmg.ru/product/kompleks-zhirnyh-kislot-omega-3-6-9/" class="catalog-item">
-                        <div class="catalog-top" href="http://test19.softmg.ru/product/kompleks-zhirnyh-kislot-omega-3-6-9/">
-                            <div class="catalog-image">
-                                <img width="100" height="48" src="http://test19.softmg.ru/wp-content/uploads/2021/05/omega-1.png" class="attachment-shop_single size-shop_single wp-post-image" alt="" loading="lazy">                                    </div>
-                            <div class="catalog-item-info">
-                                <h3 class="catalog-title">Омега 3, 6, 9</h3>
-                                <span class="catalog-dosage">2000 МЕ</span>
-                                <div class="category-attribute">
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Здоровье кожи</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#health_skin"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Поддержка иммунитета</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#immune_support"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Уровень энергии</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#energy_level"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="catalog-desc-item">
-                                    <p><strong>•</strong>Улучшает абсорбцию кальция и здоровье костей<br>
-                                        <strong>•</strong>Лучшая форма для усвоения<br>
-                                        <strong>•</strong>Укрепляет иммунитет</p>
-                                </div>
-                                <div class="catalog-item-price">
-                                    <span class="woocommerce-Price-amount amount"><bdi>2 500<span class="woocommerce-Price-currencySymbol">₽</span></bdi></span>                                        </div>
-                                <div class="catalog-recommended">
-                                    за 30 шт. /1 мес.                                        </div>
-                            </div>
-                        </div>
-                        <div class="catalog-bottom">
-                            <button data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="13406" data-product_sku="1004" aria-label="Добавить &quot;Омега 3, 6, 9&quot; в корзину" rel="nofollow">Добавить<svg class="mobile-basket-icon"><use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#box"></use></svg></button>                                </div>
-                    </a>
-                </li>
-                <li class="col-md-3">
-                    <a href="http://test19.softmg.ru/product/koferment-q10/" class="catalog-item">
-                        <div class="catalog-status new">
-                            new
-                        </div>
-                        <div class="catalog-top" href="http://test19.softmg.ru/product/koferment-q10/">
-                            <div class="catalog-image">
-                                <img width="100" height="52" src="http://test19.softmg.ru/wp-content/uploads/2021/05/cofferment.png" class="attachment-shop_single size-shop_single wp-post-image" alt="" loading="lazy">                                    </div>
-                            <div class="catalog-item-info">
-                                <h3 class="catalog-title">Кофермент Q10</h3>
-                                <span class="catalog-dosage">2000 ME</span>
-                                <div class="category-attribute">
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Здоровье волос</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#health_hair"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Здоровье кожи</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#health_skin"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Здоровье ногтей</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#nail_health"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="catalog-desc-item">
-                                    <p><strong>•</strong>Улучшает абсорбцию кальция и здоровье костей<br>
-                                        <strong>•</strong>Лучшая форма для усвоения<br>
-                                        <strong>•</strong>Укрепляет иммунитет</p>
-                                </div>
-                                <div class="catalog-item-price">
-                                    <span class="woocommerce-Price-amount amount"><bdi>1 500<span class="woocommerce-Price-currencySymbol">₽</span></bdi></span>                                        </div>
-                                <div class="catalog-recommended">
-                                    за 30 шт. /1 мес.                                        </div>
-                            </div>
-                        </div>
-                        <div class="catalog-bottom">
-                            <button data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="13405" data-product_sku="1005" aria-label="Добавить &quot;Кофермент Q10&quot; в корзину" rel="nofollow">Добавить<svg class="mobile-basket-icon"><use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#box"></use></svg></button>                                </div>
-                    </a>
-                </li>
-                <li class="col-md-3">
-                    <a href="http://test19.softmg.ru/product/vitamin-d/" class="catalog-item">
-                        <div class="catalog-status new">
-                            new
-                        </div>
-                        <div class="catalog-top" href="http://test19.softmg.ru/product/vitamin-d/">
-                            <div class="catalog-image">
-                                <img width="76" height="46" src="http://test19.softmg.ru/wp-content/uploads/2021/08/vitamin_d.png" class="attachment-shop_single size-shop_single wp-post-image" alt="" loading="lazy">                                    </div>
-                            <div class="catalog-item-info">
-                                <h3 class="catalog-title">Витамин D</h3>
-                                <span class="catalog-dosage">2000 МЕ</span>
-                                <div class="category-attribute">
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Здоровье волос</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#health_hair"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Здоровье кожи</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#health_skin"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Здоровье ногтей</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#nail_health"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="catalog-desc-item">
-                                    <p><strong>•</strong>Улучшает абсорбцию кальция и здоровье костей<br>
-                                        <strong>•</strong>Лучшая форма для усвоения<br>
-                                        <strong>•</strong>Укрепляет иммунитет</p>
-                                </div>
-                                <div class="catalog-item-price">
-                                    <span class="woocommerce-Price-amount amount"><bdi>700<span class="woocommerce-Price-currencySymbol">₽</span></bdi></span>                                        </div>
-                                <div class="catalog-recommended">
-                                    за 30 шт. /1 мес.                                        </div>
-                            </div>
-                        </div>
-                        <div class="catalog-bottom">
-                            <button data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="13407" data-product_sku="1003" aria-label="Добавить &quot;Витамин D&quot; в корзину" rel="nofollow">Добавить<svg class="mobile-basket-icon"><use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#box"></use></svg></button>                                </div>
-                    </a>
-                </li>
-                <li class="col-md-3">
-                    <a href="http://test19.softmg.ru/product/bodrost-i-konczentracziya/" class="catalog-item">
-                        <div class="catalog-status disabled">
-                            нет в наличии
-                        </div>
-                        <div class="catalog-top" href="http://test19.softmg.ru/product/bodrost-i-konczentracziya/">
-                            <div class="catalog-image">
-                                <img width="100" height="44" src="http://test19.softmg.ru/wp-content/uploads/2021/05/b-complex.png" class="attachment-shop_single size-shop_single wp-post-image" alt="" loading="lazy">                                    </div>
-                            <div class="catalog-item-info">
-                                <h3 class="catalog-title">B-комплекс</h3>
-                                <span class="catalog-dosage">2000 ME</span>
-                                <div class="category-attribute">
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Качество сна</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#sleep_quality"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Набор мышечной массы</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#muscle_mass"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="catalog-icon">
-                                        <svg>
-                                            <title>Поддержка иммунитета</title>
-                                            <use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#immune_support"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="catalog-desc-item">
-                                    <p><strong>• </strong>Улучшает абсорбцию кальция и здоровье костей<br>
-                                        <strong>• </strong>Лучшая форма для усвоения<br>
-                                        <strong>• </strong>Укрепляет иммунитет</p>
-                                </div>
-                                <div class="catalog-item-price">
-                                    <span class="woocommerce-Price-amount amount"><bdi>300<span class="woocommerce-Price-currencySymbol">₽</span></bdi></span>                                        </div>
-                                <div class="catalog-recommended">
-                                    за 30 шт. /1 мес.                                        </div>
-                            </div>
-                        </div>
-                        <div class="catalog-bottom">
-                            <button data-quantity="1" class="button product_type_simple disabled" data-product_id="13408" data-product_sku="1002" aria-label="Прочитайте больше о “B-комплекс”" rel="nofollow">Нет в наличии<svg class="mobile-basket-icon"><use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#box"></use></svg></button>                                </div>
-                    </a>
-                </li>
-            </ul>
+            <a href="#" class="research-read" target="_blank">Читать полностью</a>
+        </div>
+        <div class="research-item">
+            <div class="research-content">
+                <h4 class="research-title">Поддержка здоровья костей</h4>
+                <p class="research-desc">
+                    Потребление Витамина D
+                    необходимо для поддержания
+                    здоровья костей. Витамин D
+                    необходим для усвоения кальция
+                    и фосфора
+                </p>
+                <div class="research-directory">
+                    <div class="research-block">
+                        <span class="research-source">Год исследования</span>
+                        <span class="research-value">2022</span>
+                    </div>
+                    <div class="research-block">
+                        <span class="research-source">Источник</span>
+                        <span class="research-value">HBR</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="research-read" target="_blank">Читать полностью</a>
+        </div>
+        <div class="research-item">
+            <div class="research-content">
+                <h4 class="research-title">Поддержка здоровья костей</h4>
+                <p class="research-desc">
+                    Потребление Витамина D
+                    необходимо для поддержания
+                    здоровья костей. Витамин D
+                    необходим для усвоения кальция
+                    и фосфора
+                </p>
+                <div class="research-directory">
+                    <div class="research-block">
+                        <span class="research-source">Год исследования</span>
+                        <span class="research-value">2022</span>
+                    </div>
+                    <div class="research-block">
+                        <span class="research-source">Источник</span>
+                        <span class="research-value">HBR</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="research-read" target="_blank">Читать полностью</a>
+        </div>
+        <div class="research-item">
+            <div class="research-content">
+                <h4 class="research-title">Поддержка здоровья костей</h4>
+                <p class="research-desc">
+                    Потребление Витамина D
+                    необходимо для поддержания
+                    здоровья костей. Витамин D
+                    необходим для усвоения кальция
+                    и фосфора
+                </p>
+                <div class="research-directory">
+                    <div class="research-block">
+                        <span class="research-source">Год исследования</span>
+                        <span class="research-value">2022</span>
+                    </div>
+                    <div class="research-block">
+                        <span class="research-source">Источник</span>
+                        <span class="research-value">HBR</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="research-read" target="_blank">Читать полностью</a>
         </div>
     </div>
 </section>
+<? woocommerce_upsell_display() ?>
 <section id="product-vote">
     <div class="ast-container">
         <div class="product__vote-content">

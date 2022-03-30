@@ -422,13 +422,15 @@ jQuery(document).ready(function ($) {
         updateBasket('add-product', product_id, null, quantity);
     })
 
+    $('.product__research-slide').slick({
+        dots: true,
+        infinite: false,
+        slidesToShow: 2,
+        speed: 500,
+        variableWidth: true,
+        // centerMode: true,
+        vertical: false,
+        arrows: false,
+    });
 
-    //slider recommended
-    // $('.product__research-slide').owlCarousel({
-    //     center: true,
-    //     items:2,
-    //     loop:false,
-    //     margin:78,
-    //     dots: true
-    // });
 });

@@ -85,6 +85,9 @@ function load_scripts(){
     wp_enqueue_script('script_inputmask',  get_stylesheet_directory_uri().'/assets/js/inputmask.js');
     wp_enqueue_script('script_bootstrap',  get_stylesheet_directory_uri().'/assets/js/bootstrap.js');
     wp_enqueue_script('script_owl-carousel',  get_stylesheet_directory_uri().'/assets/js/owl.carousel.min.js');
+    wp_enqueue_script('script_gsap',  get_stylesheet_directory_uri().'/assets/js/animation.gsap.js');
+    wp_enqueue_script('script_draggable',  get_stylesheet_directory_uri().'/assets/js/draggable.gsap.js');
+    wp_enqueue_script('script_scroll-magic',  get_stylesheet_directory_uri().'/assets/js/ScrollMagic.js');
 //    wp_enqueue_script('jquery');
 //    wp_enqueue_script('slickjs', get_stylesheet_directory_uri() . '/assets/js/slick.min.js');
 }
@@ -189,7 +192,7 @@ function find_product__ajax_add() {
             )
         ),
         'cart_hash' => WC()->cart->get_cart_hash(),
-        'name' =>  $product->get_title(),
+        'name' =>  $product->name,
         'total' => WC()->cart->get_cart_subtotal(),
         'count' => $countCarts
     );
@@ -310,6 +313,38 @@ function add_new_tabs_panel(){
                         type="text"
                         name="_row_one_col_3"
                         value="<?php echo esc_attr(get_post_meta($post->ID, '_row_one_col_3', true)); ?>"
+                        style="width: 15.75%;margin-right: 0;"/>
+                </span>
+            </p>
+            <p class="custom_field_type">
+                <span class="wrap">
+                <input
+                        placeholder="Введите название"
+                        class="input-text"
+                        type="text"
+                        name="_row_two_name"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_two_name', true)); ?>"
+                        style="width: 15.75%;margin-right: 2%;"/>
+                <input
+                        placeholder="Введите значение"
+                        class="input-text"
+                        type="text"
+                        name="_row_two_col_1"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_two_col_1', true)); ?>"
+                        style="width: 15.75%;margin-right: 2%;"/>
+                <input
+                        placeholder="Введите значение"
+                        class="input-text"
+                        type="text"
+                        name="_row_two_col_2"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_two_col_2', true)); ?>"
+                        style="width: 15.75%;margin-right: 2%;"/>
+                <input
+                        placeholder="Введите значение"
+                        class="input-text"
+                        type="text"
+                        name="_row_two_col_3"
+                        value="<?php echo esc_attr(get_post_meta($post->ID, '_row_two_col_3', true)); ?>"
                         style="width: 15.75%;margin-right: 0;"/>
                 </span>
             </p>
