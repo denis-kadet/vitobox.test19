@@ -7,6 +7,9 @@ body{
 footer{
     display: none;
 }
+.uuid-container{
+    display: none;
+}
 body.woocommerce-order-received a[href="javascript:javascript:history.go(-1)"], body.woocommerce-order-received .checkout-header-link-back-a-container-arrow{
     display: none;
 }

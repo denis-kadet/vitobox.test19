@@ -878,7 +878,535 @@ button.product_type_simple:focus {
     color: #4281A4 !important;;
 }
 
+/*single page product*/
+.s {
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header__product {
+    width: 100%;
+    padding: 135px 0 220px;
+}
+.header__image {
+    width: 140px;
+    height: auto;
+}
 
+.header__image img{
+    width: 100%;
+}
+
+.header__product-title {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "PP Pangram Sans";
+}
+
+.product__attribute-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 187px;
+    padding-bottom: 10px;
+    margin-bottom: 64px;
+    border-bottom: 1px solid #2C1E2F;
+}
+
+.product__attribute-icon{
+    position: relative;
+    cursor: pointer;
+}
+
+.active .product__desc-icon {
+    display: block;
+}
+
+.product__attribute-icon svg{
+    width: 45px;
+    height: 50px;
+    fill: none;
+    stroke: #2C1E2F;
+    stroke-width: 1;
+}
+
+.product__desc-icon {
+    position: absolute;
+    top: -40px;
+    left: -15px;
+    display: none;
+    width: 72px;
+    text-align: center;
+    color: #BDBDBD;
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+.single_add_to_cart_button {
+    min-width: 250px;
+    height: 52px;
+    text-align: center;
+    background-color: #F5CC83;
+    border: 1px solid #F5CC83 !important;
+    font-weight: 300;
+    font-size: 18px;
+    transition: 200ms ease-in-out;
+}
+
+.single_add_to_cart_button:hover {
+    color: #F5CC83;
+    background-color: #fff;
+}
+
+.simple__product-additionally {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 256px;
+    margin-bottom: 8px;
+}
+
+.simple__product-price {
+    margin-right: 6px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.simple__product-note {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.ast-stock-detail {
+    display: none;
+}
+
+.woocommerce-product-details__short-description {
+    margin-bottom: 18px;
+}
+
+.quantity {
+    display: none;
+}
+
+/*modal single product*/
+.product__modal {
+    position: relative;
+    max-width: 585px;
+}
+
+.product__modal .modal-content{
+    border-radius: 28px;
+    border: 0;
+}
+
+.product__modal .modal-header{
+    border: 0;
+    padding: 40px 40px 0 40px;
+    margin-bottom: 50px;
+}
+
+.product__modal .modal-header .modal-title{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__modal .modal-body{
+    padding: 0px 40px 40px 40px;
+    font-size: 14px;
+    font-family: 'PP Pangram Sans';
+}
+
+.btn__close-modal {
+    position: absolute;
+    right: 23px;
+    top: 20px;
+    width: 29px;
+    height: 30px;
+    background-image: url(../img/close_popup.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: transform .3s;
+}
+.btn__close-modal:hover {
+    transform: rotate(180deg);
+}
+
+.single_product__compose {
+    font-size: 16px;
+    margin-bottom: 66px;
+    color: #1C131E !important;
+    border-bottom: 1px solid #1C131E;
+}
+
+.table_header-popup {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.modal-table {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-table tr {
+    padding-left: 0;
+}
+
+/*section single product note*/
+#product-desc {
+    padding: 120px 0;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.product__note-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 200px;
+    padding: 43px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.product__note-img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 16px;
+}
+
+.product__note-text {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 300;
+    font-family: "PP Pangram Sans";
+}
+
+.product__desc-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.product__desc-note {
+    width: 40%;
+}
+
+.product__desc-image {
+    width: 50%;
+    border-radius: 23px;
+    overflow: hidden;
+}
+
+.product__desc-image img{
+    width: 100%;
+}
+
+.product__desc-note .block-9__accordion .block-9__accordion-inner {
+    cursor: pointer;
+}
+
+.product__desc-note .block-9__accordion {
+    border-top: 1px solid #2C1E2F;
+    border-bottom: 1px solid #2C1E2F;
+}
+
+.product__desc-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+    z-index: 3;
+}
+
+.product__desc-text {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    line-height: 1.3;
+    font-weight: 400;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__desc-num {
+    display: block;
+    margin-top: 18px;
+    font-size: 16px;
+    color: #BDBDBD;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__desc-dosage {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+/*product simple addition section*/
+#product-addition {
+    padding: 60px 0 56px;
+}
+
+.product__addition-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.product__block-addition:not(:last-child){
+    margin-right: 115px;
+}
+
+.product__block-addition {
+    display: flex;
+    width: 32%;
+}
+
+.product__addition-image {
+    width: 39px;
+    height: 39px;
+    margin-right: 15px;
+}
+
+.product__addition-image img {
+    width: 100%;
+}
+
+.product__addition-text {
+    width: 416px;
+}
+
+.product__addition-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__addition-text p{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__addition-text ul{
+    margin: 0;
+    padding: 0 0 0 13px;
+}
+
+.product__addition-text ul > li{
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__addition-text ul > li::marker {
+    font-size: 8px;
+}
+/*Section recommended products*/
+#product-recommend {
+    padding: 95px 0;
+    background-image: url('/wp-content/themes/astra-child/assets/img/sea_fon.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#product-upsell {
+    padding: 95px 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.product__research-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.product__recommended-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.recommend-text {
+    text-align: center;
+    margin-bottom: 72px;
+}
+
+.recommend-title {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.recommend-desc {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-item {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 369px;
+    /*height: 530px;*/
+    margin-right: 32px;
+    padding: 34px;
+    border: 1px solid #2C1E2F;
+    border-radius: 32px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.product__research-text {
+    width: 40%;
+}
+
+.product__research-slide {
+    width: 60%;
+    height: 530px;
+    margin-top: -80px;
+    margin-left: auto;
+}
+
+.product__research-slide .slick-list .slick-track .slick-slide {
+    height: 530px;
+}
+
+.product__research-slide .slick-dots {
+    bottom: -50px
+}
+
+.product__research-slide .slick-dots > li > button{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #FFFFFF;
+}
+
+.product__research-slide .slick-dots > li > button:before{
+    width: 10px;
+    height: 10px;
+    font-size: 0;
+}
+
+.product__research-slide .slick-dots > .slick-active > button{
+    background: #4281A4 !important;
+}
+
+.product__research-slide .slick-dots > li > button{
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
+}
+
+.research-title {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-desc {
+    margin-bottom: 24px;
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.research-directory {
+    display: flex;
+    line-height: 1.2;
+}
+
+.research-source {
+    font-size: 17px;
+    font-weight: 300;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-value {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'PP Pangram Sans';
+}
+
+.research-read {
+    border-bottom: 1px solid #1C131E;
+}
+
+.research-read:hover {
+    color: #1C131E;
+}
+
+.product__research-slide .owl-stage {
+    display: flex;
+}
+
+/*Section product vote*/
+.product__vote-content {
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 87px 0 173px;
+}
+.product__vote-block {
+    width: 418px;
+}
+
+.product__vote-image {
+    width: 45%;
+}
+
+.product__vote-image img {
+    width: 100%;
+}
+
+.product__vote-title {
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'PP Pangram Sans';
+}
+
+.product__vote-text {
+    margin-bottom: 35px;
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.product__vote-btn {
+    display: block;
+    width: 229px;
+    padding: 15px 0;
+    text-align: center;
+    border: 1px solid #2C1E2F;
+    border-radius: 35px;
+    font-size: 18px;
+    color: #fff;
+    background: #2C1E2F;
+    font-weight: 400;
+    font-family: 'PP Pangram Sans';
+    transition: 300ms;
+}
+
+.product__vote-btn:hover {
+    color: #2C1E2F;
+    background: #fff;
+}
 
 @media (max-wdith: 1200px) {
     .catalog-title {
@@ -1191,538 +1719,84 @@ button.product_type_simple:focus {
     .middle {
         left: -360px;
     }
+    /*single page product*/
+    .s {
+        background-position: -350px;
+    }
+    .header__product {
+        flex-direction: column;
+    }
+    .header__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #product-desc {
+        padding: 60px 0 0;
+        border: 0;
+    }
+    .product__desc-content {
+        flex-direction: column;
+    }
+    .product__desc-note {
+        order: 10;
+        width: 100%;
+    }
+    .product__desc-image {
+        order: 5;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    #product-addition {
+        padding: 80px 0;
+    }
+    .product__addition-content {
+        flex-direction: column;
+    }
+    .product__block-addition {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+    .product__block-addition {
+        width: 100%;
+    }
+    #product-recommend {
+        padding: 60px 0;
+    }
+    .product__research-text {
+        width: 100%;
+        margin-bottom: 38px;
+    }
+    .product__research-slide {
+        width: 327px;
+        height: 430px;
+        margin: 0 auto;
+    }
+    .product__research-slide .slick-list .slick-track .slick-slide {
+        height: 430px;
+    }
+    .research-item {
+        width: 327px;
+        margin-right: 15px;
+    }
+    .product__vote-block {
+        width: 100%;
+        margin-bottom: 17px;
+        text-align: center;
+    }
+    .product__vote-block .product__vote-btn {
+        margin: 0 auto;
+    }
+    .product__vote-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 @keyframes stroke {
     100% {
         stroke-dashoffset: 0;
     }
-}
-
-/*single page product*/
-.s {
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.header__product {
-    width: 100%;
-    padding: 135px 0 220px;
-}
-.header__image {
-    width: 140px;
-    height: auto;
-}
-
-.header__image img{
-    width: 100%;
-}
-
-.header__product-title {
-    font-size: 32px;
-    font-weight: 700;
-    font-family: "PP Pangram Sans";
-}
-
-.product__attribute-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 187px;
-    padding-bottom: 10px;
-    margin-bottom: 64px;
-    border-bottom: 1px solid #2C1E2F;
-}
-
-.product__attribute-icon{
-    position: relative;
-    cursor: pointer;
-}
-
-.active .product__desc-icon {
-    display: block;
-}
-
-.product__attribute-icon svg{
-    width: 45px;
-    height: 50px;
-    fill: none;
-    stroke: #2C1E2F;
-    stroke-width: 1;
-}
-
-.product__desc-icon {
-    position: absolute;
-    top: -40px;
-    left: -15px;
-    display: none;
-    width: 72px;
-    text-align: center;
-    color: #BDBDBD;
-    line-height: 1.2;
-    font-size: 12px;
-}
-
-.single_add_to_cart_button {
-    min-width: 250px;
-    height: 52px;
-    text-align: center;
-    background-color: #F5CC83;
-    border: 1px solid #F5CC83 !important;
-    font-weight: 300;
-    font-size: 18px;
-    transition: 200ms ease-in-out;
-}
-
-.single_add_to_cart_button:hover {
-    color: #F5CC83;
-    background-color: #fff;
-}
-
-.simple__product-additionally {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 256px;
-    margin-bottom: 8px;
-}
-
-.simple__product-price {
-    margin-right: 6px;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.simple__product-note {
-    font-size: 16px;
-    font-weight: 300;
-}
-
-.ast-stock-detail {
-    display: none;
-}
-
-.woocommerce-product-details__short-description {
-    margin-bottom: 18px;
-}
-
-.quantity {
-    display: none;
-}
-
-/*modal single product*/
-.product__modal {
-    position: relative;
-    max-width: 585px;
-}
-
-.product__modal .modal-content{
-    border-radius: 28px;
-    border: 0;
-}
-
-.product__modal .modal-header{
-    border: 0;
-    padding: 40px 40px 0 40px;
-    margin-bottom: 50px;
-}
-
-.product__modal .modal-header .modal-title{
-    font-size: 24px;
-    font-weight: 700;
-    font-family: 'PP Pangram Sans';
-}
-
-.product__modal .modal-body{
-    padding: 0px 40px 40px 40px;
-    font-size: 14px;
-    font-family: 'PP Pangram Sans';
-}
-
-.btn__close-modal {
-    position: absolute;
-    right: 23px;
-    top: 20px;
-    width: 29px;
-    height: 30px;
-    background-image: url(../img/close_popup.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    transition: transform .3s;
-}
-.btn__close-modal:hover {
-    transform: rotate(180deg);
-}
-
-.single_product__compose {
-    font-size: 16px;
-    margin-bottom: 66px;
-    color: #1C131E !important;
-    border-bottom: 1px solid #1C131E;
-}
-
-.table_header-popup {
-    font-size: 14px;
-    font-weight: 700;
-    font-family: 'PP Pangram Sans';
-}
-
-.modal-table {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-.modal-table tr {
-    padding-left: 0;
-}
-
-/*section single product note*/
-#product-desc {
-    padding: 120px 0;
-    border-bottom: 1px solid #BDBDBD;
-}
-
-.product__note-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 200px;
-    padding: 43px 0;
-    margin: 0;
-    list-style: none;
-}
-
-.product__note-img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 16px;
-}
-
-.product__note-text {
-    margin: 0;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 300;
-    font-family: "PP Pangram Sans";
-}
-
-.product__desc-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.product__desc-note {
-    width: 40%;
-}
-
-.product__desc-image {
-    width: 50%;
-}
-
-.product__desc-image img{
-    width: 100%;
-}
-
-.product__desc-note .block-9__accordion .block-9__accordion-inner {
-    cursor: pointer;
-}
-
-.product__desc-note .block-9__accordion {
-    border-top: 1px solid #2C1E2F;
-    border-bottom: 1px solid #2C1E2F;
-}
-
-.product__desc-title {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: 'PP Pangram Sans';
-    z-index: 3;
-}
-
-.product__desc-text {
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 0;
-    line-height: 1.3;
-    font-weight: 400;
-    font-family: 'PP Pangram Sans';
-}
-
-.product__desc-num {
-    display: block;
-    margin-top: 18px;
-    font-size: 16px;
-    color: #BDBDBD;
-    font-family: 'PP Pangram Sans';
-}
-
-.product__desc-dosage {
-    display: block;
-    margin-bottom: 16px;
-    font-size: 20px;
-}
-
-/*product simple addition section*/
-#product-addition {
-    padding: 60px 0 56px;
-}
-
-.product__addition-content {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.product__block-addition:not(:last-child){
-    margin-right: 115px;
-}
-
-.product__block-addition {
-    display: flex;
-    width: 470px;
-}
-
-.product__addition-image {
-    width: 39px;
-    height: 39px;
-    margin-right: 15px;
-}
-
-.product__addition-image img {
-    width: 100%;
-}
-
-.product__addition-text {
-    width: 416px;
-}
-
-.product__addition-title {
-    margin-bottom: 15px;
-    font-size: 24px;
-    font-weight: 700;
-    font-family: 'PP Pangram Sans';
-}
-
-.product__addition-text p{
-    margin: 0;
-    font-size: 18px;
-    font-weight: 300;
-    font-family: 'PP Pangram Sans';
-}
-
-.product__addition-text ul{
-    margin: 0;
-    padding: 0 0 0 13px;
-}
-
-.product__addition-text ul > li{
-    line-height: 1.2;
-    font-size: 18px;
-    font-weight: 300;
-    font-family: 'PP Pangram Sans';
-}
-
-.product__addition-text ul > li::marker {
-    font-size: 8px;
-}
-/*Section recommended products*/
-#product-recommend {
-    padding: 95px 0;
-    background-image: url('/wp-content/themes/astra-child/assets/img/sea_fon.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-#product-upsell {
-    padding: 95px 0;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.product__research-content{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.product__recommended-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.recommend-text {
-    text-align: center;
-    margin-bottom: 72px;
-}
-
-.recommend-title {
-    font-size: 32px;
-    font-weight: 700;
-    font-family: 'PP Pangram Sans';
-}
-
-.recommend-desc {
-    font-size: 18px;
-    font-weight: 300;
-    font-family: 'PP Pangram Sans';
-}
-
-.research-item {
-    display: flex !important;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 369px;
-    /*height: 530px;*/
-    margin-right: 32px;
-    padding: 34px;
-    border: 1px solid #2C1E2F;
-    border-radius: 32px;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.product__research-text {
-    width: 40%;
-}
-
-.product__research-slide {
-    width: 60%;
-    height: 530px;
-    margin-top: -80px;
-    margin-left: auto;
-}
-
-.product__research-slide .slick-list .slick-track .slick-slide {
-    height: 530px;
-}
-
-.product__research-slide .slick-dots {
-    bottom: -50px
-}
-
-.product__research-slide .slick-dots > li > button{
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    background: #FFFFFF;
-}
-
-.product__research-slide .slick-dots > li > button:before{
-    width: 10px;
-    height: 10px;
-    font-size: 0;
-}
-
-.product__research-slide .slick-dots > .slick-active > button{
-    background: #4281A4 !important;
-}
-
-.product__research-slide .slick-dots > li > button{
-    width: 10px;
-    height: 10px;
-    background: #FFFFFF;
-}
-
-.research-title {
-    margin-bottom: 24px;
-    font-size: 24px;
-    font-weight: 600;
-    font-family: 'PP Pangram Sans';
-}
-
-.research-desc {
-    margin-bottom: 24px;
-    line-height: 1.2;
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.research-directory {
-    display: flex;
-    line-height: 1.2;
-}
-
-.research-source {
-    font-size: 17px;
-    font-weight: 300;
-    font-family: 'PP Pangram Sans';
-}
-
-.research-value {
-    font-size: 20px;
-    font-weight: 400;
-    font-family: 'PP Pangram Sans';
-}
-
-.research-read {
-    border-bottom: 1px solid #1C131E;
-}
-
-.research-read:hover {
-    color: #1C131E;
-}
-
-.product__research-slide .owl-stage {
-    display: flex;
-}
-
-/*Section product vote*/
-.product__vote-content {
-    display: flex;
-    flex-wrap:wrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 87px 0 173px;
-}
-.product__vote-block {
-    width: 418px;
-}
-
-.product__vote-image {
-    width: 45%;
-}
-
-.product__vote-image img {
-    width: 100%;
-}
-
-.product__vote-title {
-    margin-bottom: 20px;
-    line-height: 1.2;
-    font-size: 32px;
-    font-weight: 700;
-    font-family: 'PP Pangram Sans';
-}
-
-.product__vote-text {
-    margin-bottom: 35px;
-    line-height: 1.2;
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.product__vote-btn {
-    display: block;
-    width: 229px;
-    padding: 15px 0;
-    text-align: center;
-    border: 1px solid #2C1E2F;
-    border-radius: 35px;
-    font-size: 18px;
-    color: #fff;
-    background: #2C1E2F;
-    font-weight: 400;
-    font-family: 'PP Pangram Sans';
-    transition: 300ms;
-}
-
-.product__vote-btn:hover {
-    color: #2C1E2F;
-    background: #fff;
 }

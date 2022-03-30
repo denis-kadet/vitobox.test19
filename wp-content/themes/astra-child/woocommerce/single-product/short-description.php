@@ -63,6 +63,76 @@ if ( ! $short_description ) {
                             <?=$product->get_meta('_row_one_col_3');?>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <?=htmlspecialchars_decode($product->get_meta('_row_two_name'));?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_two_col_1');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_two_col_2');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_two_col_3');?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?=htmlspecialchars_decode($product->get_meta('_row_three_name'));?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_three_col_1');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_three_col_2');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_three_col_3');?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?=htmlspecialchars_decode($product->get_meta('_row_four_name'));?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_four_col_1');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_four_col_2');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_four_col_3');?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?=htmlspecialchars_decode($product->get_meta('_row_five_name'));?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_five_col_1');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_five_col_2');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_five_col_3');?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?=htmlspecialchars_decode($product->get_meta('_row_six_name'));?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_six_col_1');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_six_col_2');?>
+                        </td>
+                        <td class="text-center">
+                            <?=$product->get_meta('_row_six_col_3');?>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>

@@ -142,9 +142,7 @@ if ( post_password_required() ) {
                         <h3 class="product__desc-title">Cостав</h3>
                         <div>
                             <p class="product__desc-text">
-                                Наш витамин D разработан с использованием пребиотической
-                                растительной клетчатки акации, чтобы облегчить ее
-                                усвоение вашим организмом
+                                <?=$product->get_meta('_section_one_col_1');?>
                             </p>
                             <span class="product__desc-num">1 капсула</span>
                             <span class="product__desc-dosage"><?=$product->get_meta('_recommended_count').' '.$product->name;?></span>
@@ -155,10 +153,7 @@ if ( post_password_required() ) {
                         <h3 class="product__desc-title">Польза</h3>
                         <div>
                             <p class="product__desc-text">
-                                Витамин D необходим для укрепления костей и общего состояния здоровья.
-                                Исследование 2011 года показало, что более 70% американцев получают меньше рекомендуемого количества витамина D.
-                                Если вы не получаете много солнца или если в вашем рационе мало продуктов, содержащих его, вы можете оказаться в их числе.
-                                Продукты, содержащие витамин D, - это жирная рыба, говяжья печень, обогащенное молоко и злаки.
+                                <?=$product->get_meta('_section_one_col_2');?>
                             </p>
                         </div>
                     </li>
@@ -167,7 +162,7 @@ if ( post_password_required() ) {
 
             </div>
             <div class="product__desc-image">
-                <img src="/wp-content/themes/astra-child/assets/img/vitamins_hand.jpg" alt="Витамины в руке">
+                <img src="<?=$product->get_meta('_image_link');?>" alt="Рекоммендации по витаминам">
             </div>
         </div>
     </div>
@@ -181,7 +176,7 @@ if ( post_password_required() ) {
                 </div>
                 <div class="product__addition-text">
                     <h3 class="product__addition-title">Содержится в продуктах питания:</h3>
-                    <p>печень рыбы, яичный желток, говяжья печень, сыр, творог, сливочное масло</p>
+                    <p><?=$product->get_meta('_section_two_col_1');?></p>
                 </div>
             </div>
             <div class="product__block-addition">
@@ -190,13 +185,14 @@ if ( post_password_required() ) {
                 </div>
                 <div class="product__addition-text">
                     <h3 class="product__addition-title">Советуем принимать, если</h3>
-                    <ul>
-                        <li>проводите меньше 15 минут в день на солнце</li>
-                        <li>живете выше 37-ой параллели</li>
-                        <li>Наблюдаете депрессивные состояния в осенне-зимний период</li>
-                        <li>мало употребляете рыбу и яйца</li>
-                        <li>у вас смуглая кожа и/или вы быстро загораете</li>
-                    </ul>
+                    <p><?=$product->get_meta('_section_two_col_2');?></p>
+<!--                    <ul>-->
+<!--                        <li>проводите меньше 15 минут в день на солнце</li>-->
+<!--                        <li>живете выше 37-ой параллели</li>-->
+<!--                        <li>Наблюдаете депрессивные состояния в осенне-зимний период</li>-->
+<!--                        <li>мало употребляете рыбу и яйца</li>-->
+<!--                        <li>у вас смуглая кожа и/или вы быстро загораете</li>-->
+<!--                    </ul>-->
                 </div>
             </div>
         </div>

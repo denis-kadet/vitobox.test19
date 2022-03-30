@@ -428,9 +428,18 @@ jQuery(document).ready(function ($) {
         slidesToShow: 2,
         speed: 500,
         variableWidth: true,
-        // centerMode: true,
         vertical: false,
         arrows: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            }
+        ]
     });
 
 });

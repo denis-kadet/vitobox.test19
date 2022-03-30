@@ -16,7 +16,21 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+function sendToSdek( $ord ){
+//    echo "<pre >";
+//    var_dump($ord->data);
+//    echo "</pre >";
+    $shipping_arr['recipient_name'] = $ord->data['billing']['first_name'] . " " . $ord->data['billing']['last_name'];
+    $shipping_arr['recipient_phone'] = $ord->data['billing']['phone'];
+    $shipping_arr['shipping_address'] = $ord->data['billing']["address_1"];
+    $shipping_arr['shipping_city'] = $ord->data['billing']["city"];
+
+//    $package = $ord->data['billing']["city"];
+    require "CdekOrderSender.php";
+    $cdekOrderSender = new CdekOrderSender($shipping_arr);
+}
 ?>
+
 <style>
     .checkout-bottom-container__info{
         display: none;
@@ -28,10 +42,11 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php
 	if ( $order ) :
-
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
+        echo "<div class='uuid-container'>";
+        sendToSdek($order);
+        echo "</div>";
 		?>
-
 		<?php if ( $order->has_status( 'failed' ) ) : ?>
 
 			<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed"><?php esc_html_e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
@@ -131,3 +146,24 @@ defined( 'ABSPATH' ) || exit;
 	<?php endif; ?>
 
 </div>
+<script>
+    jQuery(function ($){
+        if($('.uuid-container')){
+            let uuid = $('.uuid-container').text();
+            dataStr = {uuid: uuid};
+            $.ajax({
+                    type: "POST",
+                    data: dataStr,
+                    url: "/AjaxCdekOrderGetter.php",
+                    success: function (data) {
+                        let dataObj = JSON.parse(data)
+                        let trackingLink = 'https://cdek.ru/tracking?order_id=' + dataObj.entity.cdek_number;
+                        $('.thank-you-text-track a').attr('href', trackingLink);
+                    }
+
+                })
+        }else{
+            // console.log('not uuid')
+        }
+    })
+</script>
