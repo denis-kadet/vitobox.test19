@@ -66,10 +66,10 @@ function sendToSdek( $ord ){
 
                 <div class="">Мы уже отправили всю необходимую<br />информацию вам на почту.</div>
                 <br />
-                <div class="thank-you-text-track">Трек номер посылки <a href="https://shiptor.ru/tracking?tracking=RP23456789">RP23456789</a></div>
+                <div class="thank-you-text-track">Трек номер посылки <a href="https://cdek.ru/tracking?order_id=23456789">RP23456789</a></div>
                 <br />
                 <div class="thank-you-text-link">На следующий день после заказа вы сможете отследить доставку перейдя по ссылке:
-                    <a href="https://shiptor.ru/tracking">shiptor.ru/tracking</a></div>
+                    <a href="https://cdek.ru/tracking">cdek.ru/tracking</a></div>
             </div>
 
             <div class="thank-you-text-mobile-img-container">
@@ -157,8 +157,10 @@ function sendToSdek( $ord ){
                     url: "/AjaxCdekOrderGetter.php",
                     success: function (data) {
                         let dataObj = JSON.parse(data)
-                        let trackingLink = 'https://cdek.ru/tracking?order_id=' + dataObj.entity.cdek_number;
+                        let cdekNumber = dataObj.entity.cdek_number;
+                        let trackingLink = 'https://cdek.ru/tracking?order_id=' + cdekNumber;
                         $('.thank-you-text-track a').attr('href', trackingLink);
+                        $('.thank-you-text-track a').text(cdekNumber);
                     }
 
                 })

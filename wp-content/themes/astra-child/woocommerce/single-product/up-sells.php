@@ -34,7 +34,7 @@ if ( $upsells ) : ?>
                     </div>
                 <?php endif; ?>
 
-                <ul class="catalog-list row" id="recommend-slide">
+                <div class="catalog-list row" id="recommend-slide">
 
                     <?php foreach ( $upsells as $upsell ) : ?>
                         <?
@@ -42,7 +42,7 @@ if ( $upsells ) : ?>
 
                             setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
                         ?>
-                        <li class="col-md-3">
+                        <div class="col-md-3">
                             <a href="<?=$upsell->get_permalink();?>" class="catalog-item">
                                 <? if($upsell->get_meta('is_new') === 'yes' && $upsell->is_in_stock() ) :?>
                                     <div class="catalog-status new">
@@ -92,11 +92,11 @@ if ( $upsells ) : ?>
                                     <?php woocommerce_template_loop_add_to_cart( $upsell->post, $upsell ); ?>
                                 </div>
                             </a>
-                        </li>
+                        </div>
 
                     <?php endforeach; ?>
 
-                </ul>
+                </div>
             </div>
         </div>
 	</section>

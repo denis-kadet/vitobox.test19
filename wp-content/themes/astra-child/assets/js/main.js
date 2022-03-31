@@ -326,7 +326,7 @@ jQuery(document).ready(function ($) {
                             self.addClass('added')
                             $('.ast-site-header-cart').eq(0).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //desktop icon
                             $('.ast-site-header-cart').eq(1).find('.ast-site-header-cart-li').html(result.fragments['a.cart-container']); //mobile icon
-                            if(screen < 768){
+                            if(screen < 768 && pathname == '/katalog/'){
                                 let svgSuccess = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path></svg>';
                                 self.css('background','transparent');
                                 self.find('svg').remove();
@@ -415,11 +415,30 @@ jQuery(document).ready(function ($) {
             .removeClass('active');
     });
 
-    $('.single_add_to_cart_button').on('click', function (e){
+    $('#single-btn').on('click', function (e){
         e.preventDefault();
         let product_id = $(this).val();
-        let quantity = $('.quantity').find('input').val();
+        let quantity = Number( $('.product__simple-text-quantity').text() );
         updateBasket('add-product', product_id, null, quantity);
+        $('.product__simple-quantity').fadeIn();
+        $(this).text('Добавлено');
+        $(this).css({
+            'background-color': '#fff',
+            'color' : '#F7B801'
+        });
+        $(this).attr('disabled', 'true')
+    })
+
+    $('.product__simple-quantity').on('click', function (e){
+        $(this).toggleClass('open');
+    });
+
+    $('.item-quantity-option').on('click', function (e){
+        $(this)
+            .parent()
+            .siblings('.product__simple-text-quantity')
+            .text($(this).text());
+        updateBasket('add-product', $('#single-btn').val(), null, $(this).text());
     })
 
     $('.product__research-slide').slick({
@@ -430,6 +449,8 @@ jQuery(document).ready(function ($) {
         variableWidth: true,
         vertical: false,
         arrows: false,
+        useCSS: false,
+        // useTransform: false,
         responsive: [
             {
                 breakpoint: 768,
@@ -441,5 +462,19 @@ jQuery(document).ready(function ($) {
             }
         ]
     });
+
+    if(screen < 768){
+        $('#recommend-slide').slick({
+            dots: true,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 500,
+            variableWidth: true,
+            vertical: false,
+            arrows: false,
+            useCSS: false,
+        });
+    }
 
 });

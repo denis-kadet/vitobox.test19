@@ -28,46 +28,6 @@ jQuery().ready(function($){
 
 
 
-    // let timer;
-    //
-    // jQuery('input[name=billing_city]').on('input', function(){
-    //     let self = $(this).val();
-    //     clearTimeout(timer);
-    //     if(self.length){
-    //         timer = setTimeout(function (){
-    //             let value = self.split('');
-    //             let firstWord = value.shift().toUpperCase();
-    //             value.unshift(firstWord);
-    //             value = value.join('');
-    //             console.log(firstWord, value)
-    //             let dataStr = {city_name: value, action: 'show_pvz'};
-    //             try{
-    //                 ourWidjet.city.set(value);
-    //             }catch (e) {
-    //                 console.log(e);
-    //             }
-    //             jQuery.ajax({
-    //                 type: "POST",
-    //                 data: dataStr,
-    //                 url: "/CdekPvz.php",
-    //                 success: function(data){
-    //                     jQuery('#pvz-container-list').html(data);
-    //                     jQuery('.pvz-container-wrapper').show();
-    //                     jQuery('body').addClass('basket-fixed');
-    //                 }
-    //
-    //             })
-    //         }, 2000);
-    //     }
-    // });//Виджет пвз + отправка ajax для получения списка пвз
-
-    // jQuery('input[name=shipping_city]').on('input', function(){
-    //     let dataStr = jQuery('input[name=shipping_city]').val();
-    //     jQuery('input[name=town]').val(dataStr);
-    //     jQuery('input[name=town]').trigger('input')
-    //     let townList = jQuery('#GnnnW_city_list');
-    //     console.log(townList);
-    // })
 
     jQuery('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
         event.preventDefault();
@@ -100,8 +60,6 @@ jQuery().ready(function($){
 
             })
         }
-//
-
 
         try{
             ourWidjet.city.set(cityDefault);
@@ -215,7 +173,7 @@ jQuery().ready(function($){
     jQuery('#fill-address-button').on('click', function(e){
         e.preventDefault();
         let addr= jQuery('.shipping-address-modal-container-right-house input').val();
-        addr = addr + ', ' + jQuery('.shipping-address-modal-container-right-apparts input').val();
+        addr = addr + ', ' + jQuery('input[name=custom-address-apparts]').val();
         addr = jQuery('.shipping-address-modal-container-right-street input').val() + ', ' + addr
         jQuery('#billing_address_1').val(addr);
         jQuery('#shipping-address-modal').hide(350);
@@ -223,42 +181,7 @@ jQuery().ready(function($){
             jQuery('body').removeClass('basket-fixed');
         }
     });
-    /*DaData начало*/
-//     // Замените на свой API-ключ
-//     var token = "0753a0723c75eafdb5ab0db93f21dc29cb95b2de";
-//     var city   = jQuery("#shipping_city");
-//     // var $street = $("#street");
-//     // var $house  = $("#house");
-//
-// // город и населенный пункт
-//     city.suggestions({
-//         token: token,
-//         type: "ADDRESS",
-//         hint: false,
-//         bounds: "city-settlement"
-//     });
 
-// // улица
-//     $street.suggestions({
-//         token: token,
-//         type: "ADDRESS",
-//         hint: false,
-//         bounds: "street",
-//         constraints: $city
-//     });
-//
-// // дом
-//     $house.suggestions({
-//         token: token,
-//         type: "ADDRESS",
-//         hint: false,
-//         noSuggestionsHint: false,
-//         bounds: "house",
-//         constraints: $street
-//     });
-
-
-    /*DaData конец*/
 
 
     /*валидация полей начало*/
@@ -290,16 +213,7 @@ jQuery().ready(function($){
                 checkMaskPhone: true,
                 required: true
             }
-            // 'custom-address-street': {
-            //     required: true,
-            //     minlength: 3
-            // },
-            // 'custom-address-house': {
-            //     required: true
-            // },
-            // 'custom-address-apparts': {
-            //     required: true
-            // }
+
         },
         messages: {
             'billing_first_name': 'Введите имя корректно',
@@ -353,27 +267,30 @@ jQuery().ready(function($){
     /*промокод конец*/
 
     /*Изменение кнопки оформить заказ - начало*/
-    let chckChckt = () => {
-
-    }
-    $('form[name=checkout]').on('change', function(){
+    function initCheck() {
         let btn = $('#place_order');
         let reqInput = ['billing_first_name', 'billing_last_name', 'billing_phone', 'billing_city'];
         let i = 0;
 
-        reqInput.forEach((item)=>{
-            if( document.getElementById(item).value == '' ){
+        reqInput.forEach((item) => {
+            if (document.getElementById(item).value == '') {
                 i++;
             }
         });
 
-        if( $('input.error').length == 0 && i == 0 ){
+        if ($('input.error').length == 0 && i == 0) {
             btn.removeClass('disable-place-order');
-        }else{
+            btn.removeAttr( "disabled" );
+        } else {
             btn.addClass('disable-place-order');
+            btn.attr( "disabled", "disabled");
+
         }
+    }
+    $('form[name=checkout]').on('change', function(){
+        initCheck()
     });
     /*Изменение кнопки оформить заказ - конец*/
+    initCheck();
 
-   
 });

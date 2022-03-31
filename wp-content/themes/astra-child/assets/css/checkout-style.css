@@ -254,12 +254,22 @@ form[name="ckeckout"] *{
     outline: none;
 
 }
-
-.woocommerce form .form-row input.input-text{
+.woocommerce-input-wrapper{
+    padding: 13px;
+    padding-left: 0;
+}
+input.input-text{
     outline: none;
     border-style: none none solid none;
     border-width: 1px;
     border-color: #2c1e2f;
+    padding: 0;
+
+}
+.woocommerce form .form-row input.input-text::placeholder{
+    padding: 0;
+    margin: 0;
+    text-indent: 0;
 }
 
 #order_review, #order_review_heading{
@@ -499,12 +509,15 @@ pvz-detail-link:hover{
     line-height: 18px;
 }
 .custom-label{
-    margin-bottom: 65px;
+    /*margin-bottom: 65px;*/
     font-family: 'PP Pangram Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
+}
+.custom-label[for=billing_phone]{
+    margin-bottom: 50px;
 }
 .checkout-selected-button{
     background: #2C1E2F !important;
@@ -549,6 +562,7 @@ pvz-detail-link:hover{
     border-style: none none solid none;
     border-color: #2C1E2F;
     border-width: 1px;
+    color: #2C1E2F;
 }
 .shipping-address-modal-container-header{
     display: flex;
@@ -557,6 +571,10 @@ pvz-detail-link:hover{
 }
 #shipping-address-modal-close{
     cursor: pointer;
+}
+#shipping-address-modal-close svg{
+    width: 27px;
+    height: 27px;
 }
 .shipping-address-modal-container-header h4{
     font-family: 'PP Pangram Sans';
@@ -691,6 +709,9 @@ pvz-detail-link:hover{
     font-size: 12px;
     line-height: 16px;
     text-align: center;
+}
+.announcement__text a{
+    text-decoration: underline !important;
 }
 /*состав вашего заказа - конец*/
 
@@ -989,6 +1010,9 @@ body.woocommerce-order-received .woocommerce{
     .shipping-address-modal-container-left{
         width: 100%;
         max-width: 100%;
+    }
+    .shipping-address-modal-container-left div input{
+
     }
     .shipping-address-modal-container-right-street input{
         width: 100%;
