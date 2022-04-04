@@ -29,8 +29,11 @@ jQuery().ready(function($){
 
 
 
-    jQuery('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
+    $('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
         event.preventDefault();
+
+        $('#pvz-container-list').html($('#copy_preloader'));
+
         cityDefault = jQuery('input[name=billing_city]').val();
         if( cityDefault == '' ){
             cityDefault = "Москва";
@@ -48,14 +51,14 @@ jQuery().ready(function($){
             } catch (e) {
                 console.log(e);
             }
-            jQuery.ajax({
+            $.ajax({
                 type: "POST",
                 data: dataStr,
                 url: "/CdekPvz.php",
                 success: function (data) {
-                    jQuery('#pvz-container-list').html(data);
-                    jQuery('.pvz-container-wrapper').show(350);
-                    jQuery('body').addClass('basket-fixed');
+                    $('#pvz-container-list').html(data);
+                    $('.pvz-container-wrapper').show(350);
+                    $('body').addClass('basket-fixed');
                 }
 
             })
@@ -102,18 +105,21 @@ jQuery().ready(function($){
         par.find('.pvz-detail-description').show(350);
     });
 
-    jQuery('#pvz-ready').on('click', function (){//Отправка выбранного пвз в форму
+    $('#pvz-ready').on('click', function (){//Отправка выбранного пвз в форму
         let selectedPvz = jQuery('.selected-pvz')
-        jQuery('.pvz-container-address-details__address .pvz-container-address-details-data').html(jQuery(selectedPvz).find('.pvz-owner-name').text());
+        $('.pvz-container-address-details__address .pvz-container-address-details-data').html($(selectedPvz).find('.pvz-owner-name').text());
         /**/
-        jQuery('#billing_address_1').val(jQuery(selectedPvz).find('.pvz-owner-name').text());
-        jQuery('.pvz-container-address-details__price .pvz-container-address-details-data').html(jQuery(selectedPvz).find('.pvz-price').text());
-        jQuery('.pvz-container-address-details__terms .pvz-container-address-details-data').html(jQuery(selectedPvz).find('.devivery-time').text());
-        if(jQuery('body').hasClass('basket-fixed')){
-            jQuery('body').removeClass('basket-fixed');
+        $('#billing_address_1').val($(selectedPvz).find('.pvz-owner-name').text());
+        $('.pvz-container-address-details__price .pvz-container-address-details-data').html($(selectedPvz).find('.pvz-price').text());
+        $('.pvz-container-address-details__terms .pvz-container-address-details-data').html($(selectedPvz).find('.devivery-time').text());
+        if($('body').hasClass('basket-fixed')){
+            $('body').removeClass('basket-fixed');
         }
-        jQuery('.pvz-container-wrapper').hide(350);
-        jQuery('#pvz-container-address-details').show(350);
+        $('#shipping_to').val('eco-pvz');
+
+        $('.pvz-container-wrapper').hide(350);
+        $('#pvz-container-address-details').show(350);
+        $('#personal-container-address-details').hide(350);
     });
 
     jQuery(document).on("click", ".pvz-container", function(e){//Выбор пвз
@@ -125,20 +131,29 @@ jQuery().ready(function($){
     });
 
 
-    jQuery('.pvz-container-heading-select a').each(function(){
-        let link = jQuery(this)
-        link.on('click', function(e){
-            e.preventDefault();
-            $('.pvz-container-heading-select__selected-string').each(function(){
-                $(this).removeClass('pvz-container-heading-select__selected-string');
-            });
-            link.addClass('pvz-container-heading-select__selected-string');
-            $('.pvz-modal-togglable').each(function(){
-                $(this).toggle();
-            });
+    $('#pvz-by-list').on('click', function (e){
+        e.preventDefault();
+        let link = $(this);
+        $('.pvz-container-heading-select__selected-string').each(function(){
+            $(this).removeClass('pvz-container-heading-select__selected-string');
         });
-
+        link.addClass('pvz-container-heading-select__selected-string');
+        $('#pvz-container-list').show(300);
+        $('#pvz-container-map').hide(300);
     });
+
+
+    $('#pvz-by-map').on('click', function (e){
+        e.preventDefault();
+        let link = $(this);
+        $('.pvz-container-heading-select__selected-string').each(function(){
+            $(this).removeClass('pvz-container-heading-select__selected-string');
+        });
+        link.addClass('pvz-container-heading-select__selected-string');
+        $('#pvz-container-map').show();
+        $('#pvz-container-list').hide();
+    });
+
 
     jQuery('#shipping-to-adress').on('click', function (e){
         e.preventDefault();
@@ -164,21 +179,30 @@ jQuery().ready(function($){
             jQuery('#shipping-address-modal').hide(350);
         }
     });
-    jQuery('#shipping-address-modal-close').on('click', function (){
-        jQuery('#shipping-address-modal').hide();
-        if(jQuery('body').hasClass('basket-fixed')){
-            jQuery('body').removeClass('basket-fixed');
+    $('#shipping-address-modal-close').on('click', function (){
+        $('#shipping-address-modal').hide();
+        if($('body').hasClass('basket-fixed')){
+            $('body').removeClass('basket-fixed');
         }
     });
-    jQuery('#fill-address-button').on('click', function(e){
+    $('#fill-address-button').on('click', function(e){
         e.preventDefault();
-        let addr= jQuery('.shipping-address-modal-container-right-house input').val();
-        addr = addr + ', ' + jQuery('input[name=custom-address-apparts]').val();
-        addr = jQuery('.shipping-address-modal-container-right-street input').val() + ', ' + addr
-        jQuery('#billing_address_1').val(addr);
-        jQuery('#shipping-address-modal').hide(350);
-        if(jQuery('body').hasClass('basket-fixed')){
-            jQuery('body').removeClass('basket-fixed');
+        let addr= $('.shipping-address-modal-container-right-house input').val();
+        addr = addr + ', ' + $('input[name=custom-address-apparts]').val();
+        addr = $('.shipping-address-modal-container-right-street input').val() + ', ' + addr;
+
+        $('.personal-container-address-details__address .personal-container-address-details-data').html($('input[name=custom-address-street]').val());
+        // jQuery('#billing_address_1').val(jQuery(selectedPvz).find('.pvz-owner-name').text());
+        $('.personal-container-address-details__price .personal-container-address-details-data').html($('input[name=custom-address-house]').val());
+        $('.personal-container-address-details__terms .personal-container-address-details-data').html($('input[name=custom-address-apparts]').val());
+        $('#personal-container-address-details').show(350);
+        $('#pvz-container-address-details').hide(350);
+
+        $('#shipping_to').val('eco-address');
+        $('#billing_address_1').val(addr);
+        $('#shipping-address-modal').hide(350);
+        if($('body').hasClass('basket-fixed')){
+            $('body').removeClass('basket-fixed');
         }
     });
 
@@ -278,7 +302,7 @@ jQuery().ready(function($){
             }
         });
 
-        if ($('input.error').length == 0 && i == 0) {
+        if ($('input.error').not('.ignore').length == 0 && i == 0) {
             btn.removeClass('disable-place-order');
             btn.removeAttr( "disabled" );
         } else {

@@ -1,4 +1,4 @@
-body{
+body.woocommerce-checkout{
     background: url("http://test19.softmg.ru/wp-content/uploads/2022/02/checkout-back.png") no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -6,6 +6,12 @@ body{
 }
 footer{
     display: none;
+}
+#copy_preloader{
+    display: none;
+}
+#pvz-container-list .CDEK-widget__preloader{
+    position: relative;
 }
 .uuid-container{
     display: none;
@@ -28,20 +34,33 @@ body.woocommerce-order-received a[href="javascript:javascript:history.go(-1)"], 
 #shipping_country_field, #ship-to-different-address{
     display: none;
 }
+
+.wc_coupon_message_wrap{
+    /*padding: 0 !important;*/
+    display: none;
+}
 #main{
-    max-width: 1400px;
+    max-width: 1200px;
     margin: auto;
 }
 h1.entry-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    width: 100%;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    text-align: left;
     font-family: 'PP Pangram Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
     line-height: 120%;
 }
+
+.fvmp{
+    display: flex;
+    flex-direction: column;
+}
+
 .woocommerce-remove-coupon{
     display: none;
 }
@@ -96,6 +115,17 @@ td.product-name{
     justify-content: space-between;
     width: 100%;
 }
+.custom-shipping-price-header{
+    margin-top: 20px;
+}
+.custom-shipping-price{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.woocommerce-Price-amount{
+    margin-top: 20px;
+    display: block;
+}
 .order-total, .cart-subtotal{
     border-top-style: solid;
 }
@@ -117,8 +147,9 @@ td.product-total{
 #page, #content, #content .ast-container{
     background: none;
 }
-.entry-header{
-
+.page header.entry-header{
+    margin-top: 0;
+    margin-bottom: 44px;
 }
 .entry-header .entry-title{
     margin: 0;
@@ -148,10 +179,15 @@ td.product-total{
     margin: 0 45px;
     height: 11px;
 }
-.checkout-header-link-back-a-container{
+.checkout-header div.checkout-header-link-back{
+    margin: 0;
+}
+
+.checkout-header div.checkout-header-link-back-a-container{
     padding: 12px;
     display: flex;
     flex-direction: row;
+    justify-content: start;
 }
 .checkout-header .checkout-header-link-back-a-container-arrow{
     margin: 10px 0;
@@ -164,7 +200,7 @@ td.product-total{
 form[name="checkout"]{
     display: flex;
     /*margin: auto;*/
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
 }
 form[name="ckeckout"] *{
@@ -177,7 +213,9 @@ form[name="ckeckout"] *{
 #billing_city_field{
     margin-bottom: 32px;
 }
-
+.woocommerce-billing-fields{
+    /*margin-top: 44px;*/
+}
 .woocommerce-billing-fields h3, .woocommerce-payment-heading h3{
     font-family: PP Pangram Sans;
     font-style: normal;
@@ -187,11 +225,14 @@ form[name="ckeckout"] *{
     color: #2c1e2f;
 }
 .custom-checkout-field-separator{
+    display: block;
+    width: 100%;
     font-family: 'PP Pangram Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
+    margin-bottom: 24px;
 }
 #billing_address_1_field, .entry-content p{
     margin: 0;
@@ -240,8 +281,8 @@ form[name="ckeckout"] *{
 }
 
 .woocommerce .col2-set .col-2{
-    width: 70%;
-    margin-bottom: 48px;
+    width: 100%;
+    margin-bottom: 54px;
 
 }
 #billing_phone_field{
@@ -266,20 +307,25 @@ input.input-text{
     padding: 0;
 
 }
-.woocommerce form .form-row input.input-text::placeholder{
+/*.woocommerce form .form-row*/
+ input.input-text::placeholder{
     padding: 0;
     margin: 0;
     text-indent: 0;
+    color: #BDBDBD;
 }
 
 #order_review, #order_review_heading{
     border: none;
 }
 #order_review{
-    padding: 24px;
+    padding: 0 24px 0 24px;
 }
 #order_review td, #order_review th{
     padding: 0 0 8px 0;
+}
+.order-total-label{
+    padding-top: 20px;
 }
 #order_review_heading{
     padding: 23px 0 0 23px;
@@ -289,7 +335,9 @@ input.input-text{
     font-size: 20px;
     line-height: 120%;
 }
-
+.cart_item .product-total .woocommerce-Price-amount{
+    margin-top: 0;
+}
 
 
 
@@ -489,12 +537,12 @@ pvz-detail-link:hover{
 #pvz-container-address-details{
     display: none;
 }
-.pvz-container-address-details__address, .pvz-container-address-details__price, .pvz-container-address-details__terms{
+.pvz-container-address-details__address, .personal-container-address-details__address, .personal-container-address-details__price, .pvz-container-address-details__price, .pvz-container-address-details__terms, .personal-container-address-details__terms{
     display: flex;
     margin-top: 18px;
     flex-direction: row;
 }
-.pvz-container-address-details-label, .pvz-container-address-details-label, .pvz-container-address-details-label{
+.pvz-container-address-details-label, .personal-container-address-details__address .personal-container-address-details-data, .pvz-container-address-details-label, .pvz-container-address-details-label{
     font-family: 'PP Pangram Sans';
     font-style: normal;
     font-weight: 600;
@@ -508,6 +556,11 @@ pvz-detail-link:hover{
     font-size: 16px;
     line-height: 18px;
 }
+
+#personal-container-address-details{
+    display: none;
+}
+
 .custom-label{
     /*margin-bottom: 65px;*/
     font-family: 'PP Pangram Sans';
@@ -634,7 +687,7 @@ pvz-detail-link:hover{
 /*промокод начало*/
 .after-shipping-container{}
 .after-shipping-container-heading{
-    margin-bottom: 29px;
+    margin-bottom: 21px;
 
 }
 .after-shipping-container-heading span{
@@ -710,6 +763,9 @@ pvz-detail-link:hover{
     line-height: 16px;
     text-align: center;
 }
+.announcement__text {
+    max-width: 390px;
+}
 .announcement__text a{
     text-decoration: underline !important;
 }
@@ -731,7 +787,7 @@ pvz-detail-link:hover{
 }
 .checkout-bottom-container__info {
     width: 600px;
-
+    color:  #BDBDBD;
     text-align: center;
     font-family: PP Pangram Sans;
     font-style: normal;

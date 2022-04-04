@@ -205,12 +205,11 @@ jQuery(document).ready(function ($) {
         $('.recommended__item').on('click', function (){
             var recommendedItem = $(this).parent().siblings('.recommended__count');
             var product_id = $(this).parents('.product__item').attr('id');
-            var key = $(this).parents('.product__item').data('cart_item_key');
             var count = parseInt($(this).text());
             $(this).addClass('active').siblings().removeClass('active');
             $(this).parent().removeAttr('style');
             recommendedItem.text(count);
-            updateBasket('add-product', product_id, key, count);
+            updateBasket('add-product', product_id, count, false);
         });
     }
 
@@ -222,24 +221,21 @@ jQuery(document).ready(function ($) {
             if(product.parent().children().length <= 6){
                 $(this).parents('.product__list').removeClass('scrolled');
             }
-            updateBasket('remove-product', id);
+            updateBasket('remove-product', id, null, false);
         });
     }
 
     changeQuantity();
     removeAjaxProductMiniBasket($('.remove_product'));
 
-    function updateBasket(arg, id, key, number){
+    function updateBasket(arg, id, count, showModal){
         $.ajax({
             url: urlAjax,
             method: 'POST',
             data: {
                 action: arg,
                 product_id: id,
-                quantity: {
-                    key_id: key,
-                    count: number
-                }
+                quantity: count
             },
             beforeSend: function(){
                 $('.product__list').prepend('<div class="filter-loader"><div class="image-loader"><img src="/wp-content/themes/astra-child/assets/img/loader.svg" alt="loading"></div></div>');
@@ -248,8 +244,9 @@ jQuery(document).ready(function ($) {
                 var result = JSON.parse(data);
                 $('.product_container').html(result.fragments.products)
                 $('.subtotal').html(result.total);
+                console.log(result.count)
                 changeQuantity();
-                if(arg != 'remove-product'){
+                if(showModal || (result.count > 7)){
                     createPopupAddCart(result.count, result.name);
                 }
                 removeAjaxProductMiniBasket($('.remove_product'));
@@ -263,6 +260,8 @@ jQuery(document).ready(function ($) {
         var item = $('<div class="popup__item-cart"></div>');
         var image = $('<div></div>');
         var textProduct = $('<div class="popup_text"></div>');
+        var mouse = false;
+        var posX = 0;
         if(count > 7){
             image.addClass("popup__attention-img");
             textProduct.html('В одно саше не поместиться <strong>больше 7 капсул</strong>,<br class="mobile__hidden">предлагаем вам оформить дополнительный заказ');
@@ -273,9 +272,12 @@ jQuery(document).ready(function ($) {
         item.append(image);
         item.append(textProduct);
         popupContainer.prepend(item);
+        item.click( function (){
+            item.css('transform','translate3d(500px , 0 , 0)');
+        })
         return setTimeout(function (){
-            item.css('transform','translateX(0%)');
-            item.fadeOut(8000);
+            item.css('transform','translate3d(0 , 0 , 0)');
+            item.fadeOut(4000);
         },0);
     }
 
@@ -418,8 +420,7 @@ jQuery(document).ready(function ($) {
     $('#single-btn').on('click', function (e){
         e.preventDefault();
         let product_id = $(this).val();
-        let quantity = Number( $('.product__simple-text-quantity').text() );
-        updateBasket('add-product', product_id, null, quantity);
+        updateBasket('add-product', product_id);
         $('.product__simple-quantity').fadeIn();
         $(this).text('Добавлено');
         $(this).css({
@@ -434,11 +435,12 @@ jQuery(document).ready(function ($) {
     });
 
     $('.item-quantity-option').on('click', function (e){
+        let product_id = $('#single-btn').val();
         $(this)
             .parent()
             .siblings('.product__simple-text-quantity')
-            .text($(this).text());
-        updateBasket('add-product', $('#single-btn').val(), null, $(this).text());
+            .text(parseInt($(this).text()));
+        updateBasket('add-product', product_id, parseInt($(this).text()), false);
     })
 
     $('.product__research-slide').slick({

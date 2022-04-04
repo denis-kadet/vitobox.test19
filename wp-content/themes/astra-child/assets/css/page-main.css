@@ -377,7 +377,7 @@
 .container-md,
 .container-sm,
 .container {
-  max-width: 1440px !important;
+  max-width: 1200px !important;
   }
 }
 
@@ -789,7 +789,7 @@ overflow: auto;
     content: '';
     position: absolute;
     top: 120px;
-    right: -150px;
+    right: -108px;
     width: 91px;
     height: 8px;
     background: url("../images/icons/block-3-line.svg"); }
@@ -932,7 +932,7 @@ overflow: auto;
 .block-5__img-user {
     position: absolute;
     top: -70px;
-    right: -80px;
+    right: -45px;
     border-radius: 50%;
     width: 260px;
     height: 260px;

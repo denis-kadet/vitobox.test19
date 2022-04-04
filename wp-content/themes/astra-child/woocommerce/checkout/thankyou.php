@@ -17,9 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 function sendToSdek( $ord ){
-//    echo "<pre >";
-//    var_dump($ord->data);
-//    echo "</pre >";
+
     $shipping_arr['recipient_name'] = $ord->data['billing']['first_name'] . " " . $ord->data['billing']['last_name'];
     $shipping_arr['recipient_phone'] = $ord->data['billing']['phone'];
     $shipping_arr['shipping_address'] = $ord->data['billing']["address_1"];
@@ -28,6 +26,8 @@ function sendToSdek( $ord ){
 //    $package = $ord->data['billing']["city"];
     require "CdekOrderSender.php";
     $cdekOrderSender = new CdekOrderSender($shipping_arr);
+
+    return $cdekOrderSender->getUuid();
 }
 ?>
 
@@ -43,9 +43,22 @@ function sendToSdek( $ord ){
 	<?php
 	if ( $order ) :
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
-        echo "<div class='uuid-container'>";
-        sendToSdek($order);
-        echo "</div>";
+        if( $order->get_shipping_address_1() == "" ){
+            echo "<div class='uuid-container'>";
+            $uuid = sendToSdek($order);
+            echo "</div>";
+            var_dump($uuid);
+            update_post_meta( $order->get_id(), '_shipping_address_1', $order->get_billing_address_1());
+            update_post_meta( $order->get_id(), '_shipping_address_2', $uuid);
+
+        }else{
+            echo "<div class='uuid-container'>";
+            echo $uuid;
+            echo "</div>";
+        }
+
+
+        var_dump($order->data['shipping']);
 		?>
 		<?php if ( $order->has_status( 'failed' ) ) : ?>
 
