@@ -129,7 +129,7 @@ if ( post_password_required() ) {
 
                 <ul id="block-9__accordion" class="block-9__accordion">
                     <li class="block-9__accordion-inner">
-                        <h3 class="product__desc-title">Рекомендации по приему</h3>
+                        <h3 class="block-9__accordion-title">Рекомендации по приему</h3>
                         <div>
                             <p class="product__desc-text">
                                 Все наши продукты созданы с учетом оптимального поглощения.
@@ -139,7 +139,7 @@ if ( post_password_required() ) {
                         </div>
                     </li>
                     <li class="block-9__accordion-inner">
-                        <h3 class="product__desc-title">Cостав</h3>
+                        <h3 class="block-9__accordion-title">Cостав</h3>
                         <div>
                             <p class="product__desc-text">
                                 <?=$product->get_meta('_section_one_col_1');?>
@@ -149,21 +149,24 @@ if ( post_password_required() ) {
                             <a href="javascript:void(0)" type="button" class="single_product__compose" data-bs-toggle="modal" data-bs-target="#composeModal">Точный состав</a>
                         </div>
                     </li>
+                    <?if(!empty($product->get_meta('_image_link'))):?>
                     <li class="block-9__accordion-inner">
-                        <h3 class="product__desc-title">Польза</h3>
+                        <h3 class="block-9__accordion-title">Польза</h3>
                         <div>
                             <p class="product__desc-text">
                                 <?=$product->get_meta('_section_one_col_2');?>
                             </p>
                         </div>
                     </li>
-
+                    <?endif;?>
                 </ul>
 
             </div>
+            <?if(!empty($product->get_meta('_image_link'))):?>
             <div class="product__desc-image">
                 <img src="<?=$product->get_meta('_image_link');?>" alt="Рекоммендации по витаминам">
             </div>
+            <?endif;?>
         </div>
     </div>
 </section>

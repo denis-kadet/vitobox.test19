@@ -38,7 +38,7 @@ jQuery(document).ready(function ($) {
         } else {
             headerMenu.removeClass('menu-fixed');
         }
-    })
+    });
 
     let pathname = location.pathname;
     if(pathname == '/katalog/') {
@@ -272,13 +272,10 @@ jQuery(document).ready(function ($) {
         item.append(image);
         item.append(textProduct);
         popupContainer.prepend(item);
-        item.click( function (){
-            item.css('transform','translate3d(500px , 0 , 0)');
-        })
-        return setTimeout(function (){
-            item.css('transform','translate3d(0 , 0 , 0)');
-            item.fadeOut(4000);
-        },0);
+        item.mouseup(function(){
+            console.log('mouseup')
+            $(this).css('transform', 'translateX(500px)');
+        });
     }
 
     function catalogBackground(){
@@ -361,7 +358,6 @@ jQuery(document).ready(function ($) {
     let catBtn = $('.filter-btn');
     catBtn.on('click', function (e){
         let catValue = $(this).data('category');
-        console.log(e.target, catValue)
         let targetValue = $(this).data('target');
         $(this).addClass('selected').siblings().removeClass('selected');
         $.ajax({
@@ -407,6 +403,17 @@ jQuery(document).ready(function ($) {
             $('.mobile-filter-check').fadeOut(0);
             $('.filter-list').fadeIn(0);
         })
+
+        //single product button fixed
+        let btnSingleProduct = $('.cart');
+        let posBtn = btnSingleProduct.offset().top
+        $(window).on('scroll', function (){
+            if($(this).scrollTop() > posBtn){
+                btnSingleProduct.addClass('fixed__single-product');
+            } else {
+                btnSingleProduct.removeClass('fixed__single-product');
+            }
+        });
     }
 
     //single page product
@@ -420,7 +427,7 @@ jQuery(document).ready(function ($) {
     $('#single-btn').on('click', function (e){
         e.preventDefault();
         let product_id = $(this).val();
-        updateBasket('add-product', product_id);
+        updateBasket('add-product', product_id, null, true);
         $('.product__simple-quantity').fadeIn();
         $(this).text('Добавлено');
         $(this).css({
@@ -452,7 +459,6 @@ jQuery(document).ready(function ($) {
         vertical: false,
         arrows: false,
         useCSS: false,
-        // useTransform: false,
         responsive: [
             {
                 breakpoint: 768,
@@ -464,7 +470,7 @@ jQuery(document).ready(function ($) {
             }
         ]
     });
-
+    //mobile recommended products
     if(screen < 768){
         $('#recommend-slide').slick({
             dots: true,
@@ -478,5 +484,4 @@ jQuery(document).ready(function ($) {
             useCSS: false,
         });
     }
-
 });

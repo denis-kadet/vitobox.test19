@@ -71,11 +71,6 @@ defined( 'ABSPATH' ) || exit;
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_after_order_notes', $checkout ); ?>
-    
 
 
-
-
-    <script src="/wp-content/themes/astra-child/assets/js/checkout.js">
-    </script>
 </div>

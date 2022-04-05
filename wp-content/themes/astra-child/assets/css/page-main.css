@@ -1429,7 +1429,8 @@ font-size: 18px;
     position: relative;
     padding: 23px 0; }
 .block-9__accordion-inner:not(:last-child) {
-    border-bottom: 1px solid #2C1E2F; }
+    border-bottom: 1px solid #2C1E2F;
+}
 .block-9__accordion-inner::after {
     content: '';
     position: absolute;

@@ -73,11 +73,11 @@ get_header( 'shop' );
                 <div class="row">
                     <div class="filter-tabs col-12 col-md-12">
                         <div class="filter-wrapp">
+                            <div class="mobile__header-filter">
+                                Категории
+                                <div class="mobile__filter-close"></div>
+                            </div>
                             <div class="filter-list-items">
-                                <div class="mobile__header-filter">
-                                    Категории
-                                    <div class="mobile__filter-close"></div>
-                                </div>
                                 <div class="filter-btn selected" data-category="all">Все продукты</div>
                                 <?
                                 $categories = get_terms( "product_cat", array(
@@ -99,11 +99,11 @@ get_header( 'shop' );
                     </div>
                     <div class="filter-tabs col-12 col-md-12">
                         <div class="filter-wrapp">
+                            <div class="mobile__header-filter">
+                                Цели
+                                <div class="mobile__filter-close"></div>
+                            </div>
                             <div class="filter-list-items">
-                                <div class="mobile__header-filter">
-                                    Цели
-                                    <div class="mobile__filter-close"></div>
-                                </div>
                                 <div class="filter-btn selected" data-category="all">Все продукты</div>
                                 <?
                                 $attributes = wc_get_attribute_taxonomies();
