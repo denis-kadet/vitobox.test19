@@ -360,9 +360,10 @@ ul {
 /* Catalog */
 .woocommerce-products-header {
     padding: 272px 0 207px 0;
-    background-image: url('../img/catalog_main.jpg');
+    background-image: url('../img/catalog_background_1.png');
     background-size: cover;
     background-position: bottom;
+    background-repeat: no-repeat;
     margin-bottom: 20px;
 }
 
@@ -386,6 +387,10 @@ ul {
 
 .light-blue {
     background: #c7e1e7;
+}
+
+.light-purple {
+    background: #d6d7ee;
 }
 
 /* Catalog */
@@ -723,17 +728,35 @@ ul {
 .filter-list-items {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.filter-list-subcategory {
+    display: none;
+    width: 100%;
+}
+.filter-wrapp-subcategory {
+    display: flex;
+    align-items: center;
+}
+.filter-wrapp-subcategory .filter-btn {
+    background-color: #fff;
+    color: #4281A4;
+    border: 1px solid #4281A4;
 }
 .filter-btn {
     display: flex;
     align-items: center;
     padding: 10px 30px;
+    margin-right: 13px;
     border-radius: 29px;
-    margin-bottom: 10px;
     font-size: 16px;
     color: #1C131E;
     cursor: pointer;
     transition: 300ms ease-in-out;
+}
+
+.filter-btn:last-child {
+    margin-right: 0;
 }
 
 .filter-btn:hover {
@@ -787,7 +810,7 @@ ul {
 
 .filter-tabs .filter-wrapp .selected {
     color: #fff;
-    background-color: #4281A4 !important;
+    background-color: #4281A4;
 }
 
 .filter-tabs .filter-wrapp .selected .inline-svg-icon{
@@ -958,9 +981,9 @@ button.product_type_simple:focus {
 }
 
 .product__attribute-list {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     max-width: 187px;
     padding-bottom: 10px;
     margin-bottom: 64px;
@@ -969,7 +992,12 @@ button.product_type_simple:focus {
 
 .product__attribute-icon{
     position: relative;
+    margin-right: 20px;
     cursor: pointer;
+}
+
+.product__attribute-icon:last-child{
+    margin-right: 0;
 }
 
 .active .product__desc-icon {
@@ -1076,6 +1104,7 @@ button.product_type_simple:focus {
     position: absolute;
     right: 23px;
     top: 20px;
+    display: block;
     width: 29px;
     height: 30px;
     background-image: url(../img/close_popup.svg);
@@ -1280,9 +1309,10 @@ button.product_type_simple:focus {
 /*Section recommended products*/
 #product-recommend {
     padding: 95px 0;
-    background-image: url('/wp-content/themes/astra-child/assets/img/sea_fon.jpg');
+    background-image: url('/wp-content/themes/astra-child/assets/img/research_background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 #product-upsell {
     padding: 95px 0;
@@ -1556,7 +1586,7 @@ button.product_type_simple:focus {
     display: flex;
     justify-content: center;
     margin-bottom: 0;
-    padding: 10px 0;
+    padding: 0 20px;
     width: 100%;
     z-index: 999;
 }
@@ -1673,6 +1703,43 @@ button.product_type_simple:focus {
     .filter-list-items {
         flex-direction: column;
         padding: 0 15px;
+    }
+    .mobile__filter-list {
+        padding: 0 30px 17px;
+        margin-bottom: 15px;
+    }
+    .filter__category-name {
+        margin-bottom: 15px;
+        color: #BDBDBD;
+    }
+    .filter-wrapp-subcategory {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .mobile__filter-list .filter-btn {
+        color: #1C131E;
+        border: 0;
+        padding: 0;
+        margin-bottom: 16px;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'PP Pangram Sans';
+    }
+    .mobile__filter-list .filter-btn:last-child {
+        margin-bottom: 0;
+    }
+    .mobile__filter-list .selected {
+        color: #4281A4 !important;
+        background-color: #fff !important;
+    }
+    .filter-list-subcategory {
+        display: block;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #BDBDBD;
+    }
+    .filter-list-subcategory:last-child {
+        border: 0;
     }
     .mobile__header-filter {
         position: relative;
@@ -1959,6 +2026,9 @@ button.product_type_simple:focus {
         order: 10;
         justify-content: flex-start;
         text-align: left;
+    }
+    .single_add_to_cart_button {
+        width: 100%;
     }
     .product__modal .modal-body {
         padding: 0px 5px 5px 5px;

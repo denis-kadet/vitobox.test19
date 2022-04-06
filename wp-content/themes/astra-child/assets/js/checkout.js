@@ -23,44 +23,51 @@ jQuery().ready(function($){
             $('.pvz-container-address-details__terms .pvz-container-address-details-data').html(' ' + wat.term);
             $('#pvz-container-address-details').show();
         }
+
+        ourWidjet.city.set(cityDefault);
+
     }catch(e){
         console.log(e);
     }
 
+    // $('.customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event) {//Открывает выбор пвз
+    //     event.preventDefault();
+    //
+    //     $('.customer-info-container-shipping-select button ').each(function(){
+    //         $(this).removeClass('checkout-selected-button');
+    //     })
+    //     $(this).addClass('checkout-selected-button');
+    //     window.scrollTo(0, 0);
+    //     $('.pvz-container-wrapper').show(350);
+    //     $('body').addClass('basket-fixed');
+    // });
 
-
-//    $('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
+   // $('#shipping-to-pvz, .customer-info-container-shipping-select__button #shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
     $('#shipping-to-pvz').on('click', function(event){//Открывает выбор пвз
         event.preventDefault();
 
-        // $('#pvz-container-list').html($('#copy_preloader'));
-
-        shippingCity = $('input[name=billing_city]').val();
-        if( shippingCity == '' ){
-            shippingCity = "Москва";
+        cityDefault = $('input[name=billing_city]').val();
+        if( cityDefault == '' ){
+            cityDefault = "Москва";
         }
 
+        console.log(cityDefault)
 
-
-        if(shippingCity.length){
-            let value = shippingCity.split('');
+        if(cityDefault.length){
+            let value = cityDefault.split('');
             let firstWord = value.shift().toUpperCase();
             value.unshift(firstWord);
-            shippingCity = value.join('');
-            let dataStr = {city_name: shippingCity, action: 'show_pvz'};
-            try {
-                console.log(shippingCity)
-                ourWidjet.city.set(shippingCity);
-                console.log(ourWidjet)
-            } catch (e) {
-                console.log(e);
-            }
+            cityDefault = value.join('');
+            let dataStr = {city_name: cityDefault, action: 'show_pvz'};
+
+            ourWidjet.city.set(cityDefault);
+
             $.ajax({
                 type: "POST",
                 data: dataStr,
                 url: "/CdekPvz.php",
                 success: function (data) {
-                    console.log(data)
+                    // console.log(data)
                     if( data == '[]' ){
                         data = "<div class='empty-answer'>Извините, по вашему запросу ничего не нашлось</div>";
                     }
@@ -77,23 +84,28 @@ jQuery().ready(function($){
         }catch (e) {
             console.log(e);
         }
-        jQuery('.customer-info-container-shipping-select button ').each(function(){
-            jQuery(this).removeClass('checkout-selected-button');
+        $('.customer-info-container-shipping-select button ').each(function(){
+            $(this).removeClass('checkout-selected-button');
         })
-        jQuery(this).addClass('checkout-selected-button');
+        $(this).addClass('checkout-selected-button');
         window.scrollTo(0, 0);
-        jQuery('.pvz-container-wrapper').show(350);
-        jQuery('body').addClass('basket-fixed');
+        $('.pvz-container-wrapper').show(350);
+        $('body').addClass('basket-fixed');
+        $('#shipping_to').val('pvz');
+        let name = "data_shipping_to";
+        let value = $('#shipping_to').val();
+
+        document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
     });
 
-    jQuery('.pvz-container-modal-back').on('click', function(event){//Скрывает окно выбора пвз
+    $('.pvz-container-modal-back').on('click', function(event){//Скрывает окно выбора пвз
         event.preventDefault();
-        let el = jQuery(event.target);
-        if(el[0] == jQuery(this)[0]){
-            if(jQuery('body').hasClass('basket-fixed')){
-                jQuery('body').removeClass('basket-fixed');
+        let el = $(event.target);
+        if(el[0] == $(this)[0]){
+            if($('body').hasClass('basket-fixed')){
+                $('body').removeClass('basket-fixed');
             }
-            jQuery('.pvz-container-wrapper').hide();
+            $('.pvz-container-wrapper').hide();
         }
     });
     jQuery('.pvz-container-heading__close-button').on('click', function(){//Скрывает окно выбора пвз
@@ -174,6 +186,7 @@ jQuery().ready(function($){
         jQuery('#shipping-address-modal').show(350);
         jQuery('body').addClass('basket-fixed');
         $('#pvz-container-address-details').hide(350);
+        $('#shipping_to').val('address');
     });
 
     jQuery('#shipping-address-modal').on('click', function (event){
@@ -195,14 +208,14 @@ jQuery().ready(function($){
     });
     $('#fill-address-button').on('click', function(e){
         e.preventDefault();
-        let addr= $('.shipping-address-modal-container-right-house input').val();
+        let addr= ' ' + $('.shipping-address-modal-container-right-house input').val();
         addr = addr + ', ' + $('input[name=custom-address-apparts]').val();
         addr = $('.shipping-address-modal-container-right-street input').val() + ', ' + addr;
 
-        $('.personal-container-address-details__address .personal-container-address-details-data').html($('input[name=custom-address-street]').val());
-        // jQuery('#billing_address_1').val(jQuery(selectedPvz).find('.pvz-owner-name').text());
-        $('.personal-container-address-details__price .personal-container-address-details-data').html($('input[name=custom-address-house]').val());
-        $('.personal-container-address-details__terms .personal-container-address-details-data').html($('input[name=custom-address-apparts]').val());
+        $('.personal-container-address-details__address .personal-container-address-details-data').html(addr);
+        // $('.personal-container-address-details__price .personal-container-address-details-data').html();
+        // $('.personal-container-address-details__terms .personal-container-address-details-data').html();
+
         $('#personal-container-address-details').show(350);
         $('#pvz-container-address-details').hide(350);
 
@@ -263,17 +276,20 @@ jQuery().ready(function($){
 
     $('.custom-promo').on('change', function (){
         let promoStr = $(this).val();
-        let checkPromo = '.coupon-' + promoStr;
+        let checkPromo = '.coupon-' + promoStr.toLowerCase();
         let promoField = $(this);
-        let correctPromoLabel = '<label id="custom-promo-label" class="valid" for="custom-promo">промокод активирован(скидка 25%)</label>';
         let inCorrectPromoLabel = '<label id="custom-promo-label-incorrect" class="error custom-error" for="custom-promo">Некорректный промокод</label>';
-
         $.ajax({
             type: "POST",
             data: '',
             url: "/?coupon-code=" + promoStr + "&sc-page=checkout",
             success: function(data){
                 let promoResponse = $(data).find('.order_review__container').html();
+                let promoDiscount = $(data).find('.cart-discount td .amount').text();
+                let promoType = $(data).find('.cart-discount td .amount .woocommerce-Price-currencySymbol').text();
+                let correctPromoLabel = '<label id="custom-promo-label" class="valid" for="custom-promo">промокод активирован(скидка ' + promoDiscount + ')</label>';
+
+
 
                 if( $(promoResponse).find(checkPromo).length > 0 ){
                     $('.order_review__container').html(promoResponse);

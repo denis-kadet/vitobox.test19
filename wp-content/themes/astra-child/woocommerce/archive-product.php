@@ -77,24 +77,79 @@ get_header( 'shop' );
                                 Категории
                                 <div class="mobile__filter-close"></div>
                             </div>
-                            <div class="filter-list-items">
-                                <div class="filter-btn selected" data-category="all">Все продукты</div>
-                                <?
-                                $categories = get_terms( "product_cat", array(
-                                    "order" => "ASC", // Направление сортировки
-                                    "hide_empty" => 1,
-                                    "parent" => 0,
-                                    "exclude" => array(34,35),
-                                ));
-                                foreach ( $categories as $category ) {
-                                    ?>
-                                    <div class="filter-btn" id="<?=$category->term_id?>" data-category="<?=$category->slug?>">
-                                        <?=$category->name?>
-                                    </div>
+                            <?if(wp_is_mobile()):?>
+                                <div class="mobile__filter-list">
+                                    <div class="filter-btn" data-category="all" style="margin-bottom: 32px;">Все продукты</div>
                                     <?
-                                }
-                                ?>
-                            </div>
+                                    $categories = get_terms( "product_cat", array(
+                                        "order" => "ASC", // Направление сортировки
+                                        "hide_empty" => 1,
+                                        'parent' => 0
+                                    ));
+                                    foreach ( $categories as $category ) {
+                                        ?>
+                                        <div class="filter__category-name" id="<?=$category->term_id?>" data-catindex="<?=$category->term_id?>">
+                                            <?=$category->name?>
+                                        </div>
+                                        <div class="filter-list-subcategory" data-id_category="<?=$category->term_id?>">
+                                            <div class="filter-wrapp-subcategory">
+                                                <?
+                                                $sub_cat_data = get_terms( "product_cat", array(
+                                                    "order" => "ASC", // Направление сортировки
+                                                    "hide_empty" => 1,
+                                                    'parent' => $category->term_id
+                                                ));
+                                                ?>
+                                                <?foreach ( $sub_cat_data as $subcategory ) :?>
+                                                    <div class="filter-btn"  data-category="<?=$subcategory->slug?>">
+                                                        <?=$subcategory->name?>
+                                                    </div>
+                                                <?endforeach;?>
+                                            </div>
+                                        </div>
+                                        <?
+                                    }
+                                    ?>
+                                </div>
+                            <? else :?>
+                                <div class="filter-list-items">
+                                    <div class="filter-btn selected" data-category="all">Все продукты</div>
+                                    <?
+                                    $categories = get_terms( "product_cat", array(
+                                        "order" => "ASC", // Направление сортировки
+                                        "hide_empty" => 1,
+                                        'parent' => 0
+                                    ));
+                                    $category_id = [];
+                                    foreach ( $categories as $key => $category ) {
+                                        array_push($category_id, $category->term_id );
+                                        ?>
+                                        <div class="filter-btn" id="<?=$category->term_id?>" data-catindex="<?=$key?>">
+                                            <?=$category->name?>
+                                        </div>
+                                        <?
+                                    }
+                                    ?>
+                                </div>
+                                <?foreach ($category_id as $id):?>
+                                    <div class="filter-list-subcategory" data-id_category="<?=$id?>">
+                                        <div class="filter-wrapp-subcategory">
+                                            <?
+                                            $sub_cat_data = get_terms( "product_cat", array(
+                                                "order" => "ASC", // Направление сортировки
+                                                "hide_empty" => 1,
+                                                'parent' => intval($id)
+                                            ));
+                                            ?>
+                                            <?foreach ( $sub_cat_data as $subcategory ) :?>
+                                                <div class="filter-btn"  data-category="<?=$subcategory->slug?>">
+                                                    <?=$subcategory->name?>
+                                                </div>
+                                            <?endforeach;?>
+                                        </div>
+                                    </div>
+                                <?endforeach;?>
+                            <?endif;?>
                         </div>
                     </div>
                     <div class="filter-tabs col-12 col-md-12">

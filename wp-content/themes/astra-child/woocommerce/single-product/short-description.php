@@ -31,7 +31,7 @@ if ( ! $short_description ) {
 <div class="woocommerce-product-details__short-description">
     <?php echo $short_description; // WPCS: XSS ok. ?>
     <!-- Button trigger modal -->
-    <a href="javascript:void(0)" type="button" class="single_product__compose" data-bs-toggle="modal" data-bs-target="#composeModal">Дозировки</a>
+    <a href="javascript:void(0)" class="single_product__compose" data-bs-toggle="modal" data-bs-target="#composeModal">Дозировки</a>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="composeModal" tabindex="-1" aria-labelledby="composeModalLabel" aria-hidden="true">

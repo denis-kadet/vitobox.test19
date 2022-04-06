@@ -315,7 +315,7 @@ function add_new_tabs_panel(){
                         <?php echo get_post_meta($post->ID, '_section_two_col_2', true); ?>
                     </textarea>
                 </span>
-                <span class="woocommerce-help-tip" data-tip="Чтобы вывести списком используйте символ \n"></span>
+                <span class="woocommerce-help-tip" data-tip="Чтобы вывести списком, после предложения перейдите на следующую строчку с помощью кнопки 'Enter'"></span>
             </p>
         </div>
     </div>

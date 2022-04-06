@@ -42,12 +42,15 @@ function sendToSdek( $ord ){
 
 	<?php
 	if ( $order ) :
+//        var_dump($order);
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
-        if( $order->get_shipping_address_1() == "" ){
+//        var_dump($order->get_shipping_address_1() );
+        if( 1==1/*$order->get_shipping_address_1() == ""*/ ){
+
             echo "<div class='uuid-container'>";
             $uuid = sendToSdek($order);
             echo "</div>";
-            var_dump($uuid);
+//            var_dump($uuid);
             update_post_meta( $order->get_id(), '_shipping_address_1', $order->get_billing_address_1());
             update_post_meta( $order->get_id(), '_shipping_address_2', $uuid);
 
@@ -58,7 +61,6 @@ function sendToSdek( $ord ){
         }
 
 
-        var_dump($order->data['shipping']);
 		?>
 		<?php if ( $order->has_status( 'failed' ) ) : ?>
 

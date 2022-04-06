@@ -9,6 +9,7 @@ $get_categories_products = get_terms("product_cat", [
 ?>
 <?if( $get_categories_products ):?>
     <?php foreach( $get_categories_products as $get_categories_product ): ?>
+        <?php if($get_categories_product->parent) :?>
         <?php
         $category_thumbnail = get_term_meta($get_categories_product->term_id, 'thumbnail_id', true);
         $image = wp_get_attachment_url($category_thumbnail);
@@ -93,5 +94,6 @@ $get_categories_products = get_terms("product_cat", [
                 </ul>
             </div>
         </div>
+        <?php endif ;?>
     <?php endforeach; ?>
 <?php endif; ?>

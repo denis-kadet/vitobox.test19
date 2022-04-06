@@ -4,10 +4,16 @@ body.woocommerce-checkout{
     min-height: 100vh;
     height: 100vh;
 }
+.ast-separate-container #primary{
+    margin: 0;
+}
+#post-24958{
+    padding-bottom: 0;
+}
 footer{
     display: none;
 }
-#copy_preloader{
+#copy_preloader, .cart-discount{
     display: none;
 }
 #pvz-container-list .CDEK-widget__preloader{
@@ -119,15 +125,31 @@ td.product-name{
     margin-top: 20px;
 }
 .custom-shipping-price{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 20px;
 }
+.custom-shipping-price-sum{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
 .woocommerce-Price-amount{
     margin-top: 20px;
     display: block;
 }
 .order-total, .cart-subtotal{
     border-top-style: solid;
+}
+.cart-subtotal th {
+    font-weight: normal;
+}
+.cart-subtotal td {
+    font-weight: 700;
 }
 td.product-total{
     width: 20%;
@@ -278,6 +300,10 @@ form[name="ckeckout"] *{
 #billing_last_name_field .woocommerce-input-wrapper input{
     outline: none;
 
+}
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1{
+    width: 67%;
 }
 
 .woocommerce .col2-set .col-2{
@@ -951,6 +977,11 @@ body.woocommerce-order-received .woocommerce{
         margin: 0;
         width: 33%;
     }
+
+    .woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1{
+        width: 100%;
+    }
+
     .customer-info-container{
         width: 100%;
     }

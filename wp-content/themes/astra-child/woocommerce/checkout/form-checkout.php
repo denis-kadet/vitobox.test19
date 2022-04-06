@@ -31,7 +31,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
-    <input id="shipping_to" type="hidden" name="shipping_to" value="eco-pvz"/>
+    <input id="shipping_to" type="hidden" name="shipping_to" value="address"/>
 <!--    <h1 class="entry-title" itemprop="headline">Оформление заказа</h1>-->
 
 
@@ -145,7 +145,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                     <div id="personal-container-address-details">
                         <div class="personal-container-address-details__address">
                             <div class="personal-container-address-details-label">
-                                Улица:
+                                Адрес:
                             </div>
                             <div class="personal-container-address-details-data">
 
@@ -153,18 +153,18 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                         </div>
                         <div class="personal-container-address-details__price">
                             <div class="personal-container-address-details-label">
-                                Дом:
+                                Стоимость:
                             </div>
                             <div class="personal-container-address-details-data">
-
+                                280 &#8381;
                             </div>
                         </div>
                         <div class="personal-container-address-details__terms">
                             <div class="personal-container-address-details-label">
-                                Квартира:
+                                Время доставки:
                             </div>
                             <div class="personal-container-address-details-data">
-
+                                3 дня
                             </div>
                         </div>
                     </div>
