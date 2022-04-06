@@ -17,8 +17,8 @@
                             <div class=" block-5__img-wrap ">
                                 <div class="">
                                     <picture>
-                                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img.webp" type="image/webp">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img.png" alt="icon:app" class="block-5__img">
+<!--                                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-img.webp" type="image/webp">-->
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img-2.jpg" alt="icon:app" class="block-5__img">
                                     </picture>
                                 </div>
                                 <div class="">
@@ -62,8 +62,8 @@
                             <div class="block-5__img-wrap ">
                                 <div class="">
                                     <picture>
-                                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img.webp" type="image/webp">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img.png" alt="icon:app" class="block-5__img">
+<!--                                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-img.webp" type="image/webp">-->
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img-1.jpg" alt="icon:app" class="block-5__img">
                                     </picture>
                                 </div>
                                 <div class="">
@@ -104,8 +104,8 @@
                             <div class="block-5__img-wrap ">
                                 <div class="">
                                     <picture>
-                                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img.webp" type="image/webp">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img.png" alt="icon:app" class="block-5__img">
+<!--                                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-img.webp" type="image/webp">-->
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-img-3.jpg" alt="icon:app" class="block-5__img">
                                     </picture>
                                 </div>
                                 <div class="">

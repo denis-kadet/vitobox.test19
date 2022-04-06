@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-12 offset-xxl-1 offset-xl-2 order-lg-3 order-md-2 d-flex d-sm-block justify-content-center">
                     <picture>
-                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-img.webp" type="image/webp">
+<!--                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-img.webp" type="image/webp">-->
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-img.png" alt="icon:app" class="block-6__img">
                     </picture>
                 </div>

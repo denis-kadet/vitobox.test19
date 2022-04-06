@@ -2,13 +2,13 @@
     <div class="block-2">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-12 order-md-1 order-sm-1 order-1 ">
+                <div class="col-xxl-5 col-xl-4 col-lg-5 col-md-6 col-sm-12 order-md-1 order-sm-1 order-1 ">
                     <div class="block-2__desc-wrap">
                         <h2 class="block__title block-2__title">VitoBox - сервис по подбору витаминов на основе умного алгоритма</h2>
                         <div class="block__text block-2__text">Улучшайте показатели здоровья, повышайте продуктивность, укрепляйте нервную систему и повышайте иммунитет. Мы подберем нужную вашему организму витаминную формулу</div>
                     </div>
                 </div>
-                <div class="col-xxl-5 col-xl-7 col-lg-7 col-md-6 col-sm-12 offset-xxl-3 offset-xl-1 order-md-2 order-sm-0 order-0 text-center">
+                <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-6 col-sm-12 offset-xxl-1 offset-xl-1 order-md-2 order-sm-0 order-0 text-center">
                     <picture>
                         <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-2-img-app.webp" type="image/webp">
                         <img class="block__img block-2__picture" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-2-img-app.jpg" alt="logo">
