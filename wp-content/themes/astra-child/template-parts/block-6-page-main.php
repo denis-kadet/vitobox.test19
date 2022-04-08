@@ -30,7 +30,7 @@
                     <li class="block-6__slider-item">
                         <picture>
 <!--                            <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-1.webp" type="image/webp">-->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-1.png " alt="icon:app" class="block-6__img-slider ">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-1-1.png " alt="icon:app" class="block-6__img-slider ">
                         </picture>
                         <div class="block-6__slider-item_text">Екатерину Оганесян</div>
                         <div class="block__text block-6__slider-item_decr">Врач-диетолог, научный сотрудник «ФИЦ питания и биотехнологии»</div>
@@ -38,7 +38,7 @@
                     <li class="block-6__slider-item">
                         <picture>
 <!--                            <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-2.webp" type="image/webp">-->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-2.png" alt="icon:app" class="block-6__img-slider">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-2-2.jpg" alt="icon:app" class="block-6__img-slider">
                         </picture>
                         <div class="block-6__slider-item_text">Виктория Александрова</div>
                         <div class="block__text block-6__slider-item_decr">Кандидат медицинских наук, репродуктолог</div>
@@ -46,7 +46,7 @@
                     <li class="block-6__slider-item">
                         <picture>
 <!--                            <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-3.webp" type="image/webp">-->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-3.png" alt="icon:app" class="block-6__img-slider">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-3-3.jpeg" alt="icon:app" class="block-6__img-slider">
                         </picture>
                         <div class="block-6__slider-item_text">Василий Шеншин</div>
                         <div class="block__text block-6__slider-item_decr">Biochemistry at Imperial College London, PhD ESPCI Paris</div>
@@ -54,14 +54,14 @@
                     <li class="block-6__slider-item">
                         <picture>
 <!--                            <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-4.webp" type="image/webp">-->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-4.png" alt="icon:app" class="block-6__img-slider">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-4-4.jpg" alt="icon:app" class="block-6__img-slider">
                         </picture>
                         <div class="block-6__slider-item_text">Екатерина Маслова</div>
                         <div class="block__text block-6__slider-item_decr">Автор книг по нутрициологии и питанию</div>
                     </li>
                     <li class="block-6__slider-item ">
                         <picture>
-<!--                            <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-5.webp" type="image/webp">-->
+<!--                            <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-5-5.webp" type="image/webp">-->
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-5.png" alt="icon:app" class="block-6__img-slider">
                         </picture>
                         <div class="block-6__slider-item_text">Владислав Закатов</div>
