@@ -58,7 +58,9 @@ defined( 'ABSPATH' ) || exit;
                     <div class="custom-shipping-price-label">Стоимость доставки</div>
                 </div>
             </th>
-			<td><?php wc_cart_totals_subtotal_html(); ?>
+			<td><?php wc_cart_totals_subtotal_html();
+                ?>
+
                 <div class="custom-shipping-price-sum">280 &#8381;</div></td>
 		</tr>
 

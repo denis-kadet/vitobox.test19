@@ -76,26 +76,32 @@ function sendToSdek( $ord ){
 		<?php else : ?>
 
 <!--			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">--><?php //echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><!--</p>-->
-            <div class="thank-you-text">
-                <div class="thank-you-text-title">Спасибо за ваш заказ!</div>
+            <div class="thank-you-flex-container">
+                <div class="thank-you-page-right-column">
+                    <div class="thank-you-text">
+                        <div class="thank-you-text-title">Спасибо за ваш заказ!</div>
 
-                <div class="">Мы уже отправили всю необходимую<br />информацию вам на почту.</div>
-                <br />
-                <div class="thank-you-text-track">Трек номер посылки <a href="https://cdek.ru/tracking?order_id=23456789">RP23456789</a></div>
-                <br />
-                <div class="thank-you-text-link">На следующий день после заказа вы сможете отследить доставку перейдя по ссылке:
-                    <a href="https://cdek.ru/tracking">cdek.ru/tracking</a></div>
+                        <div class="">Мы уже отправили всю необходимую<br />информацию вам на почту.</div>
+                        <br />
+                        <div class="thank-you-text-track">Трек номер посылки <a href="https://cdek.ru/tracking?order_id=23456789">RP23456789</a></div>
+                        <br />
+                        <div class="thank-you-text-link">На следующий день после заказа вы сможете отследить доставку перейдя по ссылке:
+                            <a href="https://cdek.ru/tracking">cdek.ru/tracking</a></div>
+                    </div>
+
+                    <div class="thank-you-text-mobile-img-container">
+
+                    </div>
+
+                    <div class="thank-you-support">Отались вопросы? Наша поддержка всегда готова ответить
+                        на них, свяжитесь с нами любым удобным способом</div>
+                </div>
+
+                <div class="thank-you-page-right-column">
+                    <img src="/wp-content/themes/astra-child/assets/img/thank-you-box.png" alt="thank-you-box" />
+
+                </div>
             </div>
-
-            <div class="thank-you-text-mobile-img-container">
-
-            </div>
-
-            <div class="thank-you-support">Отались вопросы? Наша поддержка всегда готова ответить
-                на них, свяжитесь с нами любым удобным способом</div>
-
-
-
 
 
 

@@ -23,12 +23,12 @@
                                 </div>
                                 <div class="">
                                     <picture>
-                                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile.webp" type="image/webp">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile.jpg" alt="icon:app" class="block-5__img block-5__img-mobile">
+<!--                                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-mobile.webp" type="image/webp">-->
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile-1.png" alt="icon:app" class="block-5__img block-5__img-mobile">
                                     </picture>
                                 </div>
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-user-alex.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-user-alex.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-user-alex.jpg" alt="icon:app " class="block-5__img-user ">
                                 </picture>
                             </div>
@@ -68,12 +68,12 @@
                                 </div>
                                 <div class="">
                                     <picture>
-                                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile.webp" type="image/webp">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile.jpg" alt="icon:app" class="block-5__img block-5__img-mobile">
+<!--                                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-mobile.webp" type="image/webp">-->
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile-2.png" alt="icon:app" class="block-5__img block-5__img-mobile">
                                     </picture>
                                 </div>
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-user-alla.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-user-alla.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-user-alla.jpg" alt="icon:app " class="block-5__img-user ">
                                 </picture>
                             </div>
@@ -81,7 +81,7 @@
                             <div class="block-5__text-wrap ">
                                 <div class="block__text block-5__text-1">Made for:</div>
                                 <div class="block-5__text-2">Alla B</div>
-                                <div class="block__text block-5__text-3">Фриланс-фотограф</div>
+                                <div class="block__text block-5__text-3">Продакт-менеджер</div>
                                 <div class="block__text block-5__text-4">Аллам много работает, медитирует для снятия стресса, хочет улучшить качество волос и ногтей</div>
                                 <ul class="block-5__items">
                                     <li class="block-5__item">
@@ -110,13 +110,13 @@
                                 </div>
                                 <div class="">
                                     <picture>
-                                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile.webp" type="image/webp">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile.jpg" alt="icon:app" class="block-5__img block-5__img-mobile">
+<!--                                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-mobile.webp" type="image/webp">-->
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-mobile-1.png" alt="icon:app" class="block-5__img block-5__img-mobile">
                                     </picture>
                                 </div>
 
                                 <picture>
-                                    <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-user-svet.webp" type="image/webp">
+<!--                                    <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-5-user-svet.webp" type="image/webp">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-5-user-svet.jpg" alt="icon:app" class="block-5__img-user">
                                 </picture>
                             </div>

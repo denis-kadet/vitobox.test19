@@ -5,13 +5,13 @@
                 <div class="col-xxl-12 ">
                     <div class="block__title block-7__title ">Европейское качество компонентов</div>
                 </div>
-                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6 d-flex d-sm-block justify-content-center">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 d-flex d-sm-block justify-content-center">
                     <picture>
 <!--                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-7-img.webp " type="image/webp ">-->
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-7-img.jpg " alt="icon:app " class="block-7__img ">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-7-img.png " alt="icon:app " class="block-7__img ">
                     </picture>
                 </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 offset-xxl-1 offset-xl-1 ">
+                <div class="col-xxl-5 offset-xxl-1 col-xl-5 col-lg-6 col-md-6 ">
                     <div class="block__text block-7__text ">Витамины VitoBox поставляются от зарубежных поставщиков из Нидерландов, Германии и Мексики</div>
                     <div class="block-7__subtitle ">Натурально и не содержит:</div>
                     <ul class="row block-7__items ">

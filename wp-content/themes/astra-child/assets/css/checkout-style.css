@@ -13,16 +13,22 @@ body.woocommerce-checkout{
 footer{
     display: none;
 }
+label.custom-error{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 100%;
+}
 #copy_preloader, .cart-discount{
     display: none;
 }
 #pvz-container-list .CDEK-widget__preloader{
     position: relative;
 }
-.uuid-container{
+.uuid-container, .CDEK-widget__search{
     display: none;
 }
-body.woocommerce-order-received a[href="javascript:javascript:history.go(-1)"], body.woocommerce-order-received .checkout-header-link-back-a-container-arrow{
+body.woocommerce-order-received a[href="javascript:javascript:history.go(-1)"], body.woocommerce-order-received .checkout-header-link-back-a-container-arrow, body.woocommerce-order-received .checkout-bottom-container__vitobox-logo a{
     display: none;
 }
 .checkout-bottom-container__vitobox-logo{
@@ -319,6 +325,7 @@ form[name="ckeckout"] *{
 }
 #billing_phone_field .woocommerce-input-wrapper input{
     outline: none;
+    width: 270px;
 
 }
 .woocommerce-input-wrapper{
@@ -330,6 +337,7 @@ input.input-text{
     border-style: none none solid none;
     border-width: 1px;
     border-color: #2c1e2f;
+    border-radius: 0;
     padding: 0;
 
 }
@@ -453,6 +461,11 @@ input.input-text{
     flex-direction: row;
     justify-content: space-between;
 }
+.pvz-container-heading-inner-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .pvz-container-heading__header{
     display: flex;
     flex-direction: column;
@@ -473,14 +486,13 @@ input.input-text{
     justify-content: space-between;
 }
 .pvz-container-heading__close-button{
-
+    position: relative;
 }
 .pvz-container-heading__close-button svg{
-    /*border-radius: 50%;*/
-    /*width: 28px;*/
-    /*height: 28px;*/
-    /*padding: 0;*/
+    position: absolute;
     cursor: pointer;
+    top: -10px;
+    right: 0px;
 }
 .pvz-container-heading-select-wrapper{
     margin-left: 40px;
@@ -499,7 +511,7 @@ input.input-text{
 .pvz-container-heading-select{
     display: flex;
     flex-direction: row;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 .checkout-transparent-button{
     background: none;
@@ -510,7 +522,7 @@ input.input-text{
     border: solid 1px #2C1E2F;
 }
 .pvz-container-heading__ready-button{
-    margin-right: 30px;
+    margin-right: 59px;
 }
 #pvz-ready{
     background: none;
@@ -523,7 +535,8 @@ input.input-text{
     outline: solid 1px #2C1E2F;
 }
 .pvz-container{
-    margin: 40px;
+    margin: 10px 40px 0 40px;
+
     border: solid 1px #2C1E2F;
     border-radius: 8px;
     padding: 16px;
@@ -535,14 +548,22 @@ input.input-text{
     display: flex;
     flex-direction: row;
     justify-content: start;
+    font-size: 16px;
 }
 .pvz-detail-description{
     display: none;
+    padding-top: 12px;
+    font-family: 'PP Pangram Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
 }
 .pvz-container-bottom-string{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 16px;
 }
 .pvz-detail-link{
     font-family: 'PP Pangram Sans';
@@ -623,7 +644,10 @@ pvz-detail-link:hover{
     width: 1px;
 }
 .pvz-price{
+    margin-top: 12px;
     font-weight: bold;
+    font-size: 16px;
+
 }
 /*пункты самовывоза конец*/
 
@@ -746,7 +770,7 @@ pvz-detail-link:hover{
     margin-bottom: 32px;
 }
 .promo-input-container input{
-    width: 45%;
+    width: 139px;
     background: none;
     border-style: none;
     border-bottom-style: solid;
@@ -817,6 +841,10 @@ pvz-detail-link:hover{
 
 
 .checkout-bottom-container{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    
     margin: 33px auto 33px auto;
     display: flex;
     flex-direction: row;
@@ -829,7 +857,13 @@ pvz-detail-link:hover{
     width: 10px;
 }
 .checkout-bottom-container__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     width: 600px;
+
+}
+.checkout-bottom-container__info div{
     color:  #BDBDBD;
     text-align: center;
     font-family: PP Pangram Sans;
@@ -893,7 +927,13 @@ body.woocommerce-order-received article{
     background-position: top right;
 }
 body.woocommerce-order-received .woocommerce{
-    margin: 180px auto 13vh 57px;
+    /*margin: 180px auto 13vh 57px;*/
+}
+
+.thank-you-flex-container{
+    display: flex;
+    flex-direction: row;
+
 }
 
 .thank-you-text-title{
@@ -906,7 +946,7 @@ body.woocommerce-order-received .woocommerce{
 
 }
 .thank-you-text{
-    width: 40%;
+    /*width: 40%;*/
     font-family: PP Pangram Sans;
     font-style: normal;
     font-weight: normal;
@@ -1088,7 +1128,10 @@ body.woocommerce-order-received .woocommerce{
         width: calc(100% - 33px);
         margin: 16px;
     }
-
+    .pvz-container-heading, .pvz-container-heading-select-wrapper, .pvz-container-heading__buttons-mobile{
+        margin: 13px;
+    }
+    /*.pvz-container-heading-select-wrapper*/
     .pvz-container-heading__buttons, .pvz-container-heading__close-button{
         display: none;
     }
@@ -1099,12 +1142,16 @@ body.woocommerce-order-received .woocommerce{
         margin: 16px;
 
     }
+    .pvz-container-heading__close-button-mobile svg{
+        position: relative;
+        top: 0;
+    }
     .pvz-container-heading-select{
         margin-bottom: 24px;
     }
     .pvz-container-heading__buttons-mobile{
         display: block;
-        margin-left: 40px;
+        margin-left: 13px;
     }
     #pvz-container-map{
         margin: 40px 13px 0 13px;

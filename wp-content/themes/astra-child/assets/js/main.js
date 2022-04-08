@@ -8,10 +8,12 @@ jQuery(document).ready(function ($) {
                 quantity: ''
             }
 
-            if (!this.cookie) this.set();
+            if (!this.cookie){
+                this.cookie = this.set();
+            }
         },
         set: function() {
-            return $.cookie('basketVitobox', '[]', { expires: 7, path: '/' });
+            return $.cookie('basketVitobox', '', { expires: 7, path: '/' });
         },
         get: function () {
             return $.cookie('basketVitobox');
@@ -32,7 +34,7 @@ jQuery(document).ready(function ($) {
             let filteredBasket = [];
             $.each(basket, function (index, value){
                 if(value.id != id) {
-                    filteredBasket.push(id);
+                    filteredBasket.push(value);
                 }
             });
             return this.update(filteredBasket);

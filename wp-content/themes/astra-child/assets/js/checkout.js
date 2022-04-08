@@ -18,6 +18,30 @@ jQuery().ready(function($){
         });
 
         function onChoose(wat) {
+            console.log(wat)
+            $('.CDEK-widget__panel').removeClass('open');
+
+            // var flag = 0;
+            // var element = $('.ymaps-2-1-79-events-pane ');
+            // element.on("mousedown", function(){
+            //     flag = 0;
+            // }, false);
+            // element.on("mousemove", function(){
+            //     flag = 1;
+            // }, false);
+            // element.on("mouseup", function(){
+            //     if(flag === 0){
+            //         $('.CDEK-widget__panel').addClass('open');
+            //     }
+            //     else if(flag === 1){
+            //         console.log("drag");
+            //     }
+            // }, false);
+
+            // $('.ymaps-2-1-79-events-pane ').on('click', function(){
+            //     console.log('testt')
+            //
+            // });
             $('.pvz-container-address-details__address .pvz-container-address-details-data').html(' ' + wat.id + ', ' + wat.PVZ.Address);
             $('.pvz-container-address-details__price .pvz-container-address-details-data').html(' ' + wat.price);
             $('.pvz-container-address-details__terms .pvz-container-address-details-data').html(' ' + wat.term);
