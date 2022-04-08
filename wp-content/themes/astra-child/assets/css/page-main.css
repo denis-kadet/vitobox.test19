@@ -1663,6 +1663,6 @@ font-size: 18px;
     }
     .block-12__bg {
         background:  url("../images/block-12-img-mob.png")  center center no-repeat transparent;
-        background-size: contain;
+        background-size: cover;
     }
 }
