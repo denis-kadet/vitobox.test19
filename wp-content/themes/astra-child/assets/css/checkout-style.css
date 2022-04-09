@@ -844,7 +844,7 @@ pvz-detail-link:hover{
     position: absolute;
     left: 0;
     width: 100%;
-    
+    padding: 18px 46px 18px 18px;
     margin: 33px auto 33px auto;
     display: flex;
     flex-direction: row;

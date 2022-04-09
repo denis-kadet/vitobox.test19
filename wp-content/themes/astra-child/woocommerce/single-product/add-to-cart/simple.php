@@ -26,15 +26,18 @@ if ( ! $product->is_purchasable() ) {
 echo wc_get_stock_html( $product ); // WPCS: XSS ok.
 
 if ( $product->is_in_stock() ) : ?>
-
+    <?php
+        $basket = urldecode($_COOKIE['basketVitobox']);
+        $basket = json_decode($basket, true);
+        $in_cart = false;
+    ?>
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 	<form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 		<?php
-		do_action( 'woocommerce_before_add_to_cart_quantity' );
-
+//		do_action( 'woocommerce_before_add_to_cart_quantity' );
 
 		woocommerce_quantity_input(
 			array(
@@ -44,9 +47,34 @@ if ( $product->is_in_stock() ) : ?>
 			)
 		);
 
-		do_action( 'woocommerce_after_add_to_cart_quantity' );
+//		do_action( 'woocommerce_after_add_to_cart_quantity' );
 		?>
-		<button id="single-btn" type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" data-product_sku="<?=$product->get_sku();?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+        <?foreach ($basket as $value):?>
+            <?if($value["id"] === $product->get_id() ):?>
+                <?php $in_cart = true; ;?>
+            <?endif;?>
+        <?endforeach;?>
+        <?if ($in_cart):?>
+            <div class="product__simple-quantity" style="display: block;">
+                <span class="product__simple-text-quantity"><?=$value["quantity"]?></span>
+                <ul class="list-quantity-options">
+                    <li class="item-quantity-option">1</li>
+                    <li class="item-quantity-option">2</li>
+                    <li class="item-quantity-option">3</li>
+                </ul>
+            </div>
+            <button id="single-btn" type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" data-product_sku="<?=$product->get_sku();?>" style="background-color: rgb(255, 255, 255); color: rgb(247, 184, 1);<?=wp_is_mobile() ? 'width:calc( 100% - 64px )' : ''?>" class="single_add_to_cart_button button alt" disabled><?php echo 'Добавлено';?></button>
+        <? else :?>
+            <div class="product__simple-quantity">
+                <span class="product__simple-text-quantity">1</span>
+                <ul class="list-quantity-options">
+                    <li class="item-quantity-option">1</li>
+                    <li class="item-quantity-option">2</li>
+                    <li class="item-quantity-option">3</li>
+                </ul>
+            </div>
+            <button id="single-btn" type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" data-product_sku="<?=$product->get_sku();?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+        <?endif;?>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>

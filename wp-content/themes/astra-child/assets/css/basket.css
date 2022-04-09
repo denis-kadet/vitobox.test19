@@ -321,6 +321,7 @@ ul {
     border: 1px solid #2C1E2F;
     border-radius: 23px;
     background-color: #fff;
+    transition: transform 300ms ease-in-out;
     transform: translateX(calc(100% + 40px));
     animation-name: popupPush;
     animation-duration: 4s;
@@ -550,6 +551,7 @@ ul {
 }
 
 .catalog-desc-item {
+    height: 170px;
     padding: 0 20px 20px 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid #BDBDBD;
