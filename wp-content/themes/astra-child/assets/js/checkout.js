@@ -149,7 +149,7 @@ jQuery().ready(function($){
         par.find('.pvz-detail-description').show(350);
     });
 
-    $('#pvz-ready').on('click', function (){//Отправка выбранного пвз в форму
+    $('#pvz-ready').on('click touchstart', function (){//Отправка выбранного пвз в форму
         let selectedPvz = jQuery('.selected-pvz')
         $('.pvz-container-address-details__address .pvz-container-address-details-data').html($(selectedPvz).find('.pvz-owner-name').text());
         /**/

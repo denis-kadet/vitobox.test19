@@ -2,42 +2,67 @@ jQuery(document).ready(function ($) {
     //cookie basket
     let basketCookie = {
         init: function () {
-            this.cookie = this.get();
             this.product = {
                 id: '',
                 quantity: ''
             }
 
-            if (!this.cookie){
+            if (!$.cookie('basketVitobox')){
                 this.cookie = this.set();
             }
         },
-        set: function() {
-            return $.cookie('basketVitobox', '', { expires: 7, path: '/' });
+        summaryQuantity: function (data) {
+            let sum = 1;
+            $.each(data, function(index, value){
+                sum = sum + value.quantity;
+            });
+            return sum;
+        },
+        set: function(data) {
+            let value = data ? encodeURIComponent(data) : '[]';
+            return $.cookie('basketVitobox', value, { expires: 7, path: '/' });
         },
         get: function () {
-            return $.cookie('basketVitobox');
+            return decodeURIComponent($.cookie('basketVitobox'));
         },
-        update: function (data){
-            $.cookie('basketVitobox', data, { expires: 7, path: '/' });
+        update: function (id, quantity){
+            let basket = JSON.parse(this.get());
+            let data = [];
+            let sum = this.summaryQuantity(basket);
+            if(sum < 7) {
+                $.each(basket, function(index, value){
+                    if(value.id == id) {
+                        value.quantity = quantity;
+                    }
+                    data.push(value);
+                });
+                data = JSON.stringify(data);
+                return this.set(data);
+            }
+            return;
         },
-        add: function (id, quantity) {
-            let basket = JSON.parse(this.cookie);
-            this.product.id = parseInt(id);
-            this.product.quantity = parseInt(quantity) ? this.product.quantity + 1 : parseInt(quantity);
-            basket.push(this.product);
-            basket = JSON.stringify(basket);
-            return this.update(basket);
+        add: function (id) {
+            let basket = JSON.parse(this.get());
+            let sum = this.summaryQuantity(basket);
+            if(sum < 7) {
+                this.product.id = parseInt(id);
+                this.product.quantity = 1;
+                basket.push(this.product);
+                basket = JSON.stringify(basket);
+                return this.set(basket);
+            }
+            return;
         },
         remove: function (id) {
-            let basket = JSON.parse(this.cookie);
-            let filteredBasket = [];
+            let basket = JSON.parse(this.get());
+            let data = [];
             $.each(basket, function (index, value){
                 if(value.id != id) {
-                    filteredBasket.push(value);
+                    data.push(value);
                 }
             });
-            return this.update(filteredBasket);
+            data = JSON.stringify(data);
+            return this.set(data);
         }
     }
     basketCookie.init();
@@ -230,8 +255,24 @@ jQuery(document).ready(function ($) {
             e.preventDefault();
             var product = $(this).parents('.product__item');
             var id = $(this).data('cart_item_key');
+            var catalogBtn = $('.add_to_cart_button').data('product_id', $(this).attr('product_id'));
             if(product.parent().children().length <= 6){
                 $(this).parents('.product__list').removeClass('scrolled');
+            }
+            if($('#single-btn').length) {
+                $('#single-btn').removeAttr('style');
+                $('.product__simple-quantity').eq(0).fadeOut(0);
+                $('#single-btn').text('Добавить');
+                $('#single-btn').removeAttr('disabled');
+            }
+            if(catalogBtn) {
+                catalogBtn.removeClass('added');
+                catalogBtn.text('Добавить');
+                catalogBtn.removeAttr('disabled');
+                if(screen < 961) {
+                    catalogBtn.removeAttr('style');
+                    catalogBtn.html('<svg class="mobile-basket-icon"><use xlink:href="/wp-content/themes/astra-child/assets/img/icons.svg#box"></use></svg>')
+                }
             }
             basketCookie.remove($(this).data('product_id'));
             updateBasket('remove-product', id, null, false);
@@ -258,6 +299,9 @@ jQuery(document).ready(function ($) {
                 $('.product_container').html(result.fragments.products)
                 $('.subtotal').html(result.total);
                 changeQuantity();
+                if(count){
+                    basketCookie.update(id, count);
+                }
                 if(showModal || (result.count > 7)){
                     createPopupAddCart(result.count, result.name);
                 }
@@ -283,11 +327,16 @@ jQuery(document).ready(function ($) {
         }
         item.append(image);
         item.append(textProduct);
+        if(screen < 961) {
+            item.on('click', function (){
+                $(this).css({
+                    'transform':'translateX(100%) !important',
+                    'animation-name': 'none',
+                    'animation-duration': 'none'
+                });
+            })
+        }
         popupContainer.prepend(item);
-        item.mouseup(function(){
-            console.log('mouseup')
-            $(this).css('transform', 'translateX(500px)');
-        });
     }
 
     function catalogBackground(){
@@ -457,6 +506,7 @@ jQuery(document).ready(function ($) {
         $('.product__simple-quantity').fadeIn();
         $(this).text('Добавлено');
         $(this).attr('disabled', 'true')
+        basketCookie.add($(this).val());
         if(screen < 768){
             $(this).css({
                 'background-color': '#fff',

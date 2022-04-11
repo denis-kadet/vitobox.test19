@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" id="about-quality">
     <div class="block-7 ">
         <div class="container ">
             <div class="row ">

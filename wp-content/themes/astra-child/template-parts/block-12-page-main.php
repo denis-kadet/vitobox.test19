@@ -11,7 +11,7 @@
                         <h1 class="block-12__title">Вы уникальны. Ваши витамины должны быть такими же</h1>
                         <div class="block__text block-12__text">Пройдите тест, и алгоритм VitoBox
                             подберет витамины по вашим параметрам</div>
-                        <a href="#" class="block-12__btn-link">
+                        <a href="https://vitobox.ru/quiz/" class="block-12__btn-link">
                             <div class="block-12__btn-wrap">
                                 <div class="block-12__btn-text">Пройти тест</div>
                             </div>

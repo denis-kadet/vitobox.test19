@@ -1,5 +1,5 @@
 body.woocommerce-checkout{
-    background: url("http://test19.softmg.ru/wp-content/uploads/2022/02/checkout-back.png") no-repeat;
+    background: url("/wp-content/uploads/2022/02/checkout-back.png") no-repeat;
     background-size: cover;
     min-height: 100vh;
     height: 100vh;
@@ -14,6 +14,7 @@ footer{
     display: none;
 }
 label.custom-error{
+    padding-top: 4px;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -24,6 +25,9 @@ label.custom-error{
 }
 #pvz-container-list .CDEK-widget__preloader{
     position: relative;
+}
+tr.recurring-totals, .recurring-total{
+    display: none !important;
 }
 .uuid-container, .CDEK-widget__search{
     display: none;
@@ -844,7 +848,7 @@ pvz-detail-link:hover{
     position: absolute;
     left: 0;
     width: 100%;
-    
+    padding: 18px 46px 18px 18px;
     margin: 33px auto 33px auto;
     display: flex;
     flex-direction: row;
@@ -981,6 +985,10 @@ body.woocommerce-order-received .woocommerce{
 
 
 @media screen and (max-width: 768px) {
+    body.woocommerce-checkout{
+        background: url("/wp-content/themes/astra-child/assets/img/checkout-mobile-back.png");
+        background-size: cover;
+    }
     form[name=checkout]{
         flex-direction: column;
     }
@@ -1052,7 +1060,9 @@ body.woocommerce-order-received .woocommerce{
     #billing_city_field{
         margin-bottom: 0;
     }
-
+    #billing_address_1_field{
+        display: none;
+    }
     #shipping-to-pvz{
         width: 100%;
     }

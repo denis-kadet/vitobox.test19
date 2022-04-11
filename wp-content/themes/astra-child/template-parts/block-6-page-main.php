@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" id="about-algoritm">
     <div class="block-6">
         <div class="container">
             <div class="row">

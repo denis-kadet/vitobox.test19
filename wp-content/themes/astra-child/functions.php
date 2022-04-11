@@ -108,9 +108,7 @@ function filter_function_name_4792( $items, $args ){
 add_filter( 'woocommerce_checkout_fields' , 'remove_checkout_fields' , 1);
 function remove_checkout_fields( $fields ) {
 
-    if( isset($_GET['dev']) && $_GET['dev'] == 'jshr' ){
 
-    }
 
 //    unset($fields['billing']['billing_first_name']);
 //    unset($fields['billing']['billing_last_name']);
@@ -269,6 +267,48 @@ function createDiv($atts, $content = null) {
     return '<div id="'. $id . '" class="'. $class . '" />' . $content . '</div>';
 }
 add_shortcode('div', 'createDiv');
+
+add_action( 'woocommerce_get_cart_contents', 'createUserBeforeCheckout', 1, 2 );
+
+function createUserBeforeCheckout($data){
+
+    if(!is_user_logged_in()){
+        $login = 'tmp_user' . (time() - 1648551827);
+        $pass = md5('tmp_user_pass' . time());
+        $email = 'tmp_user_email' . (time() - 1648551827) . '@df.com';
+
+
+
+
+        $userdata = [
+            'user_login'           => $login,      // (string) Имя пользователя для входа в систему.
+            'user_pass'            => $pass,
+            'user_email'           => $email,      // (string) Адрес электронной почты пользователя.
+            'role'                 => 'subscriber',      // (string) Роль пользователя.
+        ];
+
+        $user_id = wp_insert_user($userdata);
+
+        $user = get_user_by( 'id', $user_id );
+        if( $user ) {
+            wp_set_current_user( $user_id, $user->user_login );
+            wp_set_auth_cookie( $user_id );
+
+
+            do_action( 'wp_login', $user->user_login, $user );
+        }
+    }
+    return $data;
+}
+
+
+add_filter( 'woocommerce_order_number', 'change_woocommerce_order_number' );
+
+function change_woocommerce_order_number( $order_id ) {
+
+    $new_order_id =  $order_id + 15000;
+    return $new_order_id;
+}
 
 //
 //function child_manage_woocommerce_styles() {
