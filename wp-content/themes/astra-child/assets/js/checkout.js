@@ -122,16 +122,16 @@ jQuery().ready(function($){
         document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
     });
 
-    $('.pvz-container-modal-back').on('click', function(event){//Скрывает окно выбора пвз
-        event.preventDefault();
-        let el = $(event.target);
-        if(el[0] == $(this)[0]){
-            if($('body').hasClass('basket-fixed')){
-                $('body').removeClass('basket-fixed');
-            }
-            $('.pvz-container-wrapper').hide();
-        }
-    });
+    // $('.pvz-container-modal-back').on('click', function(event){//Скрывает окно выбора пвз
+    //     event.preventDefault();
+    //     let el = $(event.target);
+    //     if(el[0] == $(this)[0]){
+    //         if($('body').hasClass('basket-fixed')){
+    //             $('body').removeClass('basket-fixed');
+    //         }
+    //         $('.pvz-container-wrapper').hide();
+    //     }
+    // });
     jQuery('.pvz-container-heading__close-button').on('click', function(){//Скрывает окно выбора пвз
         window.scrollTo(0, 0)
         if(jQuery('body').hasClass('basket-fixed')){
@@ -149,8 +149,9 @@ jQuery().ready(function($){
         par.find('.pvz-detail-description').show(350);
     });
 
-    $('#pvz-ready').on('click touchstart', function (){//Отправка выбранного пвз в форму
-        let selectedPvz = jQuery('.selected-pvz')
+    $('#pvz-ready, #pvz-ready-mobile').on('click', function (e){//Отправка выбранного пвз в форму
+        console.log(e.target);
+        let selectedPvz = jQuery('.selected-pvz');
         $('.pvz-container-address-details__address .pvz-container-address-details-data').html($(selectedPvz).find('.pvz-owner-name').text());
         /**/
         $('#billing_address_1').val($(selectedPvz).find('.pvz-owner-name').text());
@@ -165,6 +166,7 @@ jQuery().ready(function($){
         $('#pvz-container-address-details').show(350);
         $('#personal-container-address-details').hide(350);
     });
+
 
     jQuery(document).on("click", ".pvz-container", function(e){//Выбор пвз
         jQuery(".pvz-container").each(function(){

@@ -77,7 +77,7 @@ function sendToSdek( $ord ){
 
 <!--			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">--><?php //echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><!--</p>-->
             <div class="thank-you-flex-container">
-                <div class="thank-you-page-right-column">
+                <div class="thank-you-page-left-column">
                     <div class="thank-you-text">
                         <div class="thank-you-text-title">Спасибо за ваш заказ!</div>
 

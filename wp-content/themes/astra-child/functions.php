@@ -108,11 +108,6 @@ function filter_function_name_4792( $items, $args ){
 add_filter( 'woocommerce_checkout_fields' , 'remove_checkout_fields' , 1);
 function remove_checkout_fields( $fields ) {
 
-
-
-//    unset($fields['billing']['billing_first_name']);
-//    unset($fields['billing']['billing_last_name']);
-//    unset($fields['billing']['billing_phone']);
     unset($fields['shipping']['shipping_first_name']);
     unset($fields['shipping']['shipping_last_name']);
     unset($fields['shipping']['shipping_address_1']);
@@ -121,14 +116,11 @@ function remove_checkout_fields( $fields ) {
     unset($fields['billing']['billing_company']);
     $fields["billing"]["billing_address_1"]["required"] = false;
     unset($fields['billing']['billing_address_2']);
-//    $fields['shipping']['ship_to_different_address'] = false;
     unset($fields['billing']['billing_postcode']);
     unset($fields['billing']['billing_state']);
     unset($fields['shipping']['shipping_state']);
-//    unset($fields['shipping']['shipping_postcode']);
     $fields["shipping"]["shipping_postcode"]["required"] = false;
     unset($fields['order']['order_comments']);
-//    unset($fields['billing']['billing_email']);
     $fields["billing"]["billing_email"]["required"] = false;
     return $fields;
 }
@@ -218,10 +210,6 @@ function find_product__ajax_add() {
 
 function custom_dequeue() {
      wp_dequeue_script('astra-mobile-cart');
-//    wp_dequeue_style('astra-theme-css');
-////    wp_dequeue_style('prettyPhoto');
-//    wp_deregister_style('astra-theme-css');
-////    wp_deregister_style('prettyPhoto');
 }
 add_action( 'wp_enqueue_scripts', 'custom_dequeue', 9999 );
 add_action( 'wp_head', 'custom_dequeue', 9999 );
@@ -257,16 +245,6 @@ function getSections(){
     return;
 }
 
-# For Functions.php
-// DIV SHORTCODE. Usage: [div id="ID" class="CLASS"]xxxx[/div]
-function createDiv($atts, $content = null) {
-    extract(shortcode_atts(array(
-        'id' => "",
-        'class' => "",
-    ), $atts));
-    return '<div id="'. $id . '" class="'. $class . '" />' . $content . '</div>';
-}
-add_shortcode('div', 'createDiv');
 
 add_action( 'woocommerce_get_cart_contents', 'createUserBeforeCheckout', 1, 2 );
 
@@ -276,25 +254,18 @@ function createUserBeforeCheckout($data){
         $login = 'tmp_user' . (time() - 1648551827);
         $pass = md5('tmp_user_pass' . time());
         $email = 'tmp_user_email' . (time() - 1648551827) . '@df.com';
-
-
-
-
         $userdata = [
             'user_login'           => $login,      // (string) Имя пользователя для входа в систему.
             'user_pass'            => $pass,
             'user_email'           => $email,      // (string) Адрес электронной почты пользователя.
             'role'                 => 'subscriber',      // (string) Роль пользователя.
         ];
-
         $user_id = wp_insert_user($userdata);
 
         $user = get_user_by( 'id', $user_id );
         if( $user ) {
             wp_set_current_user( $user_id, $user->user_login );
             wp_set_auth_cookie( $user_id );
-
-
             do_action( 'wp_login', $user->user_login, $user );
         }
     }
@@ -310,28 +281,13 @@ function change_woocommerce_order_number( $order_id ) {
     return $new_order_id;
 }
 
-//
-//function child_manage_woocommerce_styles() {
-//    remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
-//    if ( !is_woocommerce() && !is_page('store') && !is_shop() && !is_product_category() && !is_product() && !is_cart() && !is_checkout() ) {
-//        wp_dequeue_style( 'woocommerce_frontend_styles' );
-//        wp_dequeue_style( 'woocommerce_fancybox_styles' );
-//        wp_dequeue_style( 'woocommerce_chosen_styles' );
-//        wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
-//        wp_dequeue_script( 'wc_price_slider' );
-//        wp_dequeue_script( 'wc-single-product' );
-//        wp_dequeue_script( 'wc-add-to-cart' );
-//        wp_dequeue_script( 'wc-cart-fragments' );
-//        wp_dequeue_script( 'wc-checkout' );
-//        wp_dequeue_script( 'wc-add-to-cart-variation' );
-//        wp_dequeue_script( 'wc-single-product' );
-//        wp_dequeue_script( 'wc-cart' );
-//        wp_dequeue_script( 'wc-chosen' );
-//        wp_dequeue_script( 'woocommerce' );
-//        wp_dequeue_script( 'prettyPhoto' );
-//        wp_dequeue_script( 'prettyPhoto-init' );
-//        wp_dequeue_script( 'jquery-blockui' );
-//        wp_dequeue_script( 'jquery-placeholder' );
-//        wp_dequeue_script( 'fancybox' );
-//        wp_dequeue_script( 'jqueryui' );
-//    }}
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'changeCartButton', 100000, 1 );
+
+function changeCartButton($data){
+    return "Добавить";
+}
+
+/*public function single_add_to_cart_text() {
+    return apply_filters( 'woocommerce_product_single_add_to_cart_text', WC_Subscriptions_Product::get_add_to_cart_text(), $this );
+}*/
+

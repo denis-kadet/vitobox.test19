@@ -648,7 +648,8 @@ ul {
     color: #1C131E;
 }
 
-.product_type_simple{
+.product_type_simple,
+.product_type_subscription {
     background: #4281A4;
     border-radius: 47px;
     border: 1px solid #4281A4;
@@ -656,7 +657,8 @@ ul {
     transition: 300ms;
 }
 
-.product_type_simple:hover {
+.product_type_simple:hover,
+.product_type_subscription:hover {
     background: #2E5B74;
     border: 1px solid #4281A4 !important;
 }
@@ -913,7 +915,8 @@ ul {
     font-weight: 700;
 }
 
-button.product_type_simple:focus {
+button.product_type_simple:focus,
+button.product_type_subscription:focus {
     background: #2E5B74;
     border: 1px solid #2E5B74;
 }

@@ -345,6 +345,9 @@ input.input-text{
     padding: 0;
 
 }
+input.input-text:focus{
+    background: none;
+}
 /*.woocommerce form .form-row*/
  input.input-text::placeholder{
     padding: 0;
@@ -689,10 +692,6 @@ pvz-detail-link:hover{
     flex-direction: row;
     justify-content: space-between;
 }
-.shipping-address-modal-container-header h4{
-    font-weight: bold;
-
-}
 #shipping-address-modal-close{
     cursor: pointer;
 }
@@ -703,7 +702,7 @@ pvz-detail-link:hover{
 .shipping-address-modal-container-header h4{
     font-family: 'PP Pangram Sans';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 20px;
     line-height: 120%;
     color: #2C1E2FFF;
@@ -749,6 +748,9 @@ pvz-detail-link:hover{
 }
 .shipping-address-modal-container-right-expected-time span{
     font-weight: bold;
+}
+.shipping-address-modal-container-right-expected-time span.shipping-address-modal-container-right-expected-time__legeng{
+    font-weight: normal;
 }
 
 
@@ -1175,6 +1177,19 @@ body.woocommerce-order-received .woocommerce{
 
 
     /*модальное окно ввода адреса начало*/
+
+    .shipping-address-modal-container-header{
+        flex-direction: column-reverse;
+
+    }
+    #shipping-address-modal-close{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: -10px;
+        margin-bottom: 20px;
+    }
+
     .shipping-address-modal-container{
         width: 87%;
         height: auto;
@@ -1198,6 +1213,23 @@ body.woocommerce-order-received .woocommerce{
         max-width: 100%;
         margin-top: 57px;
     }
+    .shipping-address-modal-container-right-expected-time{
+        margin: auto 0;
+    }
+    .shipping-address-modal-container-right-expected-time div{
+        margin-left: -10px;
+    }
+    .shipping-address-modal-container-right-expected-time span{
+        font-weight: bold;
+    }
+
+    .shipping-address-modal-container-right-expected-time span.shipping-address-modal-container-right-expected-time__legeng{
+        text-align: center;
+        line-height: 1.15;
+        font-weight: normal;
+    }
+
+
     /*модальное окно ввода адреса конец*/
 
     .checkout-bottom-container__vitobox-logo{
@@ -1213,7 +1245,13 @@ body.woocommerce-order-received .woocommerce{
     body.woocommerce-order-received .woocommerce{
         margin: 130px 13px auto 13px;
     }
+    .thank-you-page-right-column{
+        display: none;
+    }
     .thank-you-text{
+        width: 100%;
+    }
+    .thank-you-page-left-column{
         width: 100%;
     }
     .thank-you-text div{
