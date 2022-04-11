@@ -22,7 +22,7 @@
                         <div class="block-3__wrap block-3__wrap-arrow">
                             <picture>
                                 <!-- <source srcset="<?php //echo get_stylesheet_directory_uri(); ?>/assets/images/block-3-foto.webp " type="image/webp "> -->
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-3-foto.png " alt="icon:catalog " class="block-3__img" style="max-width: none;">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-3-foto.png " alt="icon:catalog " class="block-3__img" style="max-width: 286px; object-fit: contain">
                             </picture>
                             <div class="block__text block-3__text ">2. Получите рекомендацию</div>
                             <div class="block__text-small block-3__text-small ">Ваша персональная рекомендация покажет, какие витамины, минералы и аминокислоты нужны вашему организму</div>
