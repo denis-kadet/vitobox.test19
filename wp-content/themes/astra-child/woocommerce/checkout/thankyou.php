@@ -16,19 +16,6 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-function sendToSdek( $ord ){
-
-    $shipping_arr['recipient_name'] = $ord->data['billing']['first_name'] . " " . $ord->data['billing']['last_name'];
-    $shipping_arr['recipient_phone'] = $ord->data['billing']['phone'];
-    $shipping_arr['shipping_address'] = $ord->data['billing']["address_1"];
-    $shipping_arr['shipping_city'] = $ord->data['billing']["city"];
-
-//    $package = $ord->data['billing']["city"];
-    require "CdekOrderSender.php";
-    $cdekOrderSender = new CdekOrderSender($shipping_arr);
-
-    return $cdekOrderSender->getUuid();
-}
 ?>
 
 <style>
@@ -42,29 +29,12 @@ function sendToSdek( $ord ){
 
 	<?php
 	if ( $order ) :
-//        var_dump($order);
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
         if( isset( $_COOKIE["basketVitobox"] ) ){
             $_COOKIE["basketVitobox"] = "[]";
             setcookie('basketVitobox', "[]", -1, '/');
         }
 //        var_dump($order->get_shipping_address_1() );
-        if( 1==1/*$order->get_shipping_address_1() == ""*/ ){
-
-            echo "<div class='uuid-container'>";
-            $uuid = sendToSdek($order);
-            echo "</div>";
-//            var_dump($uuid);
-            update_post_meta( $order->get_id(), '_shipping_address_1', $order->get_billing_address_1());
-            update_post_meta( $order->get_id(), '_shipping_address_2', $uuid);
-
-        }else{
-            echo "<div class='uuid-container'>";
-            echo $uuid;
-            echo "</div>";
-        }
-
-
 		?>
 		<?php if ( $order->has_status( 'failed' ) ) : ?>
 
@@ -87,10 +57,11 @@ function sendToSdek( $ord ){
 
                         <div class="">Мы уже отправили всю необходимую<br />информацию вам на почту.</div>
                         <br />
-                        <div class="thank-you-text-track">Трек номер посылки <a href="https://cdek.ru/tracking?order_id=23456789">RP23456789</a></div>
+                        <div class="thank-you-text-track">Номер вашего заказа:
+                            <?echo $order->get_order_number();?>
+                        </div>
                         <br />
-                        <div class="thank-you-text-link">На следующий день после заказа вы сможете отследить доставку перейдя по ссылке:
-                            <a href="https://cdek.ru/tracking">cdek.ru/tracking</a></div>
+
                     </div>
 
                     <div class="thank-you-text-mobile-img-container">
@@ -100,69 +71,11 @@ function sendToSdek( $ord ){
                     <div class="thank-you-support">Отались вопросы? Наша поддержка всегда готова ответить
                         на них, свяжитесь с нами любым удобным способом</div>
                 </div>
-
-                <div class="thank-you-page-right-column">
-                    <img src="/wp-content/themes/astra-child/assets/img/thank-you-box.png" alt="thank-you-box" />
-
-                </div>
             </div>
 
-
-
-        <?php get_template_part( "template-parts/footer-social" );
-//            var_dump(wc_shiptor_get_tracking_codes($order));
-//            echo "<hr >";
-//
-//            var_dump($order);
-//            echo "<hr >";
-//            var_dump(wc_shiptor_get_tracking_codes("25027"));
-//        echo "<hr >";
-//
-////        var_dump(wc_get_order(25026));
-
-//            die();?>
-
-<!--            <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">-->
-<!---->
-<!--				<li class="woocommerce-order-overview__order order">-->
-<!--					--><?php //esc_html_e( 'Order number:', 'woocommerce' ); ?>
-<!--					<strong>--><?php //echo $order->get_order_number(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><!--</strong>-->
-<!--				</li>-->
-<!---->
-<!--				<li class="woocommerce-order-overview__date date">-->
-<!--					--><?php //esc_html_e( 'Date:', 'woocommerce' ); ?>
-<!--					<strong>--><?php //echo wc_format_datetime( $order->get_date_created() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><!--</strong>-->
-<!--				</li>-->
-<!---->
-<!--				--><?php //if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() ) : ?>
-<!--					<li class="woocommerce-order-overview__email email">-->
-<!--						--><?php //esc_html_e( 'Email:', 'woocommerce' ); ?>
-<!--						<strong>--><?php //echo $order->get_billing_email(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><!--</strong>-->
-<!--					</li>-->
-<!--				--><?php //endif; ?>
-<!---->
-<!--				<li class="woocommerce-order-overview__total total">-->
-<!--					--><?php //esc_html_e( 'Total:', 'woocommerce' ); ?>
-<!--					<strong>--><?php //echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><!--</strong>-->
-<!--				</li>-->
-<!---->
-<!--				--><?php //if ( $order->get_payment_method_title() ) : ?>
-<!--					<li class="woocommerce-order-overview__payment-method method">-->
-<!--						--><?php //esc_html_e( 'Payment method:', 'woocommerce' ); ?>
-<!--						<strong>--><?php //echo wp_kses_post( $order->get_payment_method_title() ); ?><!--</strong>-->
-<!--					</li>-->
-<!--				--><?php //endif; ?>
-<!---->
-<!--			</ul>-->
+        <?php get_template_part( "template-parts/footer-social" );?>
 
 		<?php endif; ?>
-
-<!--		--><?php //do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
-<!--		--><?php //do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
-
-<!--        <div class="checkout-bottom-container__vitobox-logo">-->
-<!--            <a href="vitobox.ru"></a>-->
-<!--        </div>-->
 
 	<?php else : ?>
 

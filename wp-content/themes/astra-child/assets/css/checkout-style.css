@@ -8,7 +8,10 @@ body.woocommerce-checkout{
     margin: 0;
 }
 #post-24958{
-    padding-bottom: 0;
+    /*padding-bottom: 0;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 footer{
     display: none;
@@ -934,12 +937,14 @@ body.woocommerce-order-received article{
 }
 body.woocommerce-order-received .woocommerce{
     /*margin: 180px auto 13vh 57px;*/
+    display: flex;
 }
 
 .thank-you-flex-container{
     display: flex;
     flex-direction: row;
-
+    justify-content: center;
+    text-align: center;
 }
 
 .thank-you-text-title{
@@ -1243,6 +1248,7 @@ body.woocommerce-order-received .woocommerce{
     }
     body.woocommerce-order-received .woocommerce{
         /*margin: 130px 13px auto 13px;*/
+
     }
     body.woocommerce-order-received #main article{
         padding: 0;

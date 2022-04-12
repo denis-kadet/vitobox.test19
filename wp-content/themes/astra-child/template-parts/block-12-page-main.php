@@ -17,7 +17,7 @@
                             </div>
                         </a>
                         <div class="block-12__text-small">или</div>
-                        <a href="#" class="block-12__text-small block-12__small-under">Собрать по каталогу</a>
+                        <a href="/katalog/" class="block-12__text-small block-12__small-under">Собрать по каталогу</a>
                     </div>
                 </div>
             </div>
