@@ -1217,7 +1217,6 @@ body.woocommerce-order-received .woocommerce{
         margin: auto 0;
     }
     .shipping-address-modal-container-right-expected-time div{
-        margin-left: -10px;
     }
     .shipping-address-modal-container-right-expected-time span{
         font-weight: bold;
@@ -1243,13 +1242,17 @@ body.woocommerce-order-received .woocommerce{
         background: url("/wp-content/themes/astra-child/assets/img/Motion.png") no-repeat;
     }
     body.woocommerce-order-received .woocommerce{
-        margin: 130px 13px auto 13px;
+        /*margin: 130px 13px auto 13px;*/
+    }
+    body.woocommerce-order-received #main article{
+        padding: 0;
     }
     .thank-you-page-right-column{
         display: none;
     }
     .thank-you-text{
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
     .thank-you-page-left-column{
         width: 100%;
@@ -1283,8 +1286,9 @@ body.woocommerce-order-received .woocommerce{
     }
     .thank-you-text-mobile-img-container{
         display: block;
-        min-height: 67vh;
+        min-height: 87vh;
         background: url("/wp-content/themes/astra-child/assets/img/mobileThankYouBack.png") no-repeat;
+        background-size: cover;
         margin-top: 61px;
     }
     .thank-you-support{

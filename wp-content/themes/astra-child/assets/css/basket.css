@@ -476,7 +476,7 @@ ul {
 }
 
 .catalog-image img {
-    width: 100px;
+    width: 150px;
 }
 
 .catalog-image:before {
@@ -1803,6 +1803,12 @@ button.product_type_subscription:focus {
     }
     .list-quantity-options {
         left: 0;
+    }
+    .product__addition-image {
+        margin-top: 5px;
+    }
+    .product__addition-text {
+        width: calc( 100% - 54px );
     }
 }
 

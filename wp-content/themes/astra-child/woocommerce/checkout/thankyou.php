@@ -44,6 +44,10 @@ function sendToSdek( $ord ){
 	if ( $order ) :
 //        var_dump($order);
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
+        if( isset( $_COOKIE["basketVitobox"] ) ){
+            $_COOKIE["basketVitobox"] = "[]";
+            setcookie('basketVitobox', "[]", -1, '/');
+        }
 //        var_dump($order->get_shipping_address_1() );
         if( 1==1/*$order->get_shipping_address_1() == ""*/ ){
 

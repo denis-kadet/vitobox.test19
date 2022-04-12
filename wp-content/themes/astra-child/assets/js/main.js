@@ -20,7 +20,10 @@ jQuery(document).ready(function ($) {
         },
         set: function(data) {
             let value = data ? encodeURIComponent(data) : '[]';
-            return $.cookie('basketVitobox', value, { expires: 7, path: '/' });
+            let date = new Date();
+            let minutes = 60;
+            date.setTime(date.getTime() + (minutes * 60 * 1000));
+            return $.cookie('basketVitobox', value, { expires: date, path: '/' });
         },
         get: function () {
             return decodeURIComponent($.cookie('basketVitobox'));
@@ -48,6 +51,8 @@ jQuery(document).ready(function ($) {
                 this.product.id = parseInt(id);
                 this.product.quantity = 1;
                 basket.push(this.product);
+                console.log(basket);
+
                 basket = JSON.stringify(basket);
                 return this.set(basket);
             }
