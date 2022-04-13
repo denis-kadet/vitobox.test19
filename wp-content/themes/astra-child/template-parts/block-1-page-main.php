@@ -8,7 +8,7 @@
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/InStyle.svg " alt="icon:InStyle"></div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/buro.svg " alt="icon:buro"></div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/elle.svg " alt="icon:elle"></div>
-                        <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/tatler.svg " alt="icon:tatler"></div>
+                        <div class="icon__wrap icon__wrap-tatler"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/tatler.svg " alt="icon:tatler"></div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/osmopolitan.svg " alt="icon:osmopolitan">
                         </div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/maire.svg " alt="icon:maire"></div>
@@ -23,7 +23,7 @@
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/InStyle.svg " alt="icon:InStyle"></div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/buro.svg " alt="icon:buro"></div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/elle.svg " alt="icon:elle"></div>
-                        <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/tatler.svg " alt="icon:tatler"></div>
+                        <div class="icon__wrap icon__wrap-tatler"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/tatler.svg " alt="icon:tatler"></div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/osmopolitan.svg " alt="icon:osmopolitan">
                         </div>
                         <div class="icon__wrap "><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/maire.svg " alt="icon:maire"></div>

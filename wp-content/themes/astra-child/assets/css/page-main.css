@@ -380,7 +380,10 @@
   max-width: 1200px !important;
   }
 }
-
+.icon__wrap-tatler img{
+    max-width: 83px !important;
+    height: 23px !important;
+}
 .block__title {
     margin: 0;
     padding: 0;
@@ -425,7 +428,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 30px;
+    padding-top: 85px;
     padding-bottom: 30px; }
 
 @media (max-width: 991.99px) {
@@ -437,6 +440,7 @@
     /*    width: fit-content; }*/
     /*.icon__wrap {*/
     /*    padding: 0 70px; } */
+
     .icons__wrap{
         justify-content: flex-start;
 overflow: auto;
@@ -849,7 +853,8 @@ border-radius: 40px;
 .block-4__link {
     padding-bottom: 3px;
     color: #fff;
-    border-bottom: 1px solid #fff}
+    /*border-bottom: 1px solid #fff*/
+}
 .block-4__link:hover,
 .block-4__link:focus{
     color: #fff;

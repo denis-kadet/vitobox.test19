@@ -35,7 +35,7 @@
 
                             <div class="block-5__text-wrap ">
                                 <div class="block__text block-5__text-1 ">Made for:</div>
-                                <div class="block-5__text-2 ">Alexnader V</div>
+                                <div class="block-5__text-2 ">Alexander V</div>
                                 <div class="block__text block-5__text-3 ">Предриниматель, спортсмен</div>
                                 <div class="block__text block-5__text-4 ">Александр поздно ложится из-за ненормированного графика, бегает по утрам, готовится к марафону</div>
                                 <ul class="block-5__items ">
