@@ -317,6 +317,48 @@ function add_new_tabs_panel(){
                 </span>
                 <span class="woocommerce-help-tip" data-tip="Чтобы вывести списком, после предложения перейдите на следующую строчку с помощью кнопки 'Enter'"></span>
             </p>
+            <div class="options_group" style="text-align: center;">
+                <h2><strong>Исследования</strong></h2>
+            </div>
+            <p class="form-field product_field_type">
+                <label for="product_field_type">Выбор исследований</label>
+                <select
+                        id="product_field_type"
+                        name="product_field_type[]"
+                        class="wc-product-search"
+                        multiple="multiple"
+                        style="width: 50%;"
+                        data-placeholder="<?php esc_attr_e( 'Search for a product…', 'woocommerce' ); ?>"
+                        data-action="woocommerce_json_search_products_and_variations"
+                        data-exclude="<?php echo intval( $post->ID ); ?>">
+                    <?php
+                    $product_ids            = [];
+                    $product_field_type_ids = get_post_meta( $post->ID, '_product_field_type_ids', true );
+                    echo '<pre>';
+                    var_dump($product_field_type_ids);
+                    echo '</pre>';
+
+
+                    if ( ! empty( $product_field_type_ids ) ) {
+                        $product_ids = array_map( 'absint', $product_field_type_ids );
+                    }
+
+                    if ( $product_ids ) {
+                        foreach ( $product_ids as $product_id ) {
+                            $product = wc_get_product( $product_id );
+
+                            echo sprintf(
+                                '<option value="%s" %s>%s</option>',
+                                esc_attr( $product_id ),
+                                selected( true, true, false ),
+                                esc_html( $product->get_formatted_name() )
+                            );
+                        }
+                    }
+                    ?>
+                </select>
+                <span class="woocommerce-help-tip" data-tip="Тут можно указать какое-нибудь описание"></span>
+            </p>
         </div>
     </div>
     <?php

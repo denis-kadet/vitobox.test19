@@ -58,22 +58,20 @@ defined( 'ABSPATH' ) || exit;
                         <div class="">Мы уже отправили всю необходимую<br />информацию вам на почту.</div>
                         <br />
                         <div class="thank-you-text-track">Номер вашего заказа:
+                            <span class="bold-order-number">
                             <?echo $order->get_order_number();?>
+                        </span>
+
                         </div>
                         <br />
-
-                    </div>
-
-                    <div class="thank-you-text-mobile-img-container">
-
                     </div>
 
                     <div class="thank-you-support">Отались вопросы? Наша поддержка всегда готова ответить
                         на них, свяжитесь с нами любым удобным способом</div>
                 </div>
             </div>
-
         <?php get_template_part( "template-parts/footer-social" );?>
+
 
 		<?php endif; ?>
 

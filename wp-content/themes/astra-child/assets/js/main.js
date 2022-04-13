@@ -590,4 +590,26 @@ jQuery(document).ready(function ($) {
         el.find('p').remove();
     }
     createList($('.product__addition-text').eq(1));
+
+    //smooth scrolling to anchors start
+    // $('.smooth-scroll-on-page').each(function(){
+    //     $(this).on('click', function(e){
+    //         e.preventDefault();
+    //         $('html, body').animate({
+    //             scrollTop: ($($(e.target).attr('href')).offset().top - 170 )
+    //         }, 500);
+    //     });
+    // });
+    //
+    // $('.smooth-scroll-on-mobile-page a').on('click', function(e){
+    //     debugger;
+    //     console.log('mobile')
+    //     let id = $(this).attr('href');
+    //     // $('.ast-mobile-menu-trigger-minimal').trigger('click');
+    //     $('html, body').animate({
+    //         scrollTop: ($(id).offset().top)
+    //     }, 500);
+    // });
+    //smooth scrolling to anchors end
+
 });

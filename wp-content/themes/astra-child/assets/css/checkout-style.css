@@ -7,12 +7,11 @@ body.woocommerce-checkout{
 .ast-separate-container #primary{
     margin: 0;
 }
-#post-24958{
-    /*padding-bottom: 0;*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+/*#post-24958{*/
+/*    padding-bottom: 0;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
 footer{
     display: none;
 }
@@ -35,7 +34,7 @@ tr.recurring-totals, .recurring-total{
 .uuid-container, .CDEK-widget__search{
     display: none;
 }
-body.woocommerce-order-received a[href="javascript:javascript:history.go(-1)"], body.woocommerce-order-received .checkout-header-link-back-a-container-arrow, body.woocommerce-order-received .checkout-bottom-container__vitobox-logo a{
+body.woocommerce-order-received a[href="javascript:javascript:history.go(-1)"], body.woocommerce-order-received .checkout-header-link-back-a-container-arrow{
     display: none;
 }
 .checkout-bottom-container__vitobox-logo{
@@ -936,8 +935,8 @@ body.woocommerce-order-received article{
     background-position: top right;
 }
 body.woocommerce-order-received .woocommerce{
-    /*margin: 180px auto 13vh 57px;*/
-    display: flex;
+    margin: 180px auto 13vh 57px;
+    /*display: flex;*/
 }
 
 .thank-you-flex-container{
@@ -983,6 +982,20 @@ body.woocommerce-order-received .woocommerce{
     line-height: 16px;
     color: #1C131E;
 }
+body.woocommerce-order-received .footer-social{
+    justify-content: center;
+    margin-top: 10px;
+}
+body.woocommerce-order-received .thank-you-support{
+    margin-top: 10px;
+}
+.bold-order-number{
+    font-weight: 700;
+}
+body.woocommerce-order-received .checkout-bottom-container{
+    bottom: 0;
+    
+}
 /*.thank-you-page-bottom{*/
 /*    display: flex;*/
 /*    flex-direction: row;*/
@@ -995,6 +1008,10 @@ body.woocommerce-order-received .woocommerce{
     body.woocommerce-checkout{
         background: url("/wp-content/themes/astra-child/assets/img/checkout-mobile-back.png");
         background-size: cover;
+    }
+    body.woocommerce-order-received .woocommerce{
+        margin-left: 31px;
+        margin-right: 31px;
     }
     form[name=checkout]{
         flex-direction: column;
