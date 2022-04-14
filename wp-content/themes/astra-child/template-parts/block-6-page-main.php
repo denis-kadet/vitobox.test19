@@ -19,7 +19,7 @@
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 offset-xxl-0 order-lg-3 order-md-2 d-flex justify-content-center justify-content-lg-end">
                     <picture>
 <!--                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-img.webp" type="image/webp">-->
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-img.png" alt="icon:app" class="block-6__img">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-img.jpg" alt="icon:app" class="block-6__img">
                     </picture>
                 </div>
             </div>
@@ -30,9 +30,9 @@
                     <li class="block-6__slider-item">
                         <picture>
 <!--                            <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-6-1.webp" type="image/webp">-->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-1-1.png " alt="icon:app" class="block-6__img-slider ">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-6-1-1.jpg" alt="icon:app" class="block-6__img-slider ">
                         </picture>
-                        <div class="block-6__slider-item_text">Екатерину Оганесян</div>
+                        <div class="block-6__slider-item_text">Екатерина Оганесян</div>
                         <div class="block__text block-6__slider-item_decr">Врач-диетолог, научный сотрудник «ФИЦ питания и биотехнологии»</div>
                     </li>
                     <li class="block-6__slider-item">

@@ -23,8 +23,8 @@
                         <div class="block-10__slider-item">
                             <div class="block-10__slider-list">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img.webp" type="image/webp ">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img.png " alt="icon:app " class="block-10__list-img ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img.webp" type="image/webp ">-->
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title">Проблемы с кожей</div>
                                 <div class="block-10__list-text">
@@ -35,7 +35,7 @@
                         <div class="block-10__slider-item">
                             <div class="block-10__slider-list">
                                 <picture>
-                                    <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-2.webp" type="image/webp ">
+<!--                                    <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-2.webp" type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-2.jpg" alt="icon:app" class="block-10__list-img">
                                 </picture>
                                 <div class="block-10__list-title">Выпадение волос</div>
@@ -45,7 +45,7 @@
                         <div class="block-10__slider-item">
                             <div class="block-10__slider-list">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-3.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-3.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-3.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title ">Длительная усталость</div>
@@ -55,7 +55,7 @@
                         <div class="block-10__slider-item ">
                             <div class="block-10__slider-list ">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-4.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-4.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-4.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title ">Проблемы с иммунитетом</div>
@@ -65,7 +65,7 @@
                         <div class="block-10__slider-item ">
                             <div class="block-10__slider-list ">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-5.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-5.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-5.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title ">Пигментация</div>
@@ -75,7 +75,7 @@
                         <div class="block-10__slider-item ">
                             <div class="block-10__slider-list ">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-6.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-6.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-6.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title ">Проблемы с ЖКТ</div>
@@ -85,7 +85,7 @@
                         <div class="block-10__slider-item ">
                             <div class="block-10__slider-list ">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-7.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-7.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-7.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title ">Набор веса</div>
@@ -95,7 +95,7 @@
                         <div class="block-10__slider-item ">
                             <div class="block-10__slider-list ">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-8.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-8.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-8.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title ">ПМС</div>
@@ -105,7 +105,7 @@
                         <div class="block-10__slider-item ">
                             <div class="block-10__slider-list ">
                                 <picture>
-                                    <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-9.webp " type="image/webp ">
+<!--                                    <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-9.webp " type="image/webp ">-->
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-9.jpg" alt="icon:app " class="block-10__list-img ">
                                 </picture>
                                 <div class="block-10__list-title ">Повышенная кровоточивость</div>
@@ -123,8 +123,8 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img.webp " type="image/webp ">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img.png " alt="icon:app " class="block-10__list-img ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img.webp " type="image/webp ">-->
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img.jpg " alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
                                 <li class="block-10__accordion-item ">
@@ -138,7 +138,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-2.webp " type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-2.webp " type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-2.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
@@ -151,7 +151,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-3.webp" type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-3.webp" type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-3.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
@@ -164,7 +164,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-4.webp" type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-4.webp" type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-4.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
@@ -177,7 +177,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-5.webp" type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-5.webp" type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-5.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
@@ -190,7 +190,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-6.webp" type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-6.webp" type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-6.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
@@ -203,7 +203,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-7.webp " type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-7.webp " type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-7.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
@@ -216,7 +216,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-8.webp" type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-8.webp" type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-8.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>
@@ -229,7 +229,7 @@
                             <ul class="block-10__accordion-items ">
                                 <li class="block-10__accordion-item ">
                                     <picture>
-                                        <source srcset=" <?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-9.webp " type="image/webp ">
+<!--                                        <source srcset=" --><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-10-img-9.webp " type="image/webp ">-->
                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-10-img-9.jpg" alt="icon:app " class="block-10__list-img ">
                                     </picture>
                                 </li>

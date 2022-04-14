@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-6 col-sm-12 offset-xxl-1 offset-xl-1 order-md-2 order-sm-0 order-0 text-center">
                     <picture>
-                        <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-2-img-app.webp" type="image/webp">
+<!--                        <source srcset="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/block-2-img-app.webp" type="image/webp">-->
                         <img class="block__img block-2__picture" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/block-2-img-app.jpg" alt="logo">
                     </picture>
                 </div>
